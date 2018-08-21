@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Systems.Appollo.Shoes.Client.WinForm")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Shoes Control System")]
+[assembly: AssemblyDescription("Sistema para control de zapatos")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Systems.Appollo.Shoes.Client.WinForm")]
+[assembly: AssemblyCompany("Appollo Systems")]
+[assembly: AssemblyProduct("Shoes Control System")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

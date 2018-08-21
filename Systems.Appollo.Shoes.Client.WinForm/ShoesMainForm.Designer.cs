@@ -58,6 +58,8 @@
             this.existenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasPorMesesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gananciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,10 +69,11 @@
             this.almacenToolStripMenuItem,
             this.salidasToolStripMenuItem,
             this.administraciónToolStripMenuItem,
-            this.reportesToolStripMenuItem});
+            this.reportesToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.toolMainMenu.Location = new System.Drawing.Point(0, 0);
             this.toolMainMenu.Name = "toolMainMenu";
-            this.toolMainMenu.Size = new System.Drawing.Size(722, 24);
+            this.toolMainMenu.Size = new System.Drawing.Size(666, 24);
             this.toolMainMenu.TabIndex = 0;
             this.toolMainMenu.Text = "menuStrip1";
             // 
@@ -120,7 +123,7 @@
             // 
             this.tallerToolStripMenuItem.Name = "tallerToolStripMenuItem";
             this.tallerToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.tallerToolStripMenuItem.Text = "Creado en taller";
+            this.tallerToolStripMenuItem.Text = "Creado en Taller";
             // 
             // compraAProveedorToolStripMenuItem
             // 
@@ -131,14 +134,14 @@
             // ventaAClientesToolStripMenuItem
             // 
             this.ventaAClientesToolStripMenuItem.Name = "ventaAClientesToolStripMenuItem";
-            this.ventaAClientesToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.ventaAClientesToolStripMenuItem.Text = "Venta a clientes";
+            this.ventaAClientesToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.ventaAClientesToolStripMenuItem.Text = "Ventas a Clientes";
             // 
             // surtirTiendaToolStripMenuItem
             // 
             this.surtirTiendaToolStripMenuItem.Name = "surtirTiendaToolStripMenuItem";
-            this.surtirTiendaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.surtirTiendaToolStripMenuItem.Text = "Surtir tienda";
+            this.surtirTiendaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.surtirTiendaToolStripMenuItem.Text = "Surtir Tienda";
             // 
             // proveedoresToolStripMenuItem
             // 
@@ -271,13 +274,14 @@
             // 
             this.existenciaToolStripMenuItem.Name = "existenciaToolStripMenuItem";
             this.existenciaToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.existenciaToolStripMenuItem.Text = "Existencia";
+            this.existenciaToolStripMenuItem.Text = "Existencias";
+            this.existenciaToolStripMenuItem.Click += new System.EventHandler(this.existenciaToolStripMenuItem_Click);
             // 
             // ventasPorMesesToolStripMenuItem
             // 
             this.ventasPorMesesToolStripMenuItem.Name = "ventasPorMesesToolStripMenuItem";
             this.ventasPorMesesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.ventasPorMesesToolStripMenuItem.Text = "Ventas por meses";
+            this.ventasPorMesesToolStripMenuItem.Text = "Ventas por Meses";
             // 
             // gananciaToolStripMenuItem
             // 
@@ -285,11 +289,26 @@
             this.gananciaToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.gananciaToolStripMenuItem.Text = "Ganancia";
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.acercaDeToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // acercaDeToolStripMenuItem
+            // 
+            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.acercaDeToolStripMenuItem.Text = "Acerca de...";
+            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
+            // 
             // ShoesMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 461);
+            this.ClientSize = new System.Drawing.Size(666, 443);
             this.Controls.Add(this.toolMainMenu);
             this.MainMenuStrip = this.toolMainMenu;
             this.Name = "ShoesMainForm";
@@ -335,6 +354,8 @@
         private System.Windows.Forms.ToolStripMenuItem existenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasPorMesesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gananciaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
     }
 }
 
