@@ -38,5 +38,18 @@ namespace Systems.Appollo.Shoes.Client.WinForm
             var aboutUsBox = new AboutUsBox();
             aboutUsBox.ShowDialog();
         }
+
+        private void nuevoToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            var newColorForm = new NewColorForm();
+            newColorForm.ShowDialog();
+        }
+
+        private void nuevoToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            var newModelForm = new NewModelForm();
+            newModelForm.ShowDialog();
+
+        }
     }
 }

@@ -59,6 +59,18 @@
     <Compile Include="Views\AboutUsBox.Designer.cs">
       <DependentUpon>AboutUsBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\NewColorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NewColorForm.Designer.cs">
+      <DependentUpon>NewColorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewModelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NewModelForm.Designer.cs">
+      <DependentUpon>NewModelForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ShoesMainForm.resx">
       <DependentUpon>ShoesMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -70,9 +82,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Views\AboutUsBox.resx">
       <DependentUpon>AboutUsBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NewColorForm.resx">
+      <DependentUpon>NewColorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NewModelForm.resx">
+      <DependentUpon>NewModelForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -92,6 +111,12 @@
       <Project>{e730f8a7-a880-4140-9aa2-5f80c58005df}</Project>
       <Name>Systems.Appollo.Shoes.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\118094.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\UserControls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

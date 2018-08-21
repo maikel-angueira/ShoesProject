@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Shoes Control System")]
-[assembly: AssemblyDescription("Sistema para control de zapatos")]
+[assembly: AssemblyDescription("Sistema para control de zapatos OmarIsma, control de almacén, ventas y tiendas...")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Appollo Systems")]
-[assembly: AssemblyProduct("Shoes Control System")]
+[assembly: AssemblyProduct("Sistema Control de Zapatos")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
