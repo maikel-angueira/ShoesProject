@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Systems.Appollo.Shoes.Client.WinForm
+{
+    public partial class ShoesMainForm : Form
+    {
+        public ShoesMainForm()
+        {
+            InitializeComponent();
+        }
+
+        private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
