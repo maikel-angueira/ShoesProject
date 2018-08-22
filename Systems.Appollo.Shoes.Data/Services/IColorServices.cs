@@ -1,6 +1,6 @@
 ﻿namespace Systems.Appollo.Shoes.Data.Services
 {
-    interface IColorServices
+    public interface IColorServices
     {
         void InsertColor(string color);
         void UpdateColor(int colorId, string newColor);

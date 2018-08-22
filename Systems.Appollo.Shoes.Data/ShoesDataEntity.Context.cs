@@ -19,7 +19,12 @@ namespace Systems.Appollo.Shoes.Data
             : base("name=ShoesDBEntities")
         {
         }
-    
+
+        public ShoesDBEntities(string connectionString)
+           : base(connectionString)
+        {
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

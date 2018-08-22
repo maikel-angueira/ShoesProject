@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Systems.Appollo.Shoes.Client.WinForm.Configuration;
+using Systems.Appollo.Shoes.Data.Services;
 
 namespace Systems.Appollo.Shoes.Client.WinForm.Views
 {
@@ -24,7 +26,28 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views
 
         private void newButton_Click(object sender, EventArgs e)
         {
-            
+            if (ColorName.Length == 0)
+            {
+                MessageBox.Show("Nombre del color no puede ser vacio", Constants.MESSAGE_CAPTION);
+                return;
+            }
+
+            var colorServices = new ColorServices();
+            colorServices.InsertColor(ColorName);
+            MessageBox.Show("Nuevo color insertado correctamente " + ColorName, Constants.MESSAGE_CAPTION);
+        }
+
+        private String ColorName
+        {
+            get
+            {
+                return colorTextBox.Text;
+            }
+
+            set
+            {
+                colorTextBox.Text = value;
+            }
         }
     }
 }

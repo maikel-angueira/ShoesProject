@@ -144,13 +144,6 @@
       <DependentUpon>ShoesDataEntity.edmx</DependentUpon>
       <LastGenOutput>ShoesDataEntity.cs</LastGenOutput>
     </Content>
-    <Content Include="ShoesDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ShoesDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>ShoesDB.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

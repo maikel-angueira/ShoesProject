@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Systems.Appollo.Shoes.Data.Services
 {
-    class ColorServices : IColorServices
+    public class ColorServices : IColorServices
     {
         private readonly ShoesDBEntities shoesDataEntities;
 
