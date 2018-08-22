@@ -89,7 +89,6 @@
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Services\ColorServices.cs" />
-    <Compile Include="Services\IColorServices.cs" />
     <Compile Include="ShoesDataEntity.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

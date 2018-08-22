@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Systems.Appollo.Shoes.Client.WinForm.Utils;
 using Systems.Appollo.Shoes.Data.DataModels;
 using Systems.Appollo.Shoes.Data.Services;
 
@@ -23,9 +24,13 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
 
         private void UpdateColorForm_Load(object sender, EventArgs e)
         {
+            DataFill();
+        }
+
+        private void DataFill()
+        {
             var colors = this.ColorDataServices.GetAllColors();
             colorDataGrid.DataSource = colors;
-
         }
 
         private ColorServices ColorDataServices
@@ -70,9 +75,16 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
                 return;
             if (SelectedColor.ColorName.Equals(NewColorName))
                 return;
+            if (ColorDataServices.ExistColorByName(NewColorName))
+            {
+                MessageBox.Show(Messages.COLOR_NAME_EXIST, Constants.MESSAGE_CAPTION);
+                return;
+            }
 
-
-
+            ColorDataServices.UpdateColor(SelectedColor.ColorId, NewColorName);
+            SelectedColor.ColorName = NewColorName;
+            colorDataGrid.Refresh();
+            MessageBox.Show(Messages.COLOR_UPDATED_SUCESS, Constants.MESSAGE_CAPTION);
         }
 
         private string NewColorName
@@ -86,6 +98,11 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
             {
                 this.colorTextBox.Text = value;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -7,7 +7,7 @@ using Systems.Appollo.Shoes.Data.DataModels;
 
 namespace Systems.Appollo.Shoes.Data.Services
 {
-    public class ColorServices : IColorServices
+    public class ColorServices
     {
         private readonly ShoesDBEntities shoesDataEntities;
 
@@ -18,7 +18,7 @@ namespace Systems.Appollo.Shoes.Data.Services
 
         public ColorServices(string connectionString)
         {
-            this.shoesDataEntities = new ShoesDBEntities(connectionString);
+            
         }
 
         public void InsertColor(string colorName)
@@ -28,7 +28,7 @@ namespace Systems.Appollo.Shoes.Data.Services
             SaveChanges();
         }
 
-        public void UpdateColor(int colorId, string newColor)
+        public ColorDto UpdateColor(int colorId, string newColor)
         {
             var currentColor = FindColor(colorId);
             if (currentColor != null)
@@ -36,6 +36,8 @@ namespace Systems.Appollo.Shoes.Data.Services
                 currentColor.Name = newColor;
                 SaveChanges();
             }
+
+            return new ColorDto { ColorId = colorId, ColorName = newColor };
         }
 
         public void DeleteColor(int colorId)

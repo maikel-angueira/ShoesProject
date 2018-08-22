@@ -73,10 +73,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
         {
             this.colorServices = colorServices;
         }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
+        
     }
 }
