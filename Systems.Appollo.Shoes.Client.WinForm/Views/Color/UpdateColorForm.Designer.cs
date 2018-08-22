@@ -124,6 +124,7 @@
             this.removeButton.TabIndex = 5;
             this.removeButton.Text = "Eliminar";
             this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // colorDataGrid
             // 

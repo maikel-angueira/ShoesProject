@@ -43,7 +43,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
             }
         }
 
-        internal void SetColorDataService(ColorServices colorServices)
+        public void SetColorDataService(ColorServices colorServices)
         {
             this.colorDataServices = colorServices;
         }
@@ -103,6 +103,23 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            if (SelectedColor == null)
+                return;
+
+            var dialogResult = MessageBox.Show(
+                    String.Format(Messages.DO_YOU_WANT_TO_DELETED, SelectedColor.ColorName),
+                    Constants.MESSAGE_CAPTION,
+                    MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                ColorDataServices.DeleteColor(SelectedColor.ColorId);
+                DataFill();
+                MessageBox.Show(String.Format(Messages.COLOR_DELETED_SUCESS, SelectedColor.ColorName), Constants.MESSAGE_CAPTION);
+            }
         }
     }
 }

@@ -55,7 +55,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         {
             var newModelForm = new NewModelForm();
             newModelForm.ShowDialog();
-
         }
 
         private void actualizarToolStripMenuItem3_Click(object sender, EventArgs e)
