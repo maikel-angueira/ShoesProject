@@ -69,6 +69,7 @@
     <Compile Include="Color.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataModels\ColorDto.cs" />
     <Compile Include="Model.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>

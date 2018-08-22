@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Systems.Appollo.Shoes.Client.WinForm.Configuration
+namespace Systems.Appollo.Shoes.Client.WinForm.Utils
 {
     public sealed class Constants
     {

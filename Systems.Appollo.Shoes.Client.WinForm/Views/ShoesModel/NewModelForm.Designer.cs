@@ -1,4 +1,4 @@
-﻿namespace Systems.Appollo.Shoes.Client.WinForm.Views
+﻿namespace Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel
 {
     partial class NewModelForm
     {
@@ -101,6 +101,7 @@
             this.insertButton.TabIndex = 6;
             this.insertButton.Text = "Insertar";
             this.insertButton.UseVisualStyleBackColor = true;
+            this.insertButton.Click += new System.EventHandler(this.insertButton_Click);
             // 
             // resetButton
             // 

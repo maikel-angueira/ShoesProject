@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Systems.Appollo.Shoes.Client.WinForm.Views
+namespace Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel
 {
     public partial class NewModelForm : Form
     {
@@ -26,6 +26,11 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views
         {
             this.modelNameTextBox.Clear();
             this.descriptionTextBox.Clear();
+        }
+
+        private void insertButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

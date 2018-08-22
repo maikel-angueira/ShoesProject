@@ -1,4 +1,4 @@
-﻿namespace Systems.Appollo.Shoes.Client.WinForm.Views
+﻿namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
 {
     partial class NewColorForm
     {
@@ -32,7 +32,6 @@
             this.colorTextBox = new System.Windows.Forms.TextBox();
             this.newButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -46,14 +45,14 @@
             // 
             // colorTextBox
             // 
-            this.colorTextBox.Location = new System.Drawing.Point(24, 40);
+            this.colorTextBox.Location = new System.Drawing.Point(25, 40);
             this.colorTextBox.Name = "colorTextBox";
-            this.colorTextBox.Size = new System.Drawing.Size(360, 20);
+            this.colorTextBox.Size = new System.Drawing.Size(329, 20);
             this.colorTextBox.TabIndex = 1;
             // 
             // newButton
             // 
-            this.newButton.Location = new System.Drawing.Point(240, 122);
+            this.newButton.Location = new System.Drawing.Point(203, 122);
             this.newButton.Name = "newButton";
             this.newButton.Size = new System.Drawing.Size(68, 20);
             this.newButton.TabIndex = 2;
@@ -63,7 +62,7 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(314, 122);
+            this.closeButton.Location = new System.Drawing.Point(283, 122);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(68, 20);
             this.closeButton.TabIndex = 3;
@@ -71,22 +70,11 @@
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(154, 126);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(61, 13);
-            this.linkLabel1.TabIndex = 4;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Ver Colores";
-            // 
             // NewColorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(390, 158);
-            this.Controls.Add(this.linkLabel1);
+            this.ClientSize = new System.Drawing.Size(367, 158);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.newButton);
             this.Controls.Add(this.colorTextBox);
@@ -108,6 +96,5 @@
         private System.Windows.Forms.TextBox colorTextBox;
         private System.Windows.Forms.Button newButton;
         private System.Windows.Forms.Button closeButton;
-        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

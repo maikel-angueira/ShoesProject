@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Systems.Appollo.Shoes.Data.DataModels;
 
 namespace Systems.Appollo.Shoes.Data.Services
 {
@@ -24,7 +25,7 @@ namespace Systems.Appollo.Shoes.Data.Services
         {
             Color newColor = new Color() { Name = colorName };
             shoesDataEntities.Colors.Add(newColor);
-            SubmitChanges();
+            SaveChanges();
         }
 
         public void UpdateColor(int colorId, string newColor)
@@ -33,7 +34,7 @@ namespace Systems.Appollo.Shoes.Data.Services
             if (currentColor != null)
             {
                 currentColor.Name = newColor;
-                SubmitChanges();
+                SaveChanges();
             }
         }
 
@@ -43,8 +44,23 @@ namespace Systems.Appollo.Shoes.Data.Services
             if (deleted != null)
             {
                 shoesDataEntities.Colors.Remove(deleted);
-                SubmitChanges();
+                SaveChanges();
             }
+        }
+
+        public List<ColorDto> GetAllColors()
+        {
+            return shoesDataEntities.Colors
+                    .Select(c => new ColorDto() { ColorId = c.Id, ColorName = c.Name })
+                    .ToList();
+        }
+
+        public bool ExistColorByName(String colorName)
+        {
+            if (colorName == null)
+                return false;
+
+            return shoesDataEntities.Colors.Any(c => c.Name.Equals(colorName));
         }
 
         private Color FindColor(int colorId)
@@ -52,7 +68,7 @@ namespace Systems.Appollo.Shoes.Data.Services
             return shoesDataEntities.Colors.Where(c => c.Id.Equals(colorId)).SingleOrDefault();
         }
 
-        private void SubmitChanges()
+        private void SaveChanges()
         {
             shoesDataEntities.SaveChanges();
         }
