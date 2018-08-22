@@ -23,7 +23,7 @@ namespace Systems.Appollo.Shoes.Data
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ShoesDB")]
-	public partial class ShoesDataDataContext : System.Data.Linq.DataContext
+	public partial class ShoesDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -62,31 +62,31 @@ namespace Systems.Appollo.Shoes.Data
     partial void DeleteStoreSupply(StoreSupply instance);
     #endregion
 		
-		public ShoesDataDataContext() : 
+		public ShoesDataContext() : 
 				base(global::Systems.Appollo.Shoes.Data.Properties.Settings.Default.ShoesDBConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public ShoesDataDataContext(string connection) : 
+		public ShoesDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public ShoesDataDataContext(System.Data.IDbConnection connection) : 
+		public ShoesDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public ShoesDataDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public ShoesDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public ShoesDataDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public ShoesDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();

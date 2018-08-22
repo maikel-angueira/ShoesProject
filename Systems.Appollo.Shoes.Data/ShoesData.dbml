@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ShoesDB" Class="ShoesDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ShoesDB" Class="ShoesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\workspace\ShoesProject\Systems.Appollo.Shooes.DB\ShoesDB.mdf;Integrated Security=True" SettingsObjectName="Systems.Appollo.Shoes.Data.Properties.Settings" SettingsPropertyName="ShoesDBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Client" Member="Clients">
     <Type Name="Client">

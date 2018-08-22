@@ -48,6 +48,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\ColorServices.cs" />
+    <Compile Include="Services\IColorServices.cs" />
     <Compile Include="ShoesData.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
