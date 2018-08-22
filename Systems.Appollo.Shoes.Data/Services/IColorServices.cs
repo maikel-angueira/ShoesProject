@@ -4,6 +4,6 @@
     {
         void InsertColor(string color);
         void UpdateColor(int colorId, string newColor);
-        void DeleteColor(string colorId);
+        void DeleteColor(int colorId);
     }
 }

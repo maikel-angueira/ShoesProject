@@ -20,16 +20,16 @@ namespace Systems.Appollo.Shoes.Data.Services
             this.shoesDataContext = new ShoesDataContext(connection);
         }
 
-        public void InsertColor(string color)
+        public void InsertColor(string colorName)
         {
-            Color newColor = new Color() { Name = color };
+            Color newColor = new Color() { Name = colorName };
             shoesDataContext.Colors.InsertOnSubmit(newColor);
             SubmitChanges();
         }
 
         public void UpdateColor(int colorId, string newColor)
         {
-            var currentColor = shoesDataContext.Colors.Where(c => c.Id.Equals(colorId)).SingleOrDefault();
+            var currentColor = FindColor(colorId);
             if (currentColor != null)
             {
                 currentColor.Name = newColor;
@@ -37,14 +37,19 @@ namespace Systems.Appollo.Shoes.Data.Services
             }
         }
 
-        public void DeleteColor(string colorId)
+        public void DeleteColor(int colorId)
         {
-            Color deleted = shoesDataContext.Colors.Where(c => c.Id.Equals(colorId)).SingleOrDefault();
+            Color deleted = FindColor(colorId);
             if (deleted != null)
             {
                 shoesDataContext.Colors.DeleteOnSubmit(deleted);
                 SubmitChanges();
             }
+        }
+
+        private Color FindColor(int colorId)
+        {
+            return shoesDataContext.Colors.Where(c => c.Id.Equals(colorId)).SingleOrDefault();
         }
 
         private void SubmitChanges()
