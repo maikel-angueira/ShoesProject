@@ -21,5 +21,10 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views
         {
             this.Close();
         }
+
+        private void newButton_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

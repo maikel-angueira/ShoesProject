@@ -59,6 +59,7 @@
             this.newButton.TabIndex = 2;
             this.newButton.Text = "&Insertar";
             this.newButton.UseVisualStyleBackColor = true;
+            this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
             // closeButton
             // 

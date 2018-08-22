@@ -8,22 +8,22 @@ namespace Systems.Appollo.Shoes.Data.Services
 {
     class ColorServices : IColorServices
     {
-        private readonly ShoesDataContext shoesDataContext;
+        private readonly ShoesDBEntities shoesDataEntities;
 
         public ColorServices()
         {
-            this.shoesDataContext = new ShoesDataContext();
+            this.shoesDataEntities = new ShoesDBEntities();
         }
 
-        public ColorServices(string connection)
+        public ColorServices(string connectionString)
         {
-            this.shoesDataContext = new ShoesDataContext(connection);
+            this.shoesDataEntities = new ShoesDBEntities(connectionString);
         }
 
         public void InsertColor(string colorName)
         {
             Color newColor = new Color() { Name = colorName };
-            shoesDataContext.Colors.InsertOnSubmit(newColor);
+            shoesDataEntities.Colors.Add(newColor);
             SubmitChanges();
         }
 
@@ -42,19 +42,19 @@ namespace Systems.Appollo.Shoes.Data.Services
             Color deleted = FindColor(colorId);
             if (deleted != null)
             {
-                shoesDataContext.Colors.DeleteOnSubmit(deleted);
+                shoesDataEntities.Colors.Remove(deleted);
                 SubmitChanges();
             }
         }
 
         private Color FindColor(int colorId)
         {
-            return shoesDataContext.Colors.Where(c => c.Id.Equals(colorId)).SingleOrDefault();
+            return shoesDataEntities.Colors.Where(c => c.Id.Equals(colorId)).SingleOrDefault();
         }
 
         private void SubmitChanges()
         {
-            shoesDataContext.SubmitChanges();
+            shoesDataEntities.SaveChanges();
         }
     }
 }
