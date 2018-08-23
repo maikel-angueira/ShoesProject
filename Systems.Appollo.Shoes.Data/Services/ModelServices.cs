@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Systems.Appollo.Shoes.Data.DataModels;
 
 namespace Systems.Appollo.Shoes.Data.Services
 {
@@ -25,6 +26,18 @@ namespace Systems.Appollo.Shoes.Data.Services
         private void SaveChanges()
         {
             shoesDataEntities.SaveChanges();
+        }
+
+        public List<ModelDto> GetAllModels()
+        {
+            return shoesDataEntities.Models
+                .Select(m => new ModelDto
+                {
+                    ModelId = m.Id,
+                    Description = m.Description,
+                    Name = m.Name,
+                    Photo = m.Photo
+                }).ToList();
         }
     }
 }

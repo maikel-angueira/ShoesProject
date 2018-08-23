@@ -138,6 +138,7 @@
             this.colorDataGrid.MultiSelect = false;
             this.colorDataGrid.Name = "colorDataGrid";
             this.colorDataGrid.ReadOnly = true;
+            this.colorDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.colorDataGrid.Size = new System.Drawing.Size(367, 229);
             this.colorDataGrid.TabIndex = 0;
             this.colorDataGrid.SelectionChanged += new System.EventHandler(this.colorDataGrid_SelectionChanged);

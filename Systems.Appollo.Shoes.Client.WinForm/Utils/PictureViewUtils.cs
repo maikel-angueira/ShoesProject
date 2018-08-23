@@ -25,7 +25,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Utils
         {
             ImageConverter converter = new ImageConverter();
             Image img = (Image)converter.ConvertFrom(images);
-            pictureBox.Image = img;// Image.FromStream(mst);
+            pictureBox.Image = img;
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox.Refresh();
         }
