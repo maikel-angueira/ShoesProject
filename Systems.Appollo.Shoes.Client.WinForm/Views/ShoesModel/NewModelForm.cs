@@ -69,6 +69,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel
             {
                 Image img = new Bitmap(modelOpenFileDialog.FileName);
                 modelPictureBox.Image = img;// resizeImage(img);
+                modelPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
 
