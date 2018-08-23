@@ -30,18 +30,18 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
         {
             if (ColorName.Length == 0)
             {
-                MessageBox.Show(Messages.COLOR_NAME_REQUIRED, Constants.MESSAGE_CAPTION);
+                MessageBox.Show(String.Format(Messages.ElEMENT_NAME_REQUIRED, EntityNames.COlOR_ENTITY_NAME), Constants.MESSAGE_CAPTION);
                 return;
             }
 
             if (ColorDataServices.ExistColorByName(ColorName))
             {
-                MessageBox.Show(Messages.COLOR_NAME_EXIST, Constants.MESSAGE_CAPTION);
+                MessageBox.Show(Messages.ELEMENT_EXISTS, Constants.MESSAGE_CAPTION);
                 return;
             }
 
             ColorDataServices.InsertColor(ColorName);
-            MessageBox.Show(String.Format(Messages.COLOR_INSERT_SUCESS, ColorName), Constants.MESSAGE_CAPTION);
+            MessageBox.Show(String.Format(Messages.ELEMENT_INSERT_SUCESS, EntityNames.COlOR_ENTITY_NAME, ColorName), Constants.MESSAGE_CAPTION);
             this.ColorName = String.Empty;
         }
 

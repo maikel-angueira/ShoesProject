@@ -35,7 +35,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel
         {
             if (modelNameTextBox.Text.Length == 0)
             {
-                MessageBox.Show(Messages.MODEL_NAME_REQUIRED, Constants.MESSAGE_CAPTION);
+                MessageBox.Show(String.Format(Messages.ElEMENT_NAME_REQUIRED, EntityNames.MODEL_ENTITY_NAME), Constants.MESSAGE_CAPTION);
                 return;
             }
 
@@ -44,9 +44,10 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel
                 imagesArray = PictureViewUtils.ReadImageFromFilePath(modelOpenFileDialog.FileName);
 
             var description = descriptionTextBox.Text;
-            ModelDataServices.InsertModel(modelNameTextBox.Text, description, imagesArray);
+            var newModelName = modelNameTextBox.Text;
+            ModelDataServices.InsertModel(newModelName, description, imagesArray);
             ResetView();
-            MessageBox.Show(Messages.MODEL_INSERTED_SUCCESS, Constants.MESSAGE_CAPTION);
+            MessageBox.Show(String.Format(Messages.ELEMENT_INSERT_SUCESS, EntityNames.MODEL_ENTITY_NAME, newModelName), Constants.MESSAGE_CAPTION);
         }
 
         private void ResetView()

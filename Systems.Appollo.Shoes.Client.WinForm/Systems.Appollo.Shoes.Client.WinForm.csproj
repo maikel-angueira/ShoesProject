@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\EntityNames.cs" />
     <Compile Include="Utils\Messages.cs" />
     <Compile Include="Utils\PictureViewUtils.cs" />
     <Compile Include="Views\AboutUsBox.cs">

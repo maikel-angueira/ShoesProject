@@ -21,8 +21,14 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Utils
             return photo;
         }
 
-        public static void LoadImageToControl(byte[] images, PictureBox pictureBox )
+        public static void LoadImageToControl(byte[] images, PictureBox pictureBox)
         {
+            if (images == null || images.Length == 0)
+            {
+                pictureBox.Image = null;
+                return;
+            }
+
             ImageConverter converter = new ImageConverter();
             Image img = (Image)converter.ConvertFrom(images);
             pictureBox.Image = img;

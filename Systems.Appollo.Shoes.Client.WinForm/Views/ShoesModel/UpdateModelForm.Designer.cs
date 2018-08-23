@@ -30,6 +30,8 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.modelDataGrid = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.removeButton = new System.Windows.Forms.Button();
@@ -40,8 +42,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.modelPictureBox = new System.Windows.Forms.PictureBox();
             this.closeButton = new System.Windows.Forms.Button();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.modelDataGrid)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -75,6 +76,21 @@
             this.modelDataGrid.TabIndex = 0;
             this.modelDataGrid.SelectionChanged += new System.EventHandler(this.modelDataGrid_SelectionChanged);
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "ModelId";
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // Model
+            // 
+            this.Model.DataPropertyName = "Name";
+            this.Model.HeaderText = "Modelo Zapato";
+            this.Model.Name = "Model";
+            this.Model.ReadOnly = true;
+            this.Model.Width = 250;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label2);
@@ -85,12 +101,12 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.linkLabel1);
             this.groupBox2.Controls.Add(this.modelPictureBox);
-            this.groupBox2.Location = new System.Drawing.Point(469, 12);
+            this.groupBox2.Location = new System.Drawing.Point(456, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(518, 419);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Modelo Zapato Seleccionado:";
+            this.groupBox2.Text = "Modelo Zapatos Seleccionado:";
             // 
             // label2
             // 
@@ -103,22 +119,25 @@
             // 
             // removeButton
             // 
+            this.removeButton.Enabled = false;
             this.removeButton.Location = new System.Drawing.Point(434, 380);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(75, 23);
             this.removeButton.TabIndex = 7;
             this.removeButton.Text = "Eliminar";
             this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // updateButton
             // 
+            this.updateButton.Enabled = false;
             this.updateButton.Location = new System.Drawing.Point(346, 380);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
             this.updateButton.TabIndex = 6;
             this.updateButton.Text = "Actualizar";
             this.updateButton.UseVisualStyleBackColor = true;
-            this.updateButton.Click += new System.EventHandler(this.button1_Click);
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // modelDescriptionTextBox
             // 
@@ -126,14 +145,14 @@
             this.modelDescriptionTextBox.Location = new System.Drawing.Point(186, 93);
             this.modelDescriptionTextBox.Multiline = true;
             this.modelDescriptionTextBox.Name = "modelDescriptionTextBox";
-            this.modelDescriptionTextBox.Size = new System.Drawing.Size(326, 86);
+            this.modelDescriptionTextBox.Size = new System.Drawing.Size(324, 86);
             this.modelDescriptionTextBox.TabIndex = 5;
             // 
             // modelNameTextBox
             // 
             this.modelNameTextBox.Location = new System.Drawing.Point(185, 42);
             this.modelNameTextBox.Name = "modelNameTextBox";
-            this.modelNameTextBox.Size = new System.Drawing.Size(326, 20);
+            this.modelNameTextBox.Size = new System.Drawing.Size(324, 20);
             this.modelNameTextBox.TabIndex = 3;
             // 
             // label1
@@ -154,9 +173,11 @@
             this.linkLabel1.TabIndex = 1;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Actualizar Foto";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // modelPictureBox
             // 
+            this.modelPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.modelPictureBox.Location = new System.Drawing.Point(6, 23);
             this.modelPictureBox.Name = "modelPictureBox";
             this.modelPictureBox.Size = new System.Drawing.Size(156, 156);
@@ -165,7 +186,7 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(912, 437);
+            this.closeButton.Location = new System.Drawing.Point(896, 437);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 23);
             this.closeButton.TabIndex = 2;
@@ -173,26 +194,15 @@
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
-            // Id
+            // openFileDialog1
             // 
-            this.Id.DataPropertyName = "ModelId";
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // Model
-            // 
-            this.Model.DataPropertyName = "Name";
-            this.Model.HeaderText = "Modelo Zapato";
-            this.Model.Name = "Model";
-            this.Model.ReadOnly = true;
-            this.Model.Width = 250;
+            this.openFileDialog1.Filter = "Images (*.JPEG;*.BMP;*.JPG;*.GIF;*.PNG;*.)|*.JPEG;*.BMP;*.JPG;*.GIF;*.PNG\"";
             // 
             // UpdateModelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 466);
+            this.ClientSize = new System.Drawing.Size(983, 466);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -226,5 +236,6 @@
         private System.Windows.Forms.DataGridView modelDataGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Model;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

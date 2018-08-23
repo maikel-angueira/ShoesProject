@@ -16,9 +16,9 @@ namespace Systems.Appollo.Shoes.Data.Services
             this.shoesDataEntities = new ShoesDBEntities();
         }
 
-        public void InsertModel(string name, String description, byte[] photos)
+        public void InsertModel(string name, String description, byte[] photo)
         {
-            var newModel = new Model { Name = name, Description = description, Photo = photos };
+            var newModel = new Model { Name = name, Description = description, Photo = photo };
             shoesDataEntities.Models.Add(newModel);
             SaveChanges();
         }
@@ -38,6 +38,38 @@ namespace Systems.Appollo.Shoes.Data.Services
                     Name = m.Name,
                     Photo = m.Photo
                 }).ToList();
+        }
+
+        public bool ExistModelByName(int modelId, string newModelName)
+        {
+            return shoesDataEntities.Models.Any(m => m.Name == newModelName && m.Id != modelId);
+        }
+
+        public void UpdateModel(ModelDto updatedModelDto)
+        {
+            Model model = FindModelById(updatedModelDto.ModelId);
+            if (model != null)
+            {
+                model.Description = updatedModelDto.Description;
+                model.Name = updatedModelDto.Name;
+                model.Photo = updatedModelDto.Photo;
+                SaveChanges();
+            }
+        }
+
+        private Model FindModelById(int modelId)
+        {
+            return shoesDataEntities.Models.Where(m => m.Id == modelId).SingleOrDefault();
+        }
+
+        public void RemoveModel(int modelId)
+        {
+            var deletedModel = FindModelById(modelId);
+            if (deletedModel != null)
+            {
+                shoesDataEntities.Models.Remove(deletedModel);
+                SaveChanges();
+            }
         }
     }
 }

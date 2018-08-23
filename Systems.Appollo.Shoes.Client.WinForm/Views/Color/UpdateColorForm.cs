@@ -16,6 +16,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
     public partial class UpdateColorForm : Form
     {
         private ColorServices colorDataServices;
+        private const string ENTITY_NAME = "Color";
 
         public UpdateColorForm()
         {
@@ -77,14 +78,14 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
                 return;
             if (ColorDataServices.ExistColorByName(NewColorName))
             {
-                MessageBox.Show(Messages.COLOR_NAME_EXIST, Constants.MESSAGE_CAPTION);
+                MessageBox.Show(Messages.ELEMENT_EXISTS, Constants.MESSAGE_CAPTION);
                 return;
             }
 
             ColorDataServices.UpdateColor(SelectedColor.ColorId, NewColorName);
             SelectedColor.ColorName = NewColorName;
             colorDataGrid.Refresh();
-            MessageBox.Show(Messages.COLOR_UPDATED_SUCESS, Constants.MESSAGE_CAPTION);
+            MessageBox.Show(String.Format(Messages.ELEMENT_UPDATED_SUCCESS, ENTITY_NAME), Constants.MESSAGE_CAPTION);
         }
 
         private string NewColorName
@@ -118,7 +119,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
             {
                 ColorDataServices.DeleteColor(SelectedColor.ColorId);
                 DataFill();
-                MessageBox.Show(String.Format(Messages.COLOR_DELETED_SUCESS, SelectedColor.ColorName), Constants.MESSAGE_CAPTION);
+                MessageBox.Show(String.Format(Messages.ELEMENT_DELETED_SUCESS, ENTITY_NAME, SelectedColor.ColorName), Constants.MESSAGE_CAPTION);
             }
         }
     }
