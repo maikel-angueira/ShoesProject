@@ -219,14 +219,14 @@
             // nuevoToolStripMenuItem3
             // 
             this.nuevoToolStripMenuItem3.Name = "nuevoToolStripMenuItem3";
-            this.nuevoToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.nuevoToolStripMenuItem3.Size = new System.Drawing.Size(126, 22);
             this.nuevoToolStripMenuItem3.Text = "Nuevo";
             this.nuevoToolStripMenuItem3.Click += new System.EventHandler(this.nuevoToolStripMenuItem3_Click);
             // 
             // actualizarToolStripMenuItem3
             // 
             this.actualizarToolStripMenuItem3.Name = "actualizarToolStripMenuItem3";
-            this.actualizarToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.actualizarToolStripMenuItem3.Size = new System.Drawing.Size(126, 22);
             this.actualizarToolStripMenuItem3.Text = "Actualizar";
             this.actualizarToolStripMenuItem3.Click += new System.EventHandler(this.actualizarToolStripMenuItem3_Click);
             // 
@@ -320,8 +320,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.BackgroundImage = global::Systems.Appollo.Shoes.Client.WinForm.Properties.Resources._118094;
-            this.ClientSize = new System.Drawing.Size(666, 443);
+            this.BackgroundImage = global::Systems.Appollo.Shoes.Client.WinForm.Properties.Resources.Slider_image_Art_impresion_4;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(666, 462);
             this.Controls.Add(this.toolMainMenu);
             this.MainMenuStrip = this.toolMainMenu;
             this.Name = "ShoesMainForm";

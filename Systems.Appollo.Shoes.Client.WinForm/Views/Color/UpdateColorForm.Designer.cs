@@ -68,7 +68,7 @@
             this.groupBox2.Size = new System.Drawing.Size(379, 266);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Información Color:";
+            this.groupBox2.Text = "Color Seleccionado:";
             // 
             // label1
             // 
@@ -179,7 +179,7 @@
             this.MaximizeBox = false;
             this.Name = "UpdateColorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Actualiar Colores";
+            this.Text = "Actualizar Colores";
             this.Load += new System.EventHandler(this.UpdateColorForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

@@ -54,6 +54,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         private void nuevoToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             var newModelForm = new NewModelForm();
+            newModelForm.SetModelDataServices(dataServices.ModelServices);
             newModelForm.ShowDialog();
         }
 

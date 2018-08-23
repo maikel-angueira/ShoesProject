@@ -30,7 +30,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
         {
             if (ColorName.Length == 0)
             {
-                MessageBox.Show(Messages.COLOR_NAME_EMPTY, Constants.MESSAGE_CAPTION);
+                MessageBox.Show(Messages.COLOR_NAME_REQUIRED, Constants.MESSAGE_CAPTION);
                 return;
             }
 

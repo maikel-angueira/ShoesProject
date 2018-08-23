@@ -33,11 +33,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.modelPictureBox = new System.Windows.Forms.PictureBox();
             this.insertButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.modelOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.modelPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -83,15 +84,17 @@
             this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Subir foto";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // pictureBox1
+            // modelPictureBox
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(22, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(162, 152);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.modelPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.modelPictureBox.Location = new System.Drawing.Point(22, 23);
+            this.modelPictureBox.Name = "modelPictureBox";
+            this.modelPictureBox.Size = new System.Drawing.Size(162, 152);
+            this.modelPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.modelPictureBox.TabIndex = 0;
+            this.modelPictureBox.TabStop = false;
             // 
             // insertButton
             // 
@@ -123,6 +126,11 @@
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // modelOpenFileDialog
+            // 
+            this.modelOpenFileDialog.Filter = "Images (*.JPEG;*.BMP;*.JPG;*.GIF;*.PNG;*.)|*.JPEG;*.BMP;*.JPG;*.GIF;*.PNG\"";
+            this.modelOpenFileDialog.Title = "Choose Image";
+            // 
             // NewModelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,13 +144,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.modelNameTextBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.modelPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "NewModelForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Modelo Zapato";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.modelPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,7 +158,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox modelPictureBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox modelNameTextBox;
         private System.Windows.Forms.Label label2;
@@ -159,5 +167,6 @@
         private System.Windows.Forms.Button insertButton;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.OpenFileDialog modelOpenFileDialog;
     }
 }

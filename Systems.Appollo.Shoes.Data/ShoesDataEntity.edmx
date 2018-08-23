@@ -29,7 +29,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Description" Type="text" />
-          <Property Name="Photo" Type="binary" MaxLength="50" />
+          <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -102,7 +102,9 @@
           <Property Name="Photo" Type="binary" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Product_To_Color">
-          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="Color" Type="Self.Color" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Color">
@@ -114,7 +116,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_To_Model">
-          <End Role="Model" Type="Self.Model" Multiplicity="1" />
+          <End Role="Model" Type="Self.Model" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Model">
@@ -126,7 +130,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Purchase_To_Product">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Purchase" Type="Self.Purchase" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Product">
@@ -138,7 +144,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Purchase_To_Supplier">
-          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Supplier">
@@ -150,7 +158,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sale_To_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
@@ -162,7 +172,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sale_To_Product">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
@@ -174,7 +186,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Store_To_Seller">
-          <End Role="Seller" Type="Self.Seller" Multiplicity="1" />
+          <End Role="Seller" Type="Self.Seller" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Store" Type="Self.Store" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Seller">
@@ -186,7 +200,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_StoreSupply_To_Product">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="StoreSupply" Type="Self.StoreSupply" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
@@ -198,7 +214,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_StoreSupply_To_Store">
-          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="Store" Type="Self.Store" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="StoreSupply" Type="Self.StoreSupply" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Store">
@@ -287,7 +305,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Photo" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Products" Relationship="Self.FK_Product_To_Model" FromRole="Model" ToRole="Product" />
         </EntityType>
         <EntityType Name="Product">
