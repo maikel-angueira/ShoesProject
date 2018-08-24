@@ -13,5 +13,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Utils
         public const string SELLER_ENTITY_NAME = "Vendedor";
         public const string CLIENT_ENTITY_NAME = "Client";
         public const string SUPPLIER_ENTITY_NAME = "Proveedor";
+        public const string STORE_ENTITY_NAME = "Tienda";
     }
 }

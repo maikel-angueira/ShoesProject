@@ -14,12 +14,13 @@ using Systems.Appollo.Shoes.Client.WinForm.DataServices;
 using Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel;
 using Systems.Appollo.Shoes.Client.WinForm.Views.Client;
 using Systems.Appollo.Shoes.Client.WinForm.Views.Supplier;
+using Systems.Appollo.Shoes.Client.WinForm.Views.Store;
 
 namespace Systems.Appollo.Shoes.Client.WinForm
 {
     public partial class ShoesMainForm : Form
     {
-        private Services dataServices;
+        private ShoesClientServices dataServices;
 
         public ShoesMainForm()
         {
@@ -70,7 +71,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
 
         private void ShoesMainForm_Load(object sender, EventArgs e)
         {
-            this.dataServices = new Services();
+            this.dataServices = new ShoesClientServices();
         }
 
         private void actualizarToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -128,6 +129,15 @@ namespace Systems.Appollo.Shoes.Client.WinForm
                 SupplierDataServices = dataServices.SupplierServices
             };
             newSupplierForm.ShowDialog();
+        }
+
+        private void nuevoToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            var newStoreForm = new NewStoreForm()
+            {
+                ShoesDataServices = dataServices
+            };
+            newStoreForm.ShowDialog();
         }
     }
 }

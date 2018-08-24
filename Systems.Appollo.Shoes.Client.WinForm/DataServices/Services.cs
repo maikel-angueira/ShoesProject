@@ -7,21 +7,23 @@ using Systems.Appollo.Shoes.Data.Services;
 
 namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
 {
-    public class Services
+    public class ShoesClientServices
     {
         private readonly ColorServices colorServices;
         private readonly ModelServices modelServices;
         private readonly SellerServices sellerServices;
         private readonly ClientServices clientServices;
         private readonly SupplierServices supplierServices;
+        private readonly StoreServices storeServices;
 
-        public Services()
+        public ShoesClientServices()
         {
             this.colorServices = new ColorServices();
             this.modelServices = new ModelServices();
             this.sellerServices = new SellerServices();
             this.clientServices = new ClientServices();
             this.supplierServices = new SupplierServices();
+            this.storeServices = new StoreServices();
         }
 
         public ClientServices ClientServices => clientServices;
@@ -33,5 +35,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
         public SellerServices SellerServices => sellerServices;
 
         public SupplierServices SupplierServices => supplierServices;
+
+        public StoreServices StoreServices => storeServices;
     }
 }

@@ -73,6 +73,7 @@
     <Compile Include="DataModels\ColorDto.cs" />
     <Compile Include="DataModels\ModelDto.cs" />
     <Compile Include="DataModels\SellerDto.cs" />
+    <Compile Include="DataModels\StoreDto.cs" />
     <Compile Include="DataModels\SupplierDto.cs" />
     <Compile Include="Model.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
@@ -95,6 +96,7 @@
     <Compile Include="Services\ClientServices.cs" />
     <Compile Include="Services\ColorServices.cs" />
     <Compile Include="Services\ModelServices.cs" />
+    <Compile Include="Services\StoreServices.cs" />
     <Compile Include="Services\SupplierServices.cs" />
     <Compile Include="Services\SellerServices.cs" />
     <Compile Include="ShoesDataEntity.Context.cs">
