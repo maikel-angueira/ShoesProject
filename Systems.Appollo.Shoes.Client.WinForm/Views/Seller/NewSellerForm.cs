@@ -33,9 +33,15 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
 
         private void insertButton_Click(object sender, EventArgs e)
         {
-            if (sellerNameTextBox.Text.Length == 0)
+            if (SellerName.Length == 0)
             {
                 MessageBox.Show(String.Format(Messages.ElEMENT_NAME_REQUIRED, EntityNames.SELLER_ENTITY_NAME), Constants.MESSAGE_CAPTION);
+                return;
+            }
+
+            if (SellerDataServices.ExistSellerByName(SellerName))
+            {
+                MessageBox.Show(Messages.ELEMENT_EXISTS, Constants.MESSAGE_CAPTION);
                 return;
             }
 
@@ -43,7 +49,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
             if (sellerPictureBox.Image != null)
                 imagesArray = PictureViewUtils.ReadImageFromFilePath(openFileDialog1.FileName);
 
-            
+
             SellerDataServices.InsertSeller(SellerName, Address, imagesArray);
             ResetView();
             MessageBox.Show(String.Format(Messages.ELEMENT_INSERT_SUCESS, EntityNames.SELLER_ENTITY_NAME, SellerName), Constants.MESSAGE_CAPTION);

@@ -33,21 +33,51 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel
 
         private void insertButton_Click(object sender, EventArgs e)
         {
-            if (modelNameTextBox.Text.Length == 0)
+            if (ModelName.Length == 0)
             {
                 MessageBox.Show(String.Format(Messages.ElEMENT_NAME_REQUIRED, EntityNames.MODEL_ENTITY_NAME), Constants.MESSAGE_CAPTION);
                 return;
             }
 
-            byte[] imagesArray = null;
-            if (modelPictureBox.Image != null)
-                imagesArray = PictureViewUtils.ReadImageFromFilePath(modelOpenFileDialog.FileName);
+            if (ModelDataServices.ExistModelByName(ModelName))
+            {
+                MessageBox.Show(Messages.ELEMENT_EXISTS, Constants.MESSAGE_CAPTION);
+                return;
+            }
 
-            var description = descriptionTextBox.Text;
-            var newModelName = modelNameTextBox.Text;
-            ModelDataServices.InsertModel(newModelName, description, imagesArray);
+            byte[] photoUpload = null;
+            if (modelPictureBox.Image != null)
+                photoUpload = PictureViewUtils.ReadImageFromFilePath(modelOpenFileDialog.FileName);
+
+            ModelDataServices.InsertModel(ModelName, ModelDescription, photoUpload);
             ResetView();
-            MessageBox.Show(String.Format(Messages.ELEMENT_INSERT_SUCESS, EntityNames.MODEL_ENTITY_NAME, newModelName), Constants.MESSAGE_CAPTION);
+            MessageBox.Show(String.Format(Messages.ELEMENT_INSERT_SUCESS, EntityNames.MODEL_ENTITY_NAME, ModelName), Constants.MESSAGE_CAPTION);
+        }
+
+        private string ModelName
+        {
+            get
+            {
+                return modelNameTextBox.Text;
+            }
+
+            set
+            {
+                modelNameTextBox.Text = value;
+            }
+        }
+
+        private string ModelDescription
+        {
+            get
+            {
+                return descriptionTextBox.Text;
+            }
+
+            set
+            {
+                descriptionTextBox.Text = value;
+            }
         }
 
         private void ResetView()

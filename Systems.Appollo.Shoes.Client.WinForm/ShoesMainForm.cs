@@ -84,5 +84,12 @@ namespace Systems.Appollo.Shoes.Client.WinForm
             newSellerForm.SetSellerDataServices(dataServices.SellerServices);
             newSellerForm.ShowDialog();
         }
+
+        private void actualizarToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            var updateSellerForm = new UpdateSellerForm();
+            updateSellerForm.SetSellerDataServices(dataServices.SellerServices);
+            updateSellerForm.ShowDialog();
+        }
     }
 }
