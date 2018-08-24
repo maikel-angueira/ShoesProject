@@ -100,5 +100,14 @@ namespace Systems.Appollo.Shoes.Client.WinForm
             };
             clientForm.ShowDialog();
         }
+
+        private void actualizarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var updateClientForm = new UpdateClientForm()
+            {
+                ClientDataServices = dataServices.ClientServices
+            };
+            updateClientForm.ShowDialog();
+        }
     }
 }

@@ -70,6 +70,12 @@
     <Compile Include="Views\Client\NewClientForm.Designer.cs">
       <DependentUpon>NewClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Client\UpdateClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Client\UpdateClientForm.Designer.cs">
+      <DependentUpon>UpdateClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Color\NewColorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Client\NewClientForm.resx">
       <DependentUpon>NewClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Client\UpdateClientForm.resx">
+      <DependentUpon>UpdateClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Color\NewColorForm.resx">
       <DependentUpon>NewColorForm.cs</DependentUpon>
