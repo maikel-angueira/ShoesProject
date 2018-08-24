@@ -10,5 +10,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Utils
     {
         public static string COlOR_ENTITY_NAME = "Color";
         public static string MODEL_ENTITY_NAME = "Modelo";
+        public static string SELLER_ENTITY_NAME = "Vendedor";
     }
 }

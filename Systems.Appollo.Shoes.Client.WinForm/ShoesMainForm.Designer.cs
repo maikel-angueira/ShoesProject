@@ -264,13 +264,14 @@
             // nuevoToolStripMenuItem5
             // 
             this.nuevoToolStripMenuItem5.Name = "nuevoToolStripMenuItem5";
-            this.nuevoToolStripMenuItem5.Size = new System.Drawing.Size(126, 22);
+            this.nuevoToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
             this.nuevoToolStripMenuItem5.Text = "Nuevo";
+            this.nuevoToolStripMenuItem5.Click += new System.EventHandler(this.nuevoToolStripMenuItem5_Click);
             // 
             // actualizarToolStripMenuItem5
             // 
             this.actualizarToolStripMenuItem5.Name = "actualizarToolStripMenuItem5";
-            this.actualizarToolStripMenuItem5.Size = new System.Drawing.Size(126, 22);
+            this.actualizarToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
             this.actualizarToolStripMenuItem5.Text = "Actualizar";
             // 
             // reportesToolStripMenuItem

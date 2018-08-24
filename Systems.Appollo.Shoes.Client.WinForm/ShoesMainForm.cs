@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Systems.Appollo.Shoes.Client.WinForm.Views.Color;
 using Systems.Appollo.Shoes.Client.WinForm.Views;
-using Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel;
+using Systems.Appollo.Shoes.Client.WinForm.Views.Seller;
 using Systems.Appollo.Shoes.Client.WinForm.DataServices;
+using Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel;
 
 namespace Systems.Appollo.Shoes.Client.WinForm
 {
@@ -62,7 +63,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         {
             var updateColorForm = new UpdateColorForm();
             updateColorForm.SetColorDataService(dataServices.ColorServices);
-            updateColorForm.ShowDialog();            
+            updateColorForm.ShowDialog();
         }
 
         private void ShoesMainForm_Load(object sender, EventArgs e)
@@ -75,6 +76,13 @@ namespace Systems.Appollo.Shoes.Client.WinForm
             var updateModelForm = new UpdateModelForm();
             updateModelForm.SetModelDataServices(dataServices.ModelServices);
             updateModelForm.ShowDialog();
+        }
+
+        private void nuevoToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            var newSellerForm = new NewSellerForm();
+            newSellerForm.SetSellerDataServices(dataServices.SellerServices);
+            newSellerForm.ShowDialog();
         }
     }
 }

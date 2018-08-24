@@ -40,9 +40,9 @@ namespace Systems.Appollo.Shoes.Data.Services
                 }).ToList();
         }
 
-        public bool ExistModelByName(int modelId, string newModelName)
+        public bool ExistModelByName(string newModelName)
         {
-            return shoesDataEntities.Models.Any(m => m.Name == newModelName && m.Id != modelId);
+            return shoesDataEntities.Models.Any(m => m.Name == newModelName);
         }
 
         public void UpdateModel(ModelDto updatedModelDto)

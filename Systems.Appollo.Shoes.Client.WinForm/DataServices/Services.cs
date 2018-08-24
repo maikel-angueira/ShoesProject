@@ -11,11 +11,13 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
     {
         private readonly ColorServices colorServices;
         private readonly ModelServices modelServices;
+        private readonly SellerServices sellerServices;
 
         public Services()
         {
             this.colorServices = new ColorServices();
             this.modelServices = new ModelServices();
+            this.sellerServices = new SellerServices();
         }
 
         public ColorServices ColorServices
@@ -31,6 +33,14 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
             get
             {
                 return this.modelServices;
+            }
+        }
+
+        public SellerServices SellerServices
+        {
+            get
+            {
+                return this.sellerServices;
             }
         }
     }

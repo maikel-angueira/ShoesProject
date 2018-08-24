@@ -1,4 +1,4 @@
-﻿namespace Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel
+﻿namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
 {
     partial class UpdateModelForm
     {
@@ -186,7 +186,7 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(896, 437);
+            this.closeButton.Location = new System.Drawing.Point(898, 437);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 23);
             this.closeButton.TabIndex = 2;

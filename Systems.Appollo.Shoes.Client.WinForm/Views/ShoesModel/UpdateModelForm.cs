@@ -11,7 +11,7 @@ using Systems.Appollo.Shoes.Client.WinForm.Utils;
 using Systems.Appollo.Shoes.Data.DataModels;
 using Systems.Appollo.Shoes.Data.Services;
 
-namespace Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel
+namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
 {
     public partial class UpdateModelForm : Form
     {
@@ -29,13 +29,14 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel
             if (SelectedModel == null)
                 return;
 
-            if (modelNameTextBox.Text.Length == 0)
+            if (ModelName.Length == 0)
             {
                 MessageBox.Show(String.Format(Messages.ElEMENT_NAME_REQUIRED, EntityNames.MODEL_ENTITY_NAME), Constants.MESSAGE_CAPTION);
                 return;
             }
 
-            if (ModelDataServices.ExistModelByName(SelectedModel.ModelId, modelNameTextBox.Text))
+            if (SelectedModel.Name != ModelName
+                    && ModelDataServices.ExistModelByName(ModelName))
             {
                 MessageBox.Show(Messages.ELEMENT_EXISTS, Constants.MESSAGE_CAPTION);
                 return;
@@ -50,14 +51,26 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel
             var updatedModelDto = new ModelDto
             {
                 ModelId = SelectedModel.ModelId,
-                Name = modelNameTextBox.Text,
-                Description = modelDescriptionTextBox.Text,
+                Name = ModelName,
+                Description = ModelDescription,
                 Photo = newUploadPhoto
             };
 
             ModelDataServices.UpdateModel(updatedModelDto);
             UpdateView(updatedModelDto);
             MessageBox.Show(string.Format(Messages.ELEMENT_UPDATED_SUCCESS, EntityNames.MODEL_ENTITY_NAME), Constants.MESSAGE_CAPTION);
+        }
+
+        private string ModelName
+        {
+            get
+            {
+                return modelNameTextBox.Text;
+            }
+            set
+            {
+                modelNameTextBox.Text = value;
+            }
         }
 
         private void UpdateView(ModelDto updatedDto)
@@ -144,6 +157,18 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel
         }
 
         private bool UploadNewPhoto { get; set; }
+        public string ModelDescription
+        {
+            get
+            {
+                return modelDescriptionTextBox.Text;
+            }
+
+            set
+            {
+                modelDescriptionTextBox.Text = value;
+            }
+        }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
