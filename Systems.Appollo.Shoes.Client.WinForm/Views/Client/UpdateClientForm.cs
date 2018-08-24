@@ -11,7 +11,7 @@ using Systems.Appollo.Shoes.Client.WinForm.Utils;
 using Systems.Appollo.Shoes.Data.DataModels;
 using Systems.Appollo.Shoes.Data.Services;
 
-namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
+namespace Systems.Appollo.Shoes.Client.WinForm.Views.Client
 {
     public partial class UpdateClientForm : Form
     {
@@ -110,8 +110,8 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
 
             }
             clientNameTextBox.Text = SelectedClient.Name;
-            sellerAddressTextBox.Text = SelectedClient.Address;
-            PictureViewUtils.LoadImageToControl(SelectedClient.Photo, sellerPictureBox);
+            clientAddressTextBox.Text = SelectedClient.Address;
+            PictureViewUtils.LoadImageToControl(SelectedClient.Photo, clientPictureBox);
             EnableButtons();
         }
 
@@ -147,8 +147,8 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 Image img = new Bitmap(openFileDialog1.FileName);
-                sellerPictureBox.Image = img;// resizeImage(img);
-                sellerPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                clientPictureBox.Image = img;// resizeImage(img);
+                clientPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 UploadNewPhoto = true;
             }
         }
@@ -158,12 +158,12 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
         {
             get
             {
-                return sellerAddressTextBox.Text;
+                return clientAddressTextBox.Text;
             }
 
             set
             {
-                sellerAddressTextBox.Text = value;
+                clientAddressTextBox.Text = value;
             }
         }
 
@@ -187,8 +187,16 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
             clientDataGrid.Refresh();
             if (clients.Count == 0)
             {
-                DisableButtons();
+                ResetView();
             }
+        }
+
+        private void ResetView()
+        {
+            clientPictureBox.Image = null;
+            clientNameTextBox.Clear();
+            clientAddressTextBox.Clear();
+            DisableButtons();
         }
     }
 }

@@ -112,6 +112,18 @@
     <Compile Include="Views\ShoesModel\UpdateModelForm.Designer.cs">
       <DependentUpon>UpdateModelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Supplier\NewSupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Supplier\NewSupplierForm.Designer.cs">
+      <DependentUpon>NewSupplierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Supplier\UpdateSupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Supplier\UpdateSupplierForm.Designer.cs">
+      <DependentUpon>UpdateSupplierForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ShoesMainForm.resx">
       <DependentUpon>ShoesMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +163,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ShoesModel\UpdateModelForm.resx">
       <DependentUpon>UpdateModelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Supplier\NewSupplierForm.resx">
+      <DependentUpon>NewSupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Supplier\UpdateSupplierForm.resx">
+      <DependentUpon>UpdateSupplierForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\Systems.Appollo.Shoes.Data.DataModels.ColorDto.datasource" />
     <None Include="Properties\Settings.settings">

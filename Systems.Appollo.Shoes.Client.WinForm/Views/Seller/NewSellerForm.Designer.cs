@@ -33,11 +33,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.sellerPictureBox = new System.Windows.Forms.PictureBox();
             this.insertButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.sellerPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.sellerPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,16 +87,6 @@
             this.linkLabel1.Text = "Subir foto";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // sellerPictureBox
-            // 
-            this.sellerPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sellerPictureBox.Location = new System.Drawing.Point(22, 23);
-            this.sellerPictureBox.Name = "sellerPictureBox";
-            this.sellerPictureBox.Size = new System.Drawing.Size(162, 152);
-            this.sellerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.sellerPictureBox.TabIndex = 0;
-            this.sellerPictureBox.TabStop = false;
-            // 
             // insertButton
             // 
             this.insertButton.Location = new System.Drawing.Point(281, 218);
@@ -131,6 +121,16 @@
             // 
             this.openFileDialog1.Filter = "Images (*.JPEG;*.BMP;*.JPG;*.GIF;*.PNG;*.)|*.JPEG;*.BMP;*.JPG;*.GIF;*.PNG\"";
             this.openFileDialog1.Title = "Choose Image";
+            // 
+            // sellerPictureBox
+            // 
+            this.sellerPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.sellerPictureBox.Location = new System.Drawing.Point(22, 23);
+            this.sellerPictureBox.Name = "sellerPictureBox";
+            this.sellerPictureBox.Size = new System.Drawing.Size(162, 152);
+            this.sellerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.sellerPictureBox.TabIndex = 0;
+            this.sellerPictureBox.TabStop = false;
             // 
             // NewSellerForm
             // 

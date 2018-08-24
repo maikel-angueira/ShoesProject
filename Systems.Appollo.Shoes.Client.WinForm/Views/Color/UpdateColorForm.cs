@@ -31,6 +31,13 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
         {
             var colors = this.ColorDataServices.GetAllColors();
             colorDataGrid.DataSource = colors;
+            if (colors.Count == 0)
+            {
+                DisableButtons();
+            } else
+            {
+                EnableButtons();
+            }
         }
 
         public ColorServices ColorDataServices
@@ -60,10 +67,20 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
         private void UpdateColorPanelView(ColorDto selectedColor)
         {
             idTextBox.Text = selectedColor.ColorId.ToString();
-            colorTextBox.Text = selectedColor.ColorName;
+            colorTextBox.Text = selectedColor.ColorName;            
+            colorTextBox.Enabled = true;
+        }
+
+        private void EnableButtons()
+        {
             updateButton.Enabled = true;
             removeButton.Enabled = true;
-            colorTextBox.Enabled = true;
+        }
+
+        private void DisableButtons()
+        {
+            updateButton.Enabled = false;
+            removeButton.Enabled = false;
         }
 
         private void updateButton_Click(object sender, EventArgs e)

@@ -187,8 +187,16 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
             sellerDataGrid.Refresh();
             if (sellers.Count == 0)
             {
-                DisableButtons();
+                ResetView();
             }
+        }
+
+        private void ResetView()
+        {
+            sellerPictureBox.Image = null;
+            sellerNameTextBox.Clear();
+            sellerAddressTextBox.Clear();
+            DisableButtons();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
+﻿namespace Systems.Appollo.Shoes.Client.WinForm.Views.Client
 {
     partial class UpdateClientForm
     {
@@ -34,11 +34,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.removeButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
-            this.sellerAddressTextBox = new System.Windows.Forms.TextBox();
+            this.clientAddressTextBox = new System.Windows.Forms.TextBox();
             this.clientNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.sellerPictureBox = new System.Windows.Forms.PictureBox();
+            this.clientPictureBox = new System.Windows.Forms.PictureBox();
             this.closeButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.IdGridColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +46,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientDataGrid)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sellerPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -81,11 +81,11 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.removeButton);
             this.groupBox2.Controls.Add(this.updateButton);
-            this.groupBox2.Controls.Add(this.sellerAddressTextBox);
+            this.groupBox2.Controls.Add(this.clientAddressTextBox);
             this.groupBox2.Controls.Add(this.clientNameTextBox);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.linkLabel1);
-            this.groupBox2.Controls.Add(this.sellerPictureBox);
+            this.groupBox2.Controls.Add(this.clientPictureBox);
             this.groupBox2.Location = new System.Drawing.Point(456, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(518, 419);
@@ -126,12 +126,12 @@
             // 
             // sellerAddressTextBox
             // 
-            this.sellerAddressTextBox.AcceptsReturn = true;
-            this.sellerAddressTextBox.Location = new System.Drawing.Point(186, 93);
-            this.sellerAddressTextBox.Multiline = true;
-            this.sellerAddressTextBox.Name = "sellerAddressTextBox";
-            this.sellerAddressTextBox.Size = new System.Drawing.Size(324, 86);
-            this.sellerAddressTextBox.TabIndex = 5;
+            this.clientAddressTextBox.AcceptsReturn = true;
+            this.clientAddressTextBox.Location = new System.Drawing.Point(186, 93);
+            this.clientAddressTextBox.Multiline = true;
+            this.clientAddressTextBox.Name = "sellerAddressTextBox";
+            this.clientAddressTextBox.Size = new System.Drawing.Size(324, 86);
+            this.clientAddressTextBox.TabIndex = 5;
             // 
             // clientNameTextBox
             // 
@@ -162,12 +162,12 @@
             // 
             // sellerPictureBox
             // 
-            this.sellerPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sellerPictureBox.Location = new System.Drawing.Point(6, 23);
-            this.sellerPictureBox.Name = "sellerPictureBox";
-            this.sellerPictureBox.Size = new System.Drawing.Size(156, 156);
-            this.sellerPictureBox.TabIndex = 0;
-            this.sellerPictureBox.TabStop = false;
+            this.clientPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.clientPictureBox.Location = new System.Drawing.Point(6, 23);
+            this.clientPictureBox.Name = "sellerPictureBox";
+            this.clientPictureBox.Size = new System.Drawing.Size(156, 156);
+            this.clientPictureBox.TabIndex = 0;
+            this.clientPictureBox.TabStop = false;
             // 
             // closeButton
             // 
@@ -209,13 +209,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "UpdateClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Actualizar Modelos de Zapatos";
+            this.Text = "Actualizar Clientes";
             this.Load += new System.EventHandler(this.UpdateModelForm_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientDataGrid)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sellerPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -227,8 +227,8 @@
         private System.Windows.Forms.TextBox clientNameTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.PictureBox sellerPictureBox;
-        private System.Windows.Forms.TextBox sellerAddressTextBox;
+        private System.Windows.Forms.PictureBox clientPictureBox;
+        private System.Windows.Forms.TextBox clientAddressTextBox;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button closeButton;

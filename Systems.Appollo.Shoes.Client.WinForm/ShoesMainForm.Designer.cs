@@ -154,14 +154,16 @@
             // nuevoToolStripMenuItem
             // 
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
+            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // actualizarToolStripMenuItem
             // 
             this.actualizarToolStripMenuItem.Name = "actualizarToolStripMenuItem";
-            this.actualizarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.actualizarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.actualizarToolStripMenuItem.Text = "Actualizar";
+            this.actualizarToolStripMenuItem.Click += new System.EventHandler(this.actualizarToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
@@ -199,14 +201,14 @@
             // nuevoToolStripMenuItem2
             // 
             this.nuevoToolStripMenuItem2.Name = "nuevoToolStripMenuItem2";
-            this.nuevoToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.nuevoToolStripMenuItem2.Size = new System.Drawing.Size(126, 22);
             this.nuevoToolStripMenuItem2.Text = "Nuevo";
             this.nuevoToolStripMenuItem2.Click += new System.EventHandler(this.nuevoToolStripMenuItem2_Click);
             // 
             // actualizarToolStripMenuItem2
             // 
             this.actualizarToolStripMenuItem2.Name = "actualizarToolStripMenuItem2";
-            this.actualizarToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.actualizarToolStripMenuItem2.Size = new System.Drawing.Size(126, 22);
             this.actualizarToolStripMenuItem2.Text = "Actualizar";
             this.actualizarToolStripMenuItem2.Click += new System.EventHandler(this.actualizarToolStripMenuItem2_Click);
             // 

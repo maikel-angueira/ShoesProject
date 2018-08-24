@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Systems.Appollo.Shoes.Client.WinForm.Utils;
 using Systems.Appollo.Shoes.Data.Services;
 
-namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
+namespace Systems.Appollo.Shoes.Client.WinForm.Views.Client
 {
     public partial class NewClientForm : Form
     {

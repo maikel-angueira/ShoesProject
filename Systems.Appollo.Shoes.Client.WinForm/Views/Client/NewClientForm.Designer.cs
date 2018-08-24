@@ -1,4 +1,4 @@
-﻿namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
+﻿namespace Systems.Appollo.Shoes.Client.WinForm.Views.Client
 {
     partial class NewClientForm
     {
