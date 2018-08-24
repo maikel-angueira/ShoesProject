@@ -25,7 +25,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Store
 
         private void NewStoreForm_Load(object sender, EventArgs e)
         {
-            sellerComboBox.DisplayMember = "Name";
             LoadSellers();
         }
 
@@ -33,6 +32,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Store
         {
             var sellers = ShoesDataServices.SellerServices.GetAllSellers();
             sellerComboBox.DataSource = sellers;
+            insertButton.Enabled = sellers.Count > 0;
         }
 
         private void button3_Click(object sender, EventArgs e)
