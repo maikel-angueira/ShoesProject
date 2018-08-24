@@ -30,6 +30,8 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.supplierDataGrid = new System.Windows.Forms.DataGridView();
+            this.IdGridColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameGridColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.removeButton = new System.Windows.Forms.Button();
@@ -38,11 +40,9 @@
             this.sellerNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.sellerPictureBox = new System.Windows.Forms.PictureBox();
             this.closeButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.sellerPictureBox = new System.Windows.Forms.PictureBox();
-            this.IdGridColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameGridColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierDataGrid)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -59,7 +59,7 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado Proveedores:";
             // 
-            // sellerDataGrid
+            // supplierDataGrid
             // 
             this.supplierDataGrid.AllowUserToAddRows = false;
             this.supplierDataGrid.AllowUserToDeleteRows = false;
@@ -69,12 +69,27 @@
             this.NameGridColumn});
             this.supplierDataGrid.Location = new System.Drawing.Point(7, 23);
             this.supplierDataGrid.MultiSelect = false;
-            this.supplierDataGrid.Name = "sellerDataGrid";
+            this.supplierDataGrid.Name = "supplierDataGrid";
             this.supplierDataGrid.ReadOnly = true;
             this.supplierDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.supplierDataGrid.Size = new System.Drawing.Size(425, 373);
             this.supplierDataGrid.TabIndex = 0;
             this.supplierDataGrid.SelectionChanged += new System.EventHandler(this.modelDataGrid_SelectionChanged);
+            // 
+            // IdGridColumn
+            // 
+            this.IdGridColumn.DataPropertyName = "SupplierId";
+            this.IdGridColumn.HeaderText = "ID";
+            this.IdGridColumn.Name = "IdGridColumn";
+            this.IdGridColumn.ReadOnly = true;
+            // 
+            // NameGridColumn
+            // 
+            this.NameGridColumn.DataPropertyName = "Name";
+            this.NameGridColumn.HeaderText = "Nombre";
+            this.NameGridColumn.Name = "NameGridColumn";
+            this.NameGridColumn.ReadOnly = true;
+            this.NameGridColumn.Width = 250;
             // 
             // groupBox2
             // 
@@ -160,6 +175,15 @@
             this.linkLabel1.Text = "Actualizar Foto";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // sellerPictureBox
+            // 
+            this.sellerPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.sellerPictureBox.Location = new System.Drawing.Point(6, 23);
+            this.sellerPictureBox.Name = "sellerPictureBox";
+            this.sellerPictureBox.Size = new System.Drawing.Size(156, 156);
+            this.sellerPictureBox.TabIndex = 0;
+            this.sellerPictureBox.TabStop = false;
+            // 
             // closeButton
             // 
             this.closeButton.Location = new System.Drawing.Point(898, 437);
@@ -174,30 +198,6 @@
             // 
             this.openFileDialog1.Filter = "Images (*.JPEG;*.BMP;*.JPG;*.GIF;*.PNG;*.)|*.JPEG;*.BMP;*.JPG;*.GIF;*.PNG\"";
             // 
-            // sellerPictureBox
-            // 
-            this.sellerPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sellerPictureBox.Location = new System.Drawing.Point(6, 23);
-            this.sellerPictureBox.Name = "sellerPictureBox";
-            this.sellerPictureBox.Size = new System.Drawing.Size(156, 156);
-            this.sellerPictureBox.TabIndex = 0;
-            this.sellerPictureBox.TabStop = false;
-            // 
-            // IdGridColumn
-            // 
-            this.IdGridColumn.DataPropertyName = "SupplierId";
-            this.IdGridColumn.HeaderText = "ID";
-            this.IdGridColumn.Name = "IdGridColumn";
-            this.IdGridColumn.ReadOnly = true;
-            // 
-            // NameGridColumn
-            // 
-            this.NameGridColumn.DataPropertyName = "Name";
-            this.NameGridColumn.HeaderText = "Nombre";
-            this.NameGridColumn.Name = "NameGridColumn";
-            this.NameGridColumn.ReadOnly = true;
-            this.NameGridColumn.Width = 250;
-            // 
             // UpdateSupplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,7 +209,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "UpdateSupplierForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Actualizar Modelos de Zapatos";
+            this.Text = "Actualizar Proveedores";
             this.Load += new System.EventHandler(this.UpdateModelForm_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.supplierDataGrid)).EndInit();
