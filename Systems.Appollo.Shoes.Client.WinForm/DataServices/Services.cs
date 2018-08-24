@@ -12,36 +12,22 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
         private readonly ColorServices colorServices;
         private readonly ModelServices modelServices;
         private readonly SellerServices sellerServices;
+        private readonly ClientServices clientServices;
 
         public Services()
         {
             this.colorServices = new ColorServices();
             this.modelServices = new ModelServices();
             this.sellerServices = new SellerServices();
+            this.clientServices = new ClientServices();
         }
 
-        public ColorServices ColorServices
-        {
-            get
-            {
-                return this.colorServices;
-            }
-        }
+        public ClientServices ClientServices => clientServices;
 
-        public ModelServices ModelServices
-        {
-            get
-            {
-                return this.modelServices;
-            }
-        }
+        public ColorServices ColorServices => colorServices;
 
-        public SellerServices SellerServices
-        {
-            get
-            {
-                return this.sellerServices;
-            }
-        }
+        public ModelServices ModelServices => modelServices;
+
+        public SellerServices SellerServices => sellerServices;
     }
 }

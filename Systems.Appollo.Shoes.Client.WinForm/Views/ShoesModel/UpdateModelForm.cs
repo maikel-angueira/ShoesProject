@@ -82,7 +82,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
             modelDataGrid.Refresh();
         }
 
-        private ModelServices ModelDataServices
+        public ModelServices ModelDataServices
         {
             get
             {
@@ -90,11 +90,8 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
                     modelDataServices = new ModelServices();
                 return modelDataServices;
             }
-        }
 
-        public void SetModelDataServices(ModelServices modelServices)
-        {
-            this.modelDataServices = modelServices;
+            set => modelDataServices = value;
         }
 
         private void UpdateModelForm_Load(object sender, EventArgs e)

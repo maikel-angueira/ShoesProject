@@ -45,7 +45,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
             this.ColorName = String.Empty;
         }
 
-        private ColorServices ColorDataServices
+        public ColorServices ColorDataServices
         {
             get
             {
@@ -54,6 +54,8 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
 
                 return colorServices;
             }
+
+            set => colorServices = value;
         }
 
         private String ColorName
@@ -68,11 +70,5 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
                 colorTextBox.Text = value;
             }
         }
-
-        internal void SetColorDataService(ColorServices colorServices)
-        {
-            this.colorServices = colorServices;
-        }
-        
     }
 }

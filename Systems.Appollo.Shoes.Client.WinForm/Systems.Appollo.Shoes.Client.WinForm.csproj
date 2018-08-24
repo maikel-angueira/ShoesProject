@@ -64,6 +64,12 @@
     <Compile Include="Views\AboutUsBox.Designer.cs">
       <DependentUpon>AboutUsBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Client\NewClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Client\NewClientForm.Designer.cs">
+      <DependentUpon>NewClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Color\NewColorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </Compile>
     <EmbeddedResource Include="Views\AboutUsBox.resx">
       <DependentUpon>AboutUsBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Client\NewClientForm.resx">
+      <DependentUpon>NewClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Color\NewColorForm.resx">
       <DependentUpon>NewColorForm.cs</DependentUpon>

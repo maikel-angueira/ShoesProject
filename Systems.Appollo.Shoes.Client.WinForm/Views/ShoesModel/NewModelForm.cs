@@ -103,7 +103,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel
             }
         }
 
-        private ModelServices ModelDataServices
+        public ModelServices ModelDataServices
         {
             get
             {
@@ -111,11 +111,8 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel
                     modelDataServices = new ModelServices();
                 return modelDataServices;
             }
-        }
 
-        public void SetModelDataServices(ModelServices modelServices)
-        {
-            this.modelDataServices = modelServices;
+            set => modelDataServices = value;
         }
     }
 }

@@ -103,7 +103,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
             }
         }
 
-        private SellerServices SellerDataServices
+        public SellerServices SellerDataServices
         {
             get
             {
@@ -111,11 +111,8 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
                     sellerDataServices = new SellerServices();
                 return sellerDataServices;
             }
-        }
 
-        public void SetSellerDataServices(SellerServices sellerServices)
-        {
-            this.sellerDataServices = sellerServices;
+            set => sellerDataServices = value;
         }
 
         private void label1_Click(object sender, EventArgs e)
