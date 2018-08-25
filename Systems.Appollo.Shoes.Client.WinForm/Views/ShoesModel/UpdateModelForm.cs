@@ -107,7 +107,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
             {
                 DisableButtons();
                 return;
-
             }
             modelNameTextBox.Text = SelectedModel.Name;
             modelDescriptionTextBox.Text = SelectedModel.Description;

@@ -118,6 +118,12 @@
     <Compile Include="Views\Store\NewStoreForm.Designer.cs">
       <DependentUpon>NewStoreForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Store\UpdateStoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Store\UpdateStoreForm.Designer.cs">
+      <DependentUpon>UpdateStoreForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Supplier\NewSupplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Store\NewStoreForm.resx">
       <DependentUpon>NewStoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Store\UpdateStoreForm.resx">
+      <DependentUpon>UpdateStoreForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Supplier\NewSupplierForm.resx">
       <DependentUpon>NewSupplierForm.cs</DependentUpon>

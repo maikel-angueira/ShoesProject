@@ -24,7 +24,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
 
         public ShoesMainForm()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -138,6 +138,15 @@ namespace Systems.Appollo.Shoes.Client.WinForm
                 ShoesDataServices = dataServices
             };
             newStoreForm.ShowDialog();
+        }
+
+        private void actualizarToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            var updateStoreForm = new UpdateStoreForm
+            {
+                ShoesDataClientServices = dataServices
+            };
+            updateStoreForm.ShowDialog();
         }
     }
 }
