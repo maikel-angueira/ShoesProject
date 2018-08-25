@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Utils\Constants.cs" />
-    <Compile Include="DataServices\Services.cs" />
+    <Compile Include="DataServices\ShoesClientServices.cs" />
     <Compile Include="ShoesMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
