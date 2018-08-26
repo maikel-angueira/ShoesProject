@@ -58,7 +58,7 @@ namespace Systems.Appollo.Shoes.Data.Services
                 {
                     StoreId = s.Id,
                     Name = s.Name,
-                    Address = s.Name,
+                    Address = s.Address,
                     SellerId = s.SellerId
                 }).ToList();
         }

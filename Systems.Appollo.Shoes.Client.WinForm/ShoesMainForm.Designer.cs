@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShoesMainForm));
             this.toolMainMenu = new System.Windows.Forms.MenuStrip();
             this.almacenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tallerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +62,11 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tutorialOnlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolMainMenu.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolMainMenu
@@ -104,8 +109,8 @@
             // existenciaToolStripMenuItem
             // 
             this.existenciaToolStripMenuItem.Name = "existenciaToolStripMenuItem";
-            this.existenciaToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.existenciaToolStripMenuItem.Text = "Existencias";
+            this.existenciaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.existenciaToolStripMenuItem.Text = "Existencia en Almacén";
             this.existenciaToolStripMenuItem.Click += new System.EventHandler(this.existenciaToolStripMenuItem_Click);
             // 
             // salidasToolStripMenuItem
@@ -299,8 +304,9 @@
             // gananciaToolStripMenuItem
             // 
             this.gananciaToolStripMenuItem.Name = "gananciaToolStripMenuItem";
-            this.gananciaToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.gananciaToolStripMenuItem.Text = "Existencias por Tiendas";
+            this.gananciaToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.gananciaToolStripMenuItem.Text = "Existencia en Tiendas";
+            this.gananciaToolStripMenuItem.Click += new System.EventHandler(this.gananciaToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -321,8 +327,37 @@
             // tutorialOnlineToolStripMenuItem
             // 
             this.tutorialOnlineToolStripMenuItem.Name = "tutorialOnlineToolStripMenuItem";
-            this.tutorialOnlineToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
-            this.tutorialOnlineToolStripMenuItem.Text = "Tutorial online";
+            this.tutorialOnlineToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tutorialOnlineToolStripMenuItem.Text = "Tutorial";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(666, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "Entrada Taller";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
             // 
             // ShoesMainForm
             // 
@@ -332,6 +367,7 @@
             this.BackgroundImage = global::Systems.Appollo.Shoes.Client.WinForm.Properties.Resources.Slider_image_Art_impresion_4;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(666, 462);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.toolMainMenu);
             this.MainMenuStrip = this.toolMainMenu;
             this.Name = "ShoesMainForm";
@@ -341,6 +377,8 @@
             this.Load += new System.EventHandler(this.ShoesMainForm_Load);
             this.toolMainMenu.ResumeLayout(false);
             this.toolMainMenu.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,6 +419,9 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tutorialOnlineToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }
 

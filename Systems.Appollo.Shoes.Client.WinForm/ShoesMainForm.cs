@@ -148,5 +148,10 @@ namespace Systems.Appollo.Shoes.Client.WinForm
             };
             updateStoreForm.ShowDialog();
         }
+
+        private void gananciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
