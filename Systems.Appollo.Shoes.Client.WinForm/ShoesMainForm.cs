@@ -15,6 +15,7 @@ using Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel;
 using Systems.Appollo.Shoes.Client.WinForm.Views.Client;
 using Systems.Appollo.Shoes.Client.WinForm.Views.Supplier;
 using Systems.Appollo.Shoes.Client.WinForm.Views.Store;
+using Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom;
 
 namespace Systems.Appollo.Shoes.Client.WinForm
 {
@@ -152,6 +153,15 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         private void gananciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tallerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var newStockroomForm = new NewStockroomEntryForm()
+            {
+                ShoesDataClientServices = dataServices
+            };
+            newStockroomForm.ShowDialog();
         }
     }
 }

@@ -62,12 +62,12 @@ namespace Systems.Appollo.Shoes.Data.Services
             if (colorName == null)
                 return false;
 
-            return shoesDataEntities.Colors.Any(c => c.Name.Equals(colorName));
+            return shoesDataEntities.Colors.Any(c => c.Name == colorName);
         }
 
         private Color FindColor(int colorId)
         {
-            return shoesDataEntities.Colors.Where(c => c.Id.Equals(colorId)).SingleOrDefault();
+            return shoesDataEntities.Colors.Where(c => c.Id == colorId).SingleOrDefault();
         }
 
         private void SaveChanges()
