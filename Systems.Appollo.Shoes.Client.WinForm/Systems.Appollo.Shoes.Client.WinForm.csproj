@@ -226,5 +226,8 @@
   <ItemGroup>
     <None Include="Resources\Slider_image_Art_impresion_4.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_notepad_1291737.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
