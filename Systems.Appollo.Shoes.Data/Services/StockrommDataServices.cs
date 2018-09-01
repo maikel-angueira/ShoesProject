@@ -7,12 +7,12 @@ using Systems.Appollo.Shoes.Data.DataModels;
 
 namespace Systems.Appollo.Shoes.Data.Services
 {
-    public class StockroomDataServices
+    public class StockRoomDataServices
     {
         private readonly ShoesDBEntities shoesDataEntities;
         private readonly ColorServices colorServices;
 
-        public StockroomDataServices()
+        public StockRoomDataServices()
         {
             this.shoesDataEntities = new ShoesDBEntities();
             this.colorServices = new ColorServices();
