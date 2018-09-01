@@ -71,5 +71,15 @@ namespace Systems.Appollo.Shoes.Data.Services
                 SaveChanges();
             }
         }
+
+        public void UpdateShoesModelPicture(int modelId, byte[] uploadPicture)
+        {
+            var currentShoesModel = FindModelById(modelId);
+            if (currentShoesModel != null)
+            {
+                currentShoesModel.Photo = uploadPicture;
+                SaveChanges();
+            }
+        }
     }
 }

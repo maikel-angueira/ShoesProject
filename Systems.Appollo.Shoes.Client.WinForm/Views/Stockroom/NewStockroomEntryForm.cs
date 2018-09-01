@@ -40,6 +40,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
             modelComboBox.DataSource = shoesModels;
             colorComboBox.DataSource = Colors;
             addButton.Enabled = shoesModels.Count > 0;
+            photoLinkLabel.Enabled = shoesModels.Count > 0;
             sizeComboBox.SelectedIndex = 0;
             ReloadShoesModelPicture(SelectedModelDto);
         }
@@ -126,6 +127,24 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
                 Colors = ShoesDataClientServices.ColorServices.GetAllColors();
                 colorComboBox.DataSource = Colors;
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                var uploadPicture = PictureViewUtils.ReadImageFromFilePath(openFileDialog1.FileName);
+                ShoesDataClientServices.ModelServices.UpdateShoesModelPicture(SelectedModelDto.ModelId, uploadPicture);
+                SelectedModelDto.Photo = uploadPicture;
+                LoadNewPhoto();
+            }
+        }
+
+        private void LoadNewPhoto()
+        {
+            Image img = new Bitmap(openFileDialog1.FileName);
+            shoesPictureBox.Image = img; ;
+            shoesPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }
 }

@@ -44,8 +44,9 @@
             this.shoesPictureBox = new System.Windows.Forms.PictureBox();
             this.addButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.photoLinkLabel = new System.Windows.Forms.LinkLabel();
             this.sizeComboBox = new System.Windows.Forms.ComboBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shoesPictureBox)).BeginInit();
@@ -173,11 +174,11 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Descripción:";
             // 
-            // descriptionTxtBox
+            // descriptionTextBox
             // 
             this.descriptionTextBox.Location = new System.Drawing.Point(17, 246);
             this.descriptionTextBox.Multiline = true;
-            this.descriptionTextBox.Name = "descriptionTxtBox";
+            this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(290, 108);
             this.descriptionTextBox.TabIndex = 13;
             // 
@@ -210,15 +211,16 @@
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // linkLabel1
+            // photoLinkLabel
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(411, 175);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(91, 13);
-            this.linkLabel1.TabIndex = 17;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Actualizar Modelo";
+            this.photoLinkLabel.AutoSize = true;
+            this.photoLinkLabel.Location = new System.Drawing.Point(411, 175);
+            this.photoLinkLabel.Name = "photoLinkLabel";
+            this.photoLinkLabel.Size = new System.Drawing.Size(77, 13);
+            this.photoLinkLabel.TabIndex = 17;
+            this.photoLinkLabel.TabStop = true;
+            this.photoLinkLabel.Text = "Actualizar Foto";
+            this.photoLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // sizeComboBox
             // 
@@ -244,13 +246,17 @@
             this.sizeComboBox.Size = new System.Drawing.Size(80, 21);
             this.sizeComboBox.TabIndex = 18;
             // 
-            // NewStockroomEntryForm
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "Images (*.JPEG;*.BMP;*.JPG;*.GIF;*.PNG;*.)|*.JPEG;*.BMP;*.JPG;*.GIF;*.PNG\"";
+            // 
+            // NewStockRoomEntryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(583, 364);
             this.Controls.Add(this.sizeComboBox);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.photoLinkLabel);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.shoesPictureBox);
@@ -268,7 +274,7 @@
             this.Controls.Add(this.modelComboBox);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "NewStockroomEntryForm";
+            this.Name = "NewStockRoomEntryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrada desde Taller";
             this.Load += new System.EventHandler(this.NewStockroomEntryForm_Load);
@@ -298,7 +304,8 @@
         private System.Windows.Forms.PictureBox shoesPictureBox;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button closeButton;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel photoLinkLabel;
         private System.Windows.Forms.ComboBox sizeComboBox;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
