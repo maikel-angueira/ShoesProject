@@ -67,7 +67,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
         private void UpdateColorPanelView(ColorDto selectedColor)
         {
             idTextBox.Text = selectedColor.ColorId.ToString();
-            colorTextBox.Text = selectedColor.ColorName;            
+            colorTextBox.Text = selectedColor.Name;            
             colorTextBox.Enabled = true;
         }
 
@@ -87,7 +87,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
         {
             if (SelectedColor == null)
                 return;
-            if (SelectedColor.ColorName.Equals(NewColorName))
+            if (SelectedColor.Name.Equals(NewColorName))
                 return;
             if (ColorDataServices.ExistColorByName(NewColorName))
             {
@@ -96,7 +96,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
             }
 
             ColorDataServices.UpdateColor(SelectedColor.ColorId, NewColorName);
-            SelectedColor.ColorName = NewColorName;
+            SelectedColor.Name = NewColorName;
             colorDataGrid.Refresh();
             MessageBox.Show(String.Format(Messages.ELEMENT_UPDATED_SUCCESS, EntityNames.COlOR_ENTITY_NAME), Constants.MESSAGE_CAPTION);
         }
@@ -125,14 +125,14 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
                 return;
 
             var dialogResult = MessageBox.Show(
-                    String.Format(Messages.DO_YOU_WANT_TO_DELETED, SelectedColor.ColorName),
+                    String.Format(Messages.DO_YOU_WANT_TO_DELETED, SelectedColor.Name),
                     Constants.MESSAGE_CAPTION,
                     MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 ColorDataServices.DeleteColor(SelectedColor.ColorId);
                 DataFill();
-                MessageBox.Show(String.Format(Messages.ELEMENT_DELETED_SUCESS, EntityNames.COlOR_ENTITY_NAME, SelectedColor.ColorName), Constants.MESSAGE_CAPTION);
+                MessageBox.Show(String.Format(Messages.ELEMENT_DELETED_SUCESS, EntityNames.COlOR_ENTITY_NAME, SelectedColor.Name), Constants.MESSAGE_CAPTION);
             }
         }
     }

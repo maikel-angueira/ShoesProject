@@ -40,7 +40,7 @@
             this.dateInTime = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.descriptionTxtBox = new System.Windows.Forms.TextBox();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.shoesPictureBox = new System.Windows.Forms.PictureBox();
             this.addButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
@@ -62,11 +62,13 @@
             // 
             // modelComboBox
             // 
+            this.modelComboBox.DisplayMember = "Name";
             this.modelComboBox.FormattingEnabled = true;
             this.modelComboBox.Location = new System.Drawing.Point(17, 34);
             this.modelComboBox.Name = "modelComboBox";
             this.modelComboBox.Size = new System.Drawing.Size(290, 21);
             this.modelComboBox.TabIndex = 1;
+            this.modelComboBox.SelectedValueChanged += new System.EventHandler(this.modelComboBox_SelectedValueChanged);
             // 
             // label2
             // 
@@ -81,6 +83,7 @@
             // 
             this.colorComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.colorComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.colorComboBox.DisplayMember = "Name";
             this.colorComboBox.FormattingEnabled = true;
             this.colorComboBox.Location = new System.Drawing.Point(17, 83);
             this.colorComboBox.Name = "colorComboBox";
@@ -108,9 +111,24 @@
             // quantityNumericUpDown
             // 
             this.quantityNumericUpDown.Location = new System.Drawing.Point(224, 190);
+            this.quantityNumericUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.quantityNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.quantityNumericUpDown.Name = "quantityNumericUpDown";
             this.quantityNumericUpDown.Size = new System.Drawing.Size(80, 20);
             this.quantityNumericUpDown.TabIndex = 7;
+            this.quantityNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label5
             // 
@@ -124,6 +142,7 @@
             // 
             // costNumericUpDown
             // 
+            this.costNumericUpDown.DecimalPlaces = 2;
             this.costNumericUpDown.Location = new System.Drawing.Point(126, 191);
             this.costNumericUpDown.Name = "costNumericUpDown";
             this.costNumericUpDown.Size = new System.Drawing.Size(80, 20);
@@ -156,11 +175,11 @@
             // 
             // descriptionTxtBox
             // 
-            this.descriptionTxtBox.Location = new System.Drawing.Point(17, 246);
-            this.descriptionTxtBox.Multiline = true;
-            this.descriptionTxtBox.Name = "descriptionTxtBox";
-            this.descriptionTxtBox.Size = new System.Drawing.Size(290, 108);
-            this.descriptionTxtBox.TabIndex = 13;
+            this.descriptionTextBox.Location = new System.Drawing.Point(17, 246);
+            this.descriptionTextBox.Multiline = true;
+            this.descriptionTextBox.Name = "descriptionTxtBox";
+            this.descriptionTextBox.Size = new System.Drawing.Size(290, 108);
+            this.descriptionTextBox.TabIndex = 13;
             // 
             // shoesPictureBox
             // 
@@ -179,6 +198,7 @@
             this.addButton.TabIndex = 15;
             this.addButton.Text = "Insertar";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // closeButton
             // 
@@ -234,7 +254,7 @@
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.shoesPictureBox);
-            this.Controls.Add(this.descriptionTxtBox);
+            this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dateInTime);
@@ -274,7 +294,7 @@
         private System.Windows.Forms.DateTimePicker dateInTime;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox descriptionTxtBox;
+        private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.PictureBox shoesPictureBox;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button closeButton;

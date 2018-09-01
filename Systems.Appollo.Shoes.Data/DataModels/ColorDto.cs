@@ -8,12 +8,12 @@ namespace Systems.Appollo.Shoes.Data.DataModels
 {
     public class ColorDto
     {
-        public int ColorId
+        public int? ColorId
         {
             get;set;
         }
 
-        public string ColorName
+        public string Name
         {
             get;set;
         }

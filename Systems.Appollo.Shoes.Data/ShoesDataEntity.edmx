@@ -39,7 +39,7 @@
           <Property Name="ColorId" Type="int" Nullable="false" />
           <Property Name="Size" Type="float" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
-          <Property Name="UnitCost" Type="money" Nullable="false" />
+          <Property Name="UnitCost" Type="float" Nullable="false" />
           <Property Name="InputDate" Type="datetime" Nullable="false" />
           <Property Name="Description" Type="text" />
         </EntityType>
@@ -313,7 +313,7 @@
           <Property Name="ColorId" Type="Int32" Nullable="false" />
           <Property Name="Size" Type="Double" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="UnitCost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="UnitCost" Type="Double" Nullable="false" />
           <Property Name="InputDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Color" Relationship="Self.FK_Product_To_Color" FromRole="Product" ToRole="Color" />

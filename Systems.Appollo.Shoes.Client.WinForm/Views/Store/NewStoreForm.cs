@@ -74,6 +74,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Store
         {
             get
             {
+                if (sellerComboBox.SelectedItem == null) return null;
                 return sellerComboBox.SelectedItem as SellerDto;
             }
         }

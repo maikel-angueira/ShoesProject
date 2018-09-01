@@ -15,6 +15,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
         private readonly ClientServices clientServices;
         private readonly SupplierServices supplierServices;
         private readonly StoreServices storeServices;
+        private readonly StockroomDataServices stockroomServices;
 
         public ShoesClientServices()
         {
@@ -24,6 +25,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
             this.clientServices = new ClientServices();
             this.supplierServices = new SupplierServices();
             this.storeServices = new StoreServices();
+            this.stockroomServices = new StockroomDataServices();
         }
 
         public ClientServices ClientServices => clientServices;
@@ -37,5 +39,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
         public SupplierServices SupplierServices => supplierServices;
 
         public StoreServices StoreServices => storeServices;
+
+        public StockroomDataServices StockroomServices => stockroomServices;
     }
 }

@@ -25,7 +25,7 @@ namespace Systems.Appollo.Shoes.Data
         public int ColorId { get; set; }
         public double Size { get; set; }
         public int Quantity { get; set; }
-        public decimal UnitCost { get; set; }
+        public double UnitCost { get; set; }
         public System.DateTime InputDate { get; set; }
         public string Description { get; set; }
     

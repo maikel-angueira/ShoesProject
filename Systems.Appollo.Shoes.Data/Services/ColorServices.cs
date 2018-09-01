@@ -28,7 +28,7 @@ namespace Systems.Appollo.Shoes.Data.Services
             SaveChanges();
         }
 
-        public ColorDto UpdateColor(int colorId, string newColor)
+        public ColorDto UpdateColor(int? colorId, string newColor)
         {
             var currentColor = FindColor(colorId);
             if (currentColor != null)
@@ -37,10 +37,10 @@ namespace Systems.Appollo.Shoes.Data.Services
                 SaveChanges();
             }
 
-            return new ColorDto { ColorId = colorId, ColorName = newColor };
+            return new ColorDto { ColorId = colorId, Name = newColor };
         }
 
-        public void DeleteColor(int colorId)
+        public void DeleteColor(int? colorId)
         {
             Color deleted = FindColor(colorId);
             if (deleted != null)
@@ -53,7 +53,7 @@ namespace Systems.Appollo.Shoes.Data.Services
         public List<ColorDto> GetAllColors()
         {
             return shoesDataEntities.Colors
-                    .Select(c => new ColorDto() { ColorId = c.Id, ColorName = c.Name })
+                    .Select(c => new ColorDto() { ColorId = c.Id, Name = c.Name })
                     .ToList();
         }
 
@@ -65,7 +65,7 @@ namespace Systems.Appollo.Shoes.Data.Services
             return shoesDataEntities.Colors.Any(c => c.Name == colorName);
         }
 
-        private Color FindColor(int colorId)
+        public Color FindColor(int? colorId)
         {
             return shoesDataEntities.Colors.Where(c => c.Id == colorId).SingleOrDefault();
         }
