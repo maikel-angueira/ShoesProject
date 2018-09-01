@@ -1,6 +1,6 @@
 ﻿namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
 {
-    partial class NewStockroomEntryForm
+    partial class NewStockRoomEntryForm
     {
         /// <summary>
         /// Required designer variable.

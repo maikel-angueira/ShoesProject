@@ -13,11 +13,11 @@ using Systems.Appollo.Shoes.Data.DataModels;
 
 namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
 {
-    public partial class NewStockroomEntryForm : Form
+    public partial class NewStockRoomEntryForm : Form
     {
         public ShoesClientServices ShoesDataClientServices { get; set; }
 
-        public NewStockroomEntryForm()
+        public NewStockRoomEntryForm()
         {
             InitializeComponent();
             costNumericUpDown.Maximum = Decimal.MaxValue;
@@ -112,7 +112,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
             };
             ShoesDataClientServices.StockRoomServices.InsertNewProduct(newDto);
             ResetView();
-            MessageBox.Show(Messages.NEW_PRODUCT_FROM_STORE_CREATED_SUCESSS, Constants.MESSAGE_CAPTION);
+            MessageBox.Show(Messages.NEW_PRODUCT_CREATED_SUCESSS, Constants.MESSAGE_CAPTION);
         }
 
         private void ResetView()

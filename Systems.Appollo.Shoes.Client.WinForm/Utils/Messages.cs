@@ -17,6 +17,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Utils
         public const string ELEMENT_EXISTS = "El elemento seleccionado ya exist en la base de datos";
         public const string SELECTED_COLOR_REQUIRED = "Selecciona el color del modelo de zapato";
         public const string SELECTED_MODEL_REQUIRED = "Selecciona el modelo de zapato";
-        public const string NEW_PRODUCT_FROM_STORE_CREATED_SUCESSS = "Nueva entrada al almacén creada correctamente";
+        public const string NEW_PRODUCT_CREATED_SUCESSS = "Nueva entrada al almacén creada correctamente";
     }
 }

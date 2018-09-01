@@ -157,7 +157,16 @@ namespace Systems.Appollo.Shoes.Client.WinForm
 
         private void tallerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var newStockroomForm = new NewStockroomEntryForm()
+            var newStockroomForm = new NewStockRoomEntryForm()
+            {
+                ShoesDataClientServices = dataServices
+            };
+            newStockroomForm.ShowDialog();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            var newStockroomForm = new NewStockRoomEntryForm()
             {
                 ShoesDataClientServices = dataServices
             };

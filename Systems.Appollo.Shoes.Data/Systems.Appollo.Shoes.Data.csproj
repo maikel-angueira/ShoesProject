@@ -97,7 +97,7 @@
     <Compile Include="Services\ClientServices.cs" />
     <Compile Include="Services\ColorServices.cs" />
     <Compile Include="Services\ModelServices.cs" />
-    <Compile Include="Services\StockrommDataServices.cs" />
+    <Compile Include="Services\StockRoomDataServices.cs" />
     <Compile Include="Services\StoreServices.cs" />
     <Compile Include="Services\SupplierServices.cs" />
     <Compile Include="Services\SellerServices.cs" />

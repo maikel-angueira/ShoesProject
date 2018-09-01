@@ -18,28 +18,28 @@ namespace Systems.Appollo.Shoes.Data.Services
             this.colorServices = new ColorServices();
         }
 
-        public void InsertNewProduct(StockRoomDto stockroomDto)
+        public void InsertNewProduct(StockRoomDto stockRoomDto)
         {
             Color shoesColor = null;
-            if (stockroomDto.SelectedColor.ColorId == null)
+            if (stockRoomDto.SelectedColor.ColorId == null)
             {
-                shoesColor = new Color { Name = stockroomDto.SelectedColor.Name };
+                shoesColor = new Color { Name = stockRoomDto.SelectedColor.Name };
                 shoesDataEntities.Colors.Add(shoesColor);
             }
             else
             {
-                shoesColor = colorServices.FindColor(stockroomDto.SelectedColor.ColorId);                
+                shoesColor = colorServices.FindColor(stockRoomDto.SelectedColor.ColorId);                
             }
 
             var newProduct = new Product
             {
-                ModelId = stockroomDto.ModelId,
+                ModelId = stockRoomDto.ModelId,
                 ColorId = shoesColor.Id,
-                Description = stockroomDto.Description,
-                Size = stockroomDto.Size,
-                Quantity = stockroomDto.Quantity,
-                UnitCost = stockroomDto.UnitCost,
-                InputDate = stockroomDto.InputDate
+                Description = stockRoomDto.Description,
+                Size = stockRoomDto.Size,
+                Quantity = stockRoomDto.Quantity,
+                UnitCost = stockRoomDto.UnitCost,
+                InputDate = stockRoomDto.InputDate
             };
 
             shoesDataEntities.Products.Add(newProduct);
