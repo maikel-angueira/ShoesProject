@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Panic.StringUtils.Extensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -136,14 +137,14 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
                 var uploadPicture = PictureViewUtils.ReadImageFromFilePath(openFileDialog1.FileName);
                 ShoesDataClientServices.ModelServices.UpdateShoesModelPicture(SelectedModelDto.ModelId, uploadPicture);
                 SelectedModelDto.Photo = uploadPicture;
-                LoadNewPhoto();
+                LoadNewPhoto(openFileDialog1.FileName);
             }
         }
 
-        private void LoadNewPhoto()
+        private void LoadNewPhoto(string fileName)
         {
-            Image img = new Bitmap(openFileDialog1.FileName);
-            shoesPictureBox.Image = img; ;
+            Image img = new Bitmap(fileName);
+            shoesPictureBox.Image = img;
             shoesPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }

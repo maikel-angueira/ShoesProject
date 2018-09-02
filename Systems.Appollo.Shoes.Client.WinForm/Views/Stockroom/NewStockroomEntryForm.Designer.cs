@@ -153,7 +153,7 @@
             // 
             this.dateInTime.Location = new System.Drawing.Point(17, 135);
             this.dateInTime.Name = "dateInTime";
-            this.dateInTime.Size = new System.Drawing.Size(211, 20);
+            this.dateInTime.Size = new System.Drawing.Size(290, 20);
             this.dateInTime.TabIndex = 10;
             // 
             // label6
