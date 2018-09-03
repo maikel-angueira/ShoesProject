@@ -10,17 +10,10 @@
 namespace Systems.Appollo.Shoes.Data
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class StoreSupply
+    public enum OperationType : int
     {
-        public int Id { get; set; }
-        public int StoreId { get; set; }
-        public int ProductId { get; set; }
-        public int Quantity { get; set; }
-        public System.DateTime InputDate { get; set; }
-    
-        public virtual Product Product { get; set; }
-        public virtual Store Store { get; set; }
+        IN = 0,
+        OUT = 1
     }
 }

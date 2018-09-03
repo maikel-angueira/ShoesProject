@@ -32,7 +32,10 @@ namespace Systems.Appollo.Shoes.Data
         public DbSet<Sale> Sales { get; set; }
         public DbSet<Seller> Sellers { get; set; }
         public DbSet<Store> Stores { get; set; }
-        public DbSet<StoreSupply> StoreSupplies { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<CheckingAccount> CheckingAccounts { get; set; }
+        public DbSet<SaleProduct> SaleProducts { get; set; }
+        public DbSet<StoreStockRoom> StoreStockRooms { get; set; }
+        public DbSet<StockRoom> StockRooms { get; set; }
     }
 }

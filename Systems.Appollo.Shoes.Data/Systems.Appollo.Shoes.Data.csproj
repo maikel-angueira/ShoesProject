@@ -63,6 +63,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckingAccount.cs">
+      <DependentUpon>ShoesDataEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Client.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>
@@ -79,6 +82,9 @@
     <Compile Include="Model.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="OperationType.cs">
+      <DependentUpon>ShoesDataEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>
@@ -91,12 +97,16 @@
     <Compile Include="Sale.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="SaleProduct.cs">
+      <DependentUpon>ShoesDataEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Seller.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Services\ClientServices.cs" />
     <Compile Include="Services\ColorServices.cs" />
     <Compile Include="Services\ModelServices.cs" />
+    <Compile Include="Services\ProductServices.cs" />
     <Compile Include="Services\StockRoomDataServices.cs" />
     <Compile Include="Services\StoreServices.cs" />
     <Compile Include="Services\SupplierServices.cs" />
@@ -116,10 +126,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ShoesDataEntity.edmx</DependentUpon>
     </Compile>
+    <Compile Include="StockRoom.cs">
+      <DependentUpon>ShoesDataEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Store.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="StoreSupply.cs">
+    <Compile Include="StoreStockRoom.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Supplier.cs">

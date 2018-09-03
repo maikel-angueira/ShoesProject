@@ -110,9 +110,9 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
                 Size = Convert.ToDouble(sizeComboBox.SelectedItem),
                 Quantity = (int)quantityNumericUpDown.Value,
                 UnitCost = (double)costNumericUpDown.Value,
-                InputDate = dateInTime.Value
+                EntryDate = dateInTime.Value
             };
-            ShoesDataClientServices.StockRoomServices.InsertNewProduct(newDto);
+            ShoesDataClientServices.StockRoomServices.InsertNewProductInStock(newDto);
             ResetView();
             MessageBox.Show(Messages.NEW_PRODUCT_CREATED_SUCESSS, Constants.MESSAGE_CAPTION);
         }

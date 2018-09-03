@@ -11,14 +11,16 @@ namespace Systems.Appollo.Shoes.Data.Services
     {
         private readonly ShoesDBEntities shoesDataEntities;
         private readonly ColorServices colorServices;
+        private readonly ProductServices productServices;
 
         public StockRoomDataServices()
         {
             this.shoesDataEntities = new ShoesDBEntities();
             this.colorServices = new ColorServices();
+            this.productServices = new ProductServices();
         }
 
-        public void InsertNewProduct(StockRoomDto stockRoomDto)
+        public void InsertNewProductInStock(StockRoomDto stockRoomDto)
         {
             Color shoesColor = null;
             if (stockRoomDto.SelectedColor.ColorId == null)
@@ -28,22 +30,85 @@ namespace Systems.Appollo.Shoes.Data.Services
             }
             else
             {
-                shoesColor = colorServices.FindColor(stockRoomDto.SelectedColor.ColorId);                
+                shoesColor = colorServices.FindColor(stockRoomDto.SelectedColor.ColorId);
             }
 
-            var newProduct = new Product
+            StockRoom newStockRoom;
+            if (stockRoomDto.SelectedColor.ColorId == null
+                || !productServices.ExistProduct(
+                        stockRoomDto.ModelId,
+                        stockRoomDto.SelectedColor.ColorId.Value,
+                        stockRoomDto.Size))
+            {
+                newStockRoom = AddNewStockRoomAndProduct(stockRoomDto, shoesColor.Id);
+            }
+            else
+            {
+                newStockRoom = AddNewStockRoomUpdatingTotal(stockRoomDto);
+            }
+            AddNewChargeToAccount(newStockRoom.Id, stockRoomDto.Quantity, stockRoomDto.UnitCost);
+            shoesDataEntities.SaveChanges();
+        }
+
+        private StockRoom AddNewStockRoomUpdatingTotal(StockRoomDto stockRoomDto)
+        {
+            Product currentProduct = productServices.FindProduct(
+                stockRoomDto.ModelId,
+                stockRoomDto.SelectedColor.ColorId.Value,
+                stockRoomDto.Size);
+            var lastStockRoom = GetLastStockRoomByProductId(currentProduct.Id);
+            int total = stockRoomDto.Quantity;
+            if (lastStockRoom != null)
+                total += lastStockRoom.Total;
+
+            var newStockRoom = new StockRoom
+            {
+                ProductId = currentProduct.Id,
+                Total = total,
+                EntryDate = stockRoomDto.EntryDate,
+                OperationType = OperationType.IN.ToString()
+            };
+            shoesDataEntities.StockRooms.Add(newStockRoom);
+            return newStockRoom;
+        }
+
+        private void AddNewChargeToAccount(int stockRoomId, int quantity, double unitCost)
+        {
+            var newCheckingAccount = new CheckingAccount
+            {
+                Charge = quantity * unitCost,
+                StockRoomId = stockRoomId
+            };
+            shoesDataEntities.CheckingAccounts.Add(newCheckingAccount);
+        }
+
+        private StockRoom AddNewStockRoomAndProduct(StockRoomDto stockRoomDto, int colorId)
+        {
+            Product currentProduct = new Product
             {
                 ModelId = stockRoomDto.ModelId,
-                ColorId = shoesColor.Id,
-                Description = stockRoomDto.Description,
+                ColorId = colorId,
                 Size = stockRoomDto.Size,
-                Quantity = stockRoomDto.Quantity,
-                UnitCost = stockRoomDto.UnitCost,
-                InputDate = stockRoomDto.InputDate
             };
+            shoesDataEntities.Products.Add(currentProduct);
+            var newStockRoom = new StockRoom
+            {
+                ProductId = currentProduct.Id,
+                Total = stockRoomDto.Quantity,
+                EntryDate = stockRoomDto.EntryDate,
+                OperationType = OperationType.IN.ToString()
+            };
+            shoesDataEntities.StockRooms.Add(newStockRoom);
+            return newStockRoom;
+        }
 
-            shoesDataEntities.Products.Add(newProduct);
-            shoesDataEntities.SaveChanges();
+        private StockRoom GetLastStockRoomByProductId(int productId)
+        {
+            return
+                shoesDataEntities.StockRooms
+                .Where(s => s.ProductId == productId)
+                .OrderByDescending(s => s.Id)
+                .FirstOrDefault();
         }
     }
 }

@@ -16,23 +16,20 @@ namespace Systems.Appollo.Shoes.Data
     {
         public Product()
         {
-            this.Sales = new HashSet<Sale>();
-            this.StoreSupplies = new HashSet<StoreSupply>();
+            this.SaleProducts = new HashSet<SaleProduct>();
+            this.StoreStockRooms = new HashSet<StoreStockRoom>();
+            this.StockRooms = new HashSet<StockRoom>();
         }
     
         public int Id { get; set; }
         public int ModelId { get; set; }
         public int ColorId { get; set; }
         public double Size { get; set; }
-        public int Quantity { get; set; }
-        public double UnitCost { get; set; }
-        public System.DateTime InputDate { get; set; }
-        public string Description { get; set; }
     
         public virtual Color Color { get; set; }
         public virtual Model Model { get; set; }
-        public virtual ICollection<Sale> Sales { get; set; }
-        public virtual ICollection<StoreSupply> StoreSupplies { get; set; }
-        public virtual Supplier Supplier { get; set; }
+        public virtual ICollection<SaleProduct> SaleProducts { get; set; }
+        public virtual ICollection<StoreStockRoom> StoreStockRooms { get; set; }
+        public virtual ICollection<StockRoom> StockRooms { get; set; }
     }
 }

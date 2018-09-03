@@ -12,22 +12,22 @@ namespace Systems.Appollo.Shoes.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Sale
+    public partial class StockRoom
     {
-        public Sale()
+        public StockRoom()
         {
             this.CheckingAccounts = new HashSet<CheckingAccount>();
-            this.SaleProducts = new HashSet<SaleProduct>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> ClientId { get; set; }
-        public System.DateTime DateOfSale { get; set; }
-        public Nullable<int> StoreId { get; set; }
+        public int ProductId { get; set; }
+        public int Total { get; set; }
+        public System.DateTime EntryDate { get; set; }
+        public Nullable<int> SupplierId { get; set; }
+        public string OperationType { get; set; }
     
-        public virtual Client Client { get; set; }
-        public virtual Store Store { get; set; }
         public virtual ICollection<CheckingAccount> CheckingAccounts { get; set; }
-        public virtual ICollection<SaleProduct> SaleProducts { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Supplier Supplier { get; set; }
     }
 }
