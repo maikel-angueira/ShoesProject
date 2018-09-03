@@ -13,11 +13,11 @@ namespace Systems.Appollo.Shoes.Data.Services
         private readonly ColorServices colorServices;
         private readonly ProductServices productServices;
 
-        public StockRoomDataServices()
+        public StockRoomDataServices(ColorServices colorServices, ProductServices productServices)
         {
             this.shoesDataEntities = new ShoesDBEntities();
-            this.colorServices = new ColorServices();
-            this.productServices = new ProductServices();
+            this.colorServices = colorServices;
+            this.productServices = productServices;
         }
 
         public void InsertNewProductInStock(StockRoomDto stockRoomDto)
