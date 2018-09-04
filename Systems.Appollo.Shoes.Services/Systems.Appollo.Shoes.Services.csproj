@@ -45,13 +45,6 @@
   <ItemGroup>
     <Compile Include="ClientServices.cs" />
     <Compile Include="ColorServices.cs" />
-    <Compile Include="DataModels\ClientDto.cs" />
-    <Compile Include="DataModels\ColorDto.cs" />
-    <Compile Include="DataModels\ModelDto.cs" />
-    <Compile Include="DataModels\SellerDto.cs" />
-    <Compile Include="DataModels\StockroomDto.cs" />
-    <Compile Include="DataModels\StoreDto.cs" />
-    <Compile Include="DataModels\SupplierDto.cs" />
     <Compile Include="ModelServices.cs" />
     <Compile Include="ProductServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

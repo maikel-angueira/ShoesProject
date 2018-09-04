@@ -72,6 +72,13 @@
     <Compile Include="Color.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dtos\ClientDto.cs" />
+    <Compile Include="Dtos\ColorDto.cs" />
+    <Compile Include="Dtos\ModelDto.cs" />
+    <Compile Include="Dtos\SellerDto.cs" />
+    <Compile Include="Dtos\StockroomDto.cs" />
+    <Compile Include="Dtos\StoreDto.cs" />
+    <Compile Include="Dtos\SupplierDto.cs" />
     <Compile Include="Model.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>

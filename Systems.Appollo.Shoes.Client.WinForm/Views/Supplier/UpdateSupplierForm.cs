@@ -84,7 +84,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Supplier
 
         public SupplierServices SupplierDataServices
         {
-            get => SupplierDataServices;
+            get => supplierDataServices;
             set => supplierDataServices = value;
         }
 

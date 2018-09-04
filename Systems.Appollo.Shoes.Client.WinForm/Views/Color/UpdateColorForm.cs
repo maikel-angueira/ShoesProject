@@ -20,6 +20,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
         public UpdateColorForm()
         {
             InitializeComponent();
+            colorDataGrid.AutoGenerateColumns = false;
         }
 
         private void UpdateColorForm_Load(object sender, EventArgs e)
