@@ -11,9 +11,9 @@ namespace Systems.Appollo.Shoes.Data.Services
     {
         private readonly ShoesDBEntities shoesDataEntities;
 
-        public ClientServices()
+        public ClientServices(ShoesDBEntities shoesDataEntities1)
         {
-            this.shoesDataEntities = new ShoesDBEntities();
+            this.shoesDataEntities = shoesDataEntities1;
         }
 
         public void InsertClient(string name, String address, byte[] photo)

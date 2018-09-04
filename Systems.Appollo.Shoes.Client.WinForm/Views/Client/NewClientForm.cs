@@ -82,13 +82,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Client
 
         public ClientServices ClientDataServices
         {
-            get
-            {
-                if (clientServices == null)
-                    clientServices = new ClientServices();
-                return clientServices;
-            }
-
+            get => clientServices;
             set => clientServices = value;
         }
 

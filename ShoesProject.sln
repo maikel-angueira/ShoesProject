@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Systems.Appollo.Shoes.Data"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Systems.Appollo.Shoes.Client.WinForm", "Systems.Appollo.Shoes.Client.WinForm\Systems.Appollo.Shoes.Client.WinForm.csproj", "{BEB96F9B-6824-4400-8C3D-8F466D36684F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Systems.Appollo.Shoes.Services", "Systems.Appollo.Shoes.Services\Systems.Appollo.Shoes.Services.csproj", "{87B360C0-9A9C-4478-93B6-046DBF889BBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BEB96F9B-6824-4400-8C3D-8F466D36684F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEB96F9B-6824-4400-8C3D-8F466D36684F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEB96F9B-6824-4400-8C3D-8F466D36684F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87B360C0-9A9C-4478-93B6-046DBF889BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87B360C0-9A9C-4478-93B6-046DBF889BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87B360C0-9A9C-4478-93B6-046DBF889BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87B360C0-9A9C-4478-93B6-046DBF889BBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

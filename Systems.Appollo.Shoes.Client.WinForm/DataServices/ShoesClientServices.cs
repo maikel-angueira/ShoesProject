@@ -20,14 +20,14 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
 
         public ShoesClientServices()
         {
-            this.colorServices = new ColorServices();
-            this.modelServices = new ModelServices();
-            this.sellerServices = new SellerServices();
-            this.clientServices = new ClientServices();
-            this.supplierServices = new SupplierServices();
-            this.storeServices = new StoreServices();
-            this.productServices = new ProductServices();
-            this.stockroomServices = new StockRoomDataServices(colorServices, productServices);
+            this.colorServices = new ColorServices(ShoesApplicationContext.ShoesDataEntities);
+            this.modelServices = new ModelServices(ShoesApplicationContext.ShoesDataEntities);
+            this.sellerServices = new SellerServices(ShoesApplicationContext.ShoesDataEntities);
+            this.clientServices = new ClientServices(ShoesApplicationContext.ShoesDataEntities);
+            this.supplierServices = new SupplierServices(ShoesApplicationContext.ShoesDataEntities);
+            this.storeServices = new StoreServices(ShoesApplicationContext.ShoesDataEntities);
+            this.productServices = new ProductServices(ShoesApplicationContext.ShoesDataEntities);
+            this.stockroomServices = new StockRoomDataServices(ShoesApplicationContext.ShoesDataEntities, colorServices, productServices);
         }
 
         public ClientServices ClientServices => clientServices;
@@ -43,5 +43,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
         public StoreServices StoreServices => storeServices;
 
         public StockRoomDataServices StockRoomServices => stockroomServices;
+
+        public ProductServices ProductServices => productServices;
     }
 }

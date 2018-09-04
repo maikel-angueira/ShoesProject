@@ -42,13 +42,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Color
 
         public ColorServices ColorDataServices
         {
-            get
-            {
-                if (this.colorDataServices == null)
-                    this.colorDataServices = new ColorServices();
-                return this.colorDataServices;
-            }
-
+            get => colorDataServices;
             set => colorDataServices = value;
         }
 

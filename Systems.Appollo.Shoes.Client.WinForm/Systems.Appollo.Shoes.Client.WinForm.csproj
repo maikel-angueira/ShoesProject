@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="Panic.StringUtils, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Panic.StringUtils.1.0.1\lib\net45\Panic.StringUtils.dll</HintPath>
     </Reference>
@@ -55,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ShoesApplicationContext.cs" />
     <Compile Include="Utils\Constants.cs" />
     <Compile Include="DataServices\ShoesClientServices.cs" />
     <Compile Include="ShoesMainForm.cs">
@@ -224,8 +226,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Systems.Appollo.Shoes.Data\Systems.Appollo.Shoes.Data.csproj">
-      <Project>{e730f8a7-a880-4140-9aa2-5f80c58005df}</Project>
+      <Project>{E730F8A7-A880-4140-9AA2-5F80C58005DF}</Project>
       <Name>Systems.Appollo.Shoes.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Systems.Appollo.Shoes.Services\Systems.Appollo.Shoes.Services.csproj">
+      <Project>{87B360C0-9A9C-4478-93B6-046DBF889BBE}</Project>
+      <Name>Systems.Appollo.Shoes.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -10,15 +10,10 @@ namespace Systems.Appollo.Shoes.Data.Services
     public class ColorServices
     {
         private readonly ShoesDBEntities shoesDataEntities;
-
-        public ColorServices()
+        
+        public ColorServices(ShoesDBEntities shoesDataEntities1)
         {
-            this.shoesDataEntities = new ShoesDBEntities();
-        }
-
-        public ColorServices(string connectionString)
-        {
-            
+            this.shoesDataEntities = shoesDataEntities1;
         }
 
         public void InsertColor(string colorName)

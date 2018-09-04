@@ -10,9 +10,9 @@ namespace Systems.Appollo.Shoes.Data.Services
     {
         private readonly ShoesDBEntities shoesDataEntities;
 
-        public ProductServices()
+        public ProductServices(ShoesDBEntities shoesDataEntities1)
         {
-            this.shoesDataEntities = new ShoesDBEntities();
+            this.shoesDataEntities = shoesDataEntities1;
         }
 
         public bool ExistProduct(int modelId, int colorId, double size)
@@ -25,7 +25,6 @@ namespace Systems.Appollo.Shoes.Data.Services
 
         public Product FindProduct(int modelId, int colorId, double size)
         {
-            if (!ExistProduct(modelId, colorId, size)) return null;
             return shoesDataEntities.Products.Where(p =>
                     p.ModelId == modelId
                         && p.ColorId == colorId

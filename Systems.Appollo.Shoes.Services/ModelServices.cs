@@ -10,10 +10,11 @@ namespace Systems.Appollo.Shoes.Data.Services
     public class ModelServices
     {
         private readonly ShoesDBEntities shoesDataEntities;
+        
 
-        public ModelServices()
+        public ModelServices(ShoesDBEntities shoesDataEntities1)
         {
-            this.shoesDataEntities = new ShoesDBEntities();
+            this.shoesDataEntities = shoesDataEntities1;
         }
 
         public void InsertModel(string name, String description, byte[] photo)

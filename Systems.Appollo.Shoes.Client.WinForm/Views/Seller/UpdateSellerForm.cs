@@ -84,13 +84,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
 
         public SellerServices SellerDataServices
         {
-            get
-            {
-                if (sellerDataServices == null)
-                    sellerDataServices = new SellerServices();
-                return sellerDataServices;
-            }
-
+            get => sellerDataServices;
             set => sellerDataServices = value;
         }
 

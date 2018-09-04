@@ -13,16 +13,16 @@ namespace Systems.Appollo.Shoes.Data.Services
         private readonly ColorServices colorServices;
         private readonly ProductServices productServices;
 
-        public StockRoomDataServices(ColorServices colorServices, ProductServices productServices)
+        public StockRoomDataServices(ShoesDBEntities shoesDataEntities, ColorServices colorServices, ProductServices productServices)
         {
-            this.shoesDataEntities = new ShoesDBEntities();
+            this.shoesDataEntities = shoesDataEntities;
             this.colorServices = colorServices;
             this.productServices = productServices;
         }
 
         public void InsertNewProductInStock(StockRoomDto stockRoomDto)
         {
-            Color shoesColor = null;
+            Color shoesColor;
             if (stockRoomDto.SelectedColor.ColorId == null)
             {
                 shoesColor = new Color { Name = stockRoomDto.SelectedColor.Name };
@@ -34,7 +34,7 @@ namespace Systems.Appollo.Shoes.Data.Services
             }
 
             StockRoom newStockRoom;
-            if (stockRoomDto.SelectedColor.ColorId == null
+            if (!stockRoomDto.SelectedColor.ColorId.HasValue
                 || !productServices.ExistProduct(
                         stockRoomDto.ModelId,
                         stockRoomDto.SelectedColor.ColorId.Value,
@@ -47,6 +47,11 @@ namespace Systems.Appollo.Shoes.Data.Services
                 newStockRoom = AddNewStockRoomUpdatingTotal(stockRoomDto);
             }
             AddNewChargeToAccount(newStockRoom.Id, stockRoomDto.Quantity, stockRoomDto.UnitCost);
+            SaveChanges();
+        }
+
+        private void SaveChanges()
+        {
             shoesDataEntities.SaveChanges();
         }
 
@@ -104,11 +109,10 @@ namespace Systems.Appollo.Shoes.Data.Services
 
         private StockRoom GetLastStockRoomByProductId(int productId)
         {
-            return
-                shoesDataEntities.StockRooms
-                .Where(s => s.ProductId == productId)
-                .OrderByDescending(s => s.Id)
-                .FirstOrDefault();
+            return shoesDataEntities.StockRooms
+                    .Where(s => s.ProductId == productId)
+                    .OrderByDescending(s => s.Id)
+                    .FirstOrDefault();
         }
     }
 }

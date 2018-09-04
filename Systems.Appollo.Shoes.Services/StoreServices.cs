@@ -10,10 +10,11 @@ namespace Systems.Appollo.Shoes.Data.Services
     public class StoreServices
     {
         private readonly ShoesDBEntities shoesDataEntities;
+        
 
-        public StoreServices()
+        public StoreServices(ShoesDBEntities shoesDataEntities1)
         {
-            this.shoesDataEntities = new ShoesDBEntities();
+            this.shoesDataEntities = shoesDataEntities1;
         }
 
         public void InsertStore(string name, string address, int sellerId)

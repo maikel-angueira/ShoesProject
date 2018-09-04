@@ -84,13 +84,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Supplier
 
         public SupplierServices SupplierDataServices
         {
-            get
-            {
-                if (supplierDataServices == null)
-                    supplierDataServices = new SupplierServices();
-                return supplierDataServices;
-            }
-
+            get => SupplierDataServices;
             set => supplierDataServices = value;
         }
 
@@ -186,7 +180,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Supplier
             supplierDataGrid.DataSource = suppliers;
             supplierDataGrid.Refresh();
             if (suppliers.Count == 0)
-            {                
+            {
                 ResetView();
             }
         }
