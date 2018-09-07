@@ -84,7 +84,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
-          <Property Name="Total" Type="int" Nullable="false" />
+          <Property Name="StockValue" Type="int" Nullable="false" />
+          <Property Name="EntryValue" Type="int" Nullable="false" />
           <Property Name="EntryDate" Type="datetime" Nullable="false" />
           <Property Name="SupplierId" Type="int" />
           <Property Name="OperationType" Type="varchar" MaxLength="50" Nullable="false" />
@@ -104,7 +105,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
-          <Property Name="Total" Type="int" Nullable="false" />
+          <Property Name="StockValue" Type="int" Nullable="false" />
+          <Property Name="EntryValue" Type="int" Nullable="false" />
           <Property Name="EntryDate" Type="datetime" Nullable="false" />
           <Property Name="StoreId" Type="int" Nullable="false" />
         </EntityType>
@@ -396,45 +398,45 @@
           </AssociationSet>
           <EntitySet Name="CheckingAccounts" EntityType="ShoesDBModel.CheckingAccount" />
           <EntitySet Name="SaleProducts" EntityType="ShoesDBModel.SaleProduct" />
-          <EntitySet Name="StoreStockRooms" EntityType="ShoesDBModel.StoreStockRoom" />
           <AssociationSet Name="FK_CheckingAccount_To_Sale" Association="ShoesDBModel.FK_CheckingAccount_To_Sale">
             <End Role="Sale" EntitySet="Sales" />
-            <End Role="CheckingAccount" EntitySet="CheckingAccounts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CheckingAccount_To_StoreStockRoom" Association="ShoesDBModel.FK_CheckingAccount_To_StoreStockRoom">
-            <End Role="StoreStockRoom" EntitySet="StoreStockRooms" />
             <End Role="CheckingAccount" EntitySet="CheckingAccounts" />
           </AssociationSet>
           <AssociationSet Name="FK_SaleProduct_To_Product" Association="ShoesDBModel.FK_SaleProduct_To_Product">
             <End Role="Product" EntitySet="Products" />
             <End Role="SaleProduct" EntitySet="SaleProducts" />
           </AssociationSet>
-          <AssociationSet Name="FK_StoreStockRoom_To_Product" Association="ShoesDBModel.FK_StoreStockRoom_To_Product">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="StoreStockRoom" EntitySet="StoreStockRooms" />
-          </AssociationSet>
           <AssociationSet Name="FK_SaleProduct_To_Sale" Association="ShoesDBModel.FK_SaleProduct_To_Sale">
             <End Role="Sale" EntitySet="Sales" />
             <End Role="SaleProduct" EntitySet="SaleProducts" />
           </AssociationSet>
-          <AssociationSet Name="FK_StoreStockRoom_To_Store" Association="ShoesDBModel.FK_StoreStockRoom_To_Store">
-            <End Role="Store" EntitySet="Stores" />
-            <End Role="StoreStockRoom" EntitySet="StoreStockRooms" />
-          </AssociationSet>
           <EntitySet Name="StockRooms" EntityType="ShoesDBModel.StockRoom" />
+          <EntitySet Name="StoreStockRooms" EntityType="ShoesDBModel.StoreStockRoom" />
           <AssociationSet Name="FK_CheckingAccount_To_StockRoom" Association="ShoesDBModel.FK_CheckingAccount_To_StockRoom">
             <End Role="StockRoom" EntitySet="StockRooms" />
+            <End Role="CheckingAccount" EntitySet="CheckingAccounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CheckingAccount_To_StoreStockRoom" Association="ShoesDBModel.FK_CheckingAccount_To_StoreStockRoom">
+            <End Role="StoreStockRoom" EntitySet="StoreStockRooms" />
             <End Role="CheckingAccount" EntitySet="CheckingAccounts" />
           </AssociationSet>
           <AssociationSet Name="FK_StockRoom_To_Product" Association="ShoesDBModel.FK_StockRoom_To_Product">
             <End Role="Product" EntitySet="Products" />
             <End Role="StockRoom" EntitySet="StockRooms" />
           </AssociationSet>
+          <AssociationSet Name="FK_StoreStockRoom_To_Product" Association="ShoesDBModel.FK_StoreStockRoom_To_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="StoreStockRoom" EntitySet="StoreStockRooms" />
+          </AssociationSet>
           <AssociationSet Name="FK_StockRoom_To_Supplier" Association="ShoesDBModel.FK_StockRoom_To_Supplier">
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="StockRoom" EntitySet="StockRooms" />
           </AssociationSet>
-        </EntityContainer>
+          <AssociationSet Name="FK_StoreStockRoom_To_Store" Association="ShoesDBModel.FK_StoreStockRoom_To_Store">
+            <End Role="Store" EntitySet="Stores" />
+            <End Role="StoreStockRoom" EntitySet="StoreStockRooms" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="Id" />
@@ -474,8 +476,8 @@
           <NavigationProperty Name="Color" Relationship="ShoesDBModel.FK_Product_To_Color" FromRole="Product" ToRole="Color" />
           <NavigationProperty Name="Model" Relationship="ShoesDBModel.FK_Product_To_Model" FromRole="Product" ToRole="Model" />
           <NavigationProperty Name="SaleProducts" Relationship="ShoesDBModel.FK_SaleProduct_To_Product" FromRole="Product" ToRole="SaleProduct" />
-          <NavigationProperty Name="StoreStockRooms" Relationship="ShoesDBModel.FK_StoreStockRoom_To_Product" FromRole="Product" ToRole="StoreStockRoom" />
           <NavigationProperty Name="StockRooms" Relationship="ShoesDBModel.FK_StockRoom_To_Product" FromRole="Product" ToRole="StockRoom" />
+          <NavigationProperty Name="StoreStockRooms" Relationship="ShoesDBModel.FK_StoreStockRoom_To_Product" FromRole="Product" ToRole="StoreStockRoom" />
         </EntityType>
         <EntityType Name="Sale">
           <Key>
@@ -599,8 +601,8 @@
           <Property Name="Incoming" Type="Double" />
           <Property Name="SaleId" Type="Int32" />
           <NavigationProperty Name="Sale" Relationship="ShoesDBModel.FK_CheckingAccount_To_Sale" FromRole="CheckingAccount" ToRole="Sale" />
-          <NavigationProperty Name="StoreStockRoom" Relationship="ShoesDBModel.FK_CheckingAccount_To_StoreStockRoom" FromRole="CheckingAccount" ToRole="StoreStockRoom" />
           <NavigationProperty Name="StockRoom" Relationship="ShoesDBModel.FK_CheckingAccount_To_StockRoom" FromRole="CheckingAccount" ToRole="StockRoom" />
+          <NavigationProperty Name="StoreStockRoom" Relationship="ShoesDBModel.FK_CheckingAccount_To_StoreStockRoom" FromRole="CheckingAccount" ToRole="StoreStockRoom" />
         </EntityType>
         <EntityType Name="SaleProduct">
           <Key>
@@ -614,19 +616,6 @@
           <NavigationProperty Name="Product" Relationship="ShoesDBModel.FK_SaleProduct_To_Product" FromRole="SaleProduct" ToRole="Product" />
           <NavigationProperty Name="Sale" Relationship="ShoesDBModel.FK_SaleProduct_To_Sale" FromRole="SaleProduct" ToRole="Sale" />
         </EntityType>
-        <EntityType Name="StoreStockRoom">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="Total" Type="Int32" Nullable="false" />
-          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="StoreId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CheckingAccounts" Relationship="ShoesDBModel.FK_CheckingAccount_To_StoreStockRoom" FromRole="StoreStockRoom" ToRole="CheckingAccount" />
-          <NavigationProperty Name="Product" Relationship="ShoesDBModel.FK_StoreStockRoom_To_Product" FromRole="StoreStockRoom" ToRole="Product" />
-          <NavigationProperty Name="Store" Relationship="ShoesDBModel.FK_StoreStockRoom_To_Store" FromRole="StoreStockRoom" ToRole="Store" />
-        </EntityType>
         <Association Name="FK_CheckingAccount_To_Sale">
           <End Type="ShoesDBModel.Sale" Role="Sale" Multiplicity="0..1" />
           <End Type="ShoesDBModel.CheckingAccount" Role="CheckingAccount" Multiplicity="*" />
@@ -639,18 +628,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CheckingAccount_To_StoreStockRoom">
-          <End Type="ShoesDBModel.StoreStockRoom" Role="StoreStockRoom" Multiplicity="0..1" />
-          <End Type="ShoesDBModel.CheckingAccount" Role="CheckingAccount" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="StoreStockRoom">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CheckingAccount">
-              <PropertyRef Name="StoreStockRoomId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SaleProduct_To_Product">
           <End Type="ShoesDBModel.Product" Role="Product" Multiplicity="1" />
           <End Type="ShoesDBModel.SaleProduct" Role="SaleProduct" Multiplicity="*" />
@@ -659,18 +636,6 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="SaleProduct">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_StoreStockRoom_To_Product">
-          <End Type="ShoesDBModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="ShoesDBModel.StoreStockRoom" Role="StoreStockRoom" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="StoreStockRoom">
               <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
@@ -687,18 +652,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_StoreStockRoom_To_Store">
-          <End Type="ShoesDBModel.Store" Role="Store" Multiplicity="1" />
-          <End Type="ShoesDBModel.StoreStockRoom" Role="StoreStockRoom" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Store">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="StoreStockRoom">
-              <PropertyRef Name="StoreId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EnumType Name="OperationType">
           <Member Name="IN" />
           <Member Name="OUT" />
@@ -709,13 +662,28 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="Total" Type="Int32" Nullable="false" />
+          <Property Name="StockValue" Type="Int32" Nullable="false" />
+          <Property Name="EntryValue" Type="Int32" Nullable="false" />
           <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="SupplierId" Type="Int32" />
           <Property Name="OperationType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CheckingAccounts" Relationship="ShoesDBModel.FK_CheckingAccount_To_StockRoom" FromRole="StockRoom" ToRole="CheckingAccount" />
           <NavigationProperty Name="Product" Relationship="ShoesDBModel.FK_StockRoom_To_Product" FromRole="StockRoom" ToRole="Product" />
           <NavigationProperty Name="Supplier" Relationship="ShoesDBModel.FK_StockRoom_To_Supplier" FromRole="StockRoom" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="StoreStockRoom">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="StockValue" Type="Int32" Nullable="false" />
+          <Property Name="EntryValue" Type="Int32" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CheckingAccounts" Relationship="ShoesDBModel.FK_CheckingAccount_To_StoreStockRoom" FromRole="StoreStockRoom" ToRole="CheckingAccount" />
+          <NavigationProperty Name="Product" Relationship="ShoesDBModel.FK_StoreStockRoom_To_Product" FromRole="StoreStockRoom" ToRole="Product" />
+          <NavigationProperty Name="Store" Relationship="ShoesDBModel.FK_StoreStockRoom_To_Store" FromRole="StoreStockRoom" ToRole="Store" />
         </EntityType>
         <Association Name="FK_CheckingAccount_To_StockRoom">
           <End Type="ShoesDBModel.StockRoom" Role="StockRoom" Multiplicity="0..1" />
@@ -729,6 +697,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CheckingAccount_To_StoreStockRoom">
+          <End Type="ShoesDBModel.StoreStockRoom" Role="StoreStockRoom" Multiplicity="0..1" />
+          <End Type="ShoesDBModel.CheckingAccount" Role="CheckingAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StoreStockRoom">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CheckingAccount">
+              <PropertyRef Name="StoreStockRoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_StockRoom_To_Product">
           <End Type="ShoesDBModel.Product" Role="Product" Multiplicity="1" />
           <End Type="ShoesDBModel.StockRoom" Role="StockRoom" Multiplicity="*" />
@@ -737,6 +717,18 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="StockRoom">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoreStockRoom_To_Product">
+          <End Type="ShoesDBModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="ShoesDBModel.StoreStockRoom" Role="StoreStockRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StoreStockRoom">
               <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
@@ -753,7 +745,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <Association Name="FK_StoreStockRoom_To_Store">
+          <End Type="ShoesDBModel.Store" Role="Store" Multiplicity="1" />
+          <End Type="ShoesDBModel.StoreStockRoom" Role="StoreStockRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StoreStockRoom">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -860,24 +864,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="StoreStockRooms">
-            <EntityTypeMapping TypeName="ShoesDBModel.StoreStockRoom">
-              <MappingFragment StoreEntitySet="StoreStockRoom">
-                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
-                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="StockRooms">
             <EntityTypeMapping TypeName="ShoesDBModel.StockRoom">
               <MappingFragment StoreEntitySet="StockRoom">
                 <ScalarProperty Name="OperationType" ColumnName="OperationType" />
                 <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
                 <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="EntryValue" ColumnName="EntryValue" />
+                <ScalarProperty Name="StockValue" ColumnName="StockValue" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StoreStockRooms">
+            <EntityTypeMapping TypeName="ShoesDBModel.StoreStockRoom">
+              <MappingFragment StoreEntitySet="StoreStockRoom">
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="EntryValue" ColumnName="EntryValue" />
+                <ScalarProperty Name="StockValue" ColumnName="StockValue" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

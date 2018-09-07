@@ -62,14 +62,15 @@ namespace Systems.Appollo.Shoes.Data.Services
                 stockRoomDto.SelectedColor.ColorId.Value,
                 stockRoomDto.Size);
             var lastStockRoom = GetLastStockRoomByProductId(currentProduct.Id);
-            int total = stockRoomDto.Quantity;
+            int stocks = stockRoomDto.Quantity;
             if (lastStockRoom != null)
-                total += lastStockRoom.Total;
+                stocks += lastStockRoom.StockValue;
 
             var newStockRoom = new StockRoom
             {
                 ProductId = currentProduct.Id,
-                Total = total,
+                StockValue = stocks,
+                EntryValue = stockRoomDto.Quantity,
                 EntryDate = stockRoomDto.EntryDate,
                 OperationType = OperationType.IN.ToString()
             };
@@ -99,7 +100,8 @@ namespace Systems.Appollo.Shoes.Data.Services
             var newStockRoom = new StockRoom
             {
                 ProductId = currentProduct.Id,
-                Total = stockRoomDto.Quantity,
+                StockValue = stockRoomDto.Quantity,
+                EntryValue = stockRoomDto.Quantity,
                 EntryDate = stockRoomDto.EntryDate,
                 OperationType = OperationType.IN.ToString()
             };

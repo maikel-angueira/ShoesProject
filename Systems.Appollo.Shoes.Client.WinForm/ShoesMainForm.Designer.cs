@@ -108,7 +108,8 @@
             // 
             this.compraAProveedorToolStripMenuItem.Name = "compraAProveedorToolStripMenuItem";
             this.compraAProveedorToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.compraAProveedorToolStripMenuItem.Text = "Compra a Proveedor";
+            this.compraAProveedorToolStripMenuItem.Text = "Comprar a Proveedor";
+            this.compraAProveedorToolStripMenuItem.Click += new System.EventHandler(this.compraAProveedorToolStripMenuItem_Click);
             // 
             // existenciaToolStripMenuItem
             // 
@@ -366,6 +367,7 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton2.Text = "Comprar a Proveedores";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripSeparator1
             // 

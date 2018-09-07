@@ -20,18 +20,18 @@
         <AssociationConnector Association="ShoesDBModel.FK_Store_To_Seller" />
         <EntityTypeShape EntityType="ShoesDBModel.CheckingAccount" Width="1.5" PointX="10.5" PointY="8.125" />
         <EntityTypeShape EntityType="ShoesDBModel.SaleProduct" Width="1.5" PointX="5.25" PointY="10.75" />
-        <EntityTypeShape EntityType="ShoesDBModel.StoreStockRoom" Width="1.5" PointX="5.25" PointY="3.75" />
         <AssociationConnector Association="ShoesDBModel.FK_CheckingAccount_To_Sale" />
-        <AssociationConnector Association="ShoesDBModel.FK_CheckingAccount_To_StoreStockRoom" />
         <AssociationConnector Association="ShoesDBModel.FK_SaleProduct_To_Product" />
-        <AssociationConnector Association="ShoesDBModel.FK_StoreStockRoom_To_Product" />
         <AssociationConnector Association="ShoesDBModel.FK_SaleProduct_To_Sale" />
-        <AssociationConnector Association="ShoesDBModel.FK_StoreStockRoom_To_Store" />
         <EntityTypeShape EntityType="ShoesDBModel.StockRoom" Width="1.5" PointX="8.25" PointY="5.875" />
+        <EntityTypeShape EntityType="ShoesDBModel.StoreStockRoom" Width="1.5" PointX="5.25" PointY="3.625" />
         <AssociationConnector Association="ShoesDBModel.FK_CheckingAccount_To_StockRoom" />
+        <AssociationConnector Association="ShoesDBModel.FK_CheckingAccount_To_StoreStockRoom" />
         <AssociationConnector Association="ShoesDBModel.FK_StockRoom_To_Product" />
+        <AssociationConnector Association="ShoesDBModel.FK_StoreStockRoom_To_Product" />
         <AssociationConnector Association="ShoesDBModel.FK_StockRoom_To_Supplier" />
-      </Diagram>
+        <AssociationConnector Association="ShoesDBModel.FK_StoreStockRoom_To_Store" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

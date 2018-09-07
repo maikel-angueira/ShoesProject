@@ -14,11 +14,11 @@ using Systems.Appollo.Shoes.Data.DataModels;
 
 namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
 {
-    public partial class NewStockRoomEntryForm : Form
+    public partial class NewStockRoomSupplierEntryForm : Form
     {
         public ShoesClientServices ShoesDataClientServices { get; set; }
 
-        public NewStockRoomEntryForm()
+        public NewStockRoomSupplierEntryForm()
         {
             InitializeComponent();
             costNumericUpDown.Maximum = Decimal.MaxValue;
@@ -37,11 +37,14 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
         private void NewStockroomEntryForm_Load(object sender, EventArgs e)
         {
             var shoesModels = ShoesDataClientServices.ModelServices.GetAllModels();
+            var suppliers = ShoesDataClientServices.SupplierServices.GetAllSuppliers();
             this.Colors = ShoesDataClientServices.ColorServices.GetAllColors();
             modelComboBox.DataSource = shoesModels;
             colorComboBox.DataSource = Colors;
-            addButton.Enabled = shoesModels.Count > 0;
-            photoLinkLabel.Enabled = shoesModels.Count > 0;
+            supplierComboBox.DataSource = suppliers;
+            bool isEnable = shoesModels.Count > 0 && suppliers.Count > 0;
+            addButton.Enabled = isEnable;
+            photoLinkLabel.Enabled = isEnable;
             sizeComboBox.SelectedIndex = 0;
             ReloadShoesModelPicture(SelectedModelDto);
         }

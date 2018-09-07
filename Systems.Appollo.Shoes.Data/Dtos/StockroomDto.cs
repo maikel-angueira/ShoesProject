@@ -14,7 +14,6 @@ namespace Systems.Appollo.Shoes.Data.DataModels
         public int Quantity { get; set; }
         public double UnitCost { get; set; }
         public DateTime EntryDate { get; set; }
-        public string Description { get; set; }
         public int? SupplierId { get; set; }
     }
 }

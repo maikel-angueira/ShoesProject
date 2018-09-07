@@ -22,7 +22,7 @@ namespace Systems.Appollo.Shoes.Data
         public Nullable<int> SaleId { get; set; }
     
         public virtual Sale Sale { get; set; }
-        public virtual StoreStockRoom StoreStockRoom { get; set; }
         public virtual StockRoom StockRoom { get; set; }
+        public virtual StoreStockRoom StoreStockRoom { get; set; }
     }
 }

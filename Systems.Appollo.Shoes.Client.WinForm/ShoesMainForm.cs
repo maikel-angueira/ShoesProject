@@ -25,7 +25,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
 
         public ShoesMainForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -171,6 +171,26 @@ namespace Systems.Appollo.Shoes.Client.WinForm
                 ShoesDataClientServices = dataServices
             };
             newStockroomForm.ShowDialog();
+        }
+
+        private void compraAProveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var newStockRoomSupplierFrom = new NewStockRoomSupplierEntryForm
+            {
+                ShoesDataClientServices = dataServices
+            };
+
+            newStockRoomSupplierFrom.ShowDialog();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            var newStockRoomSupplierFrom = new NewStockRoomSupplierEntryForm
+            {
+                ShoesDataClientServices = dataServices
+            };
+
+            newStockRoomSupplierFrom.ShowDialog();
         }
     }
 }

@@ -21,7 +21,8 @@ namespace Systems.Appollo.Shoes.Data
     
         public int Id { get; set; }
         public int ProductId { get; set; }
-        public int Total { get; set; }
+        public int StockValue { get; set; }
+        public int EntryValue { get; set; }
         public System.DateTime EntryDate { get; set; }
         public Nullable<int> SupplierId { get; set; }
         public string OperationType { get; set; }
