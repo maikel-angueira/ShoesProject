@@ -192,5 +192,14 @@ namespace Systems.Appollo.Shoes.Client.WinForm
 
             newStockRoomSupplierFrom.ShowDialog();
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var newStoreSupplierStockForm = new NewStoreStockSupplierEntryForm
+            {
+                ShoesDataClientServices = dataServices
+            };
+            newStoreSupplierStockForm.ShowDialog();
+        }
     }
 }
