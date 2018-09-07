@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
+using Systems.Appollo.Shoes.Data;
 
-namespace Systems.Appollo.Shoes.Data.Services
+namespace Systems.Appollo.Shoes.Services
 {
     public class ProductServices
     {
@@ -23,7 +20,7 @@ namespace Systems.Appollo.Shoes.Data.Services
                         && p.Size == size);
         }
 
-        public Product FindProduct(int modelId, int colorId, double size)
+        public Product FindProduct(int modelId, int? colorId, double size)
         {
             return _shoesDataEntities.Products
                    .SingleOrDefault(p => p.ModelId == modelId

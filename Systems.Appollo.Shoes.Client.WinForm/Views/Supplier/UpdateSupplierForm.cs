@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Systems.Appollo.Shoes.Client.WinForm.Utils;
 using Systems.Appollo.Shoes.Data.DataModels;
-using Systems.Appollo.Shoes.Data.Services;
+using Systems.Appollo.Shoes.Services;
 
 namespace Systems.Appollo.Shoes.Client.WinForm.Views.Supplier
 {

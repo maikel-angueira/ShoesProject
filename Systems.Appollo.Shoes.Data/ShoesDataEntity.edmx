@@ -88,7 +88,7 @@
           <Property Name="EntryValue" Type="int" Nullable="false" />
           <Property Name="EntryDate" Type="datetime" Nullable="false" />
           <Property Name="SupplierId" Type="int" />
-          <Property Name="OperationType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationType" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Store">
           <Key>
@@ -109,6 +109,7 @@
           <Property Name="EntryValue" Type="int" Nullable="false" />
           <Property Name="EntryDate" Type="datetime" Nullable="false" />
           <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="OperationType" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -666,7 +667,7 @@
           <Property Name="EntryValue" Type="Int32" Nullable="false" />
           <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="SupplierId" Type="Int32" />
-          <Property Name="OperationType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OperationType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CheckingAccounts" Relationship="ShoesDBModel.FK_CheckingAccount_To_StockRoom" FromRole="StockRoom" ToRole="CheckingAccount" />
           <NavigationProperty Name="Product" Relationship="ShoesDBModel.FK_StockRoom_To_Product" FromRole="StockRoom" ToRole="Product" />
           <NavigationProperty Name="Supplier" Relationship="ShoesDBModel.FK_StockRoom_To_Supplier" FromRole="StockRoom" ToRole="Supplier" />
@@ -684,6 +685,7 @@
           <NavigationProperty Name="CheckingAccounts" Relationship="ShoesDBModel.FK_CheckingAccount_To_StoreStockRoom" FromRole="StoreStockRoom" ToRole="CheckingAccount" />
           <NavigationProperty Name="Product" Relationship="ShoesDBModel.FK_StoreStockRoom_To_Product" FromRole="StoreStockRoom" ToRole="Product" />
           <NavigationProperty Name="Store" Relationship="ShoesDBModel.FK_StoreStockRoom_To_Store" FromRole="StoreStockRoom" ToRole="Store" />
+          <Property Name="OperationType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_CheckingAccount_To_StockRoom">
           <End Type="ShoesDBModel.StockRoom" Role="StockRoom" Multiplicity="0..1" />
@@ -880,6 +882,7 @@
           <EntitySetMapping Name="StoreStockRooms">
             <EntityTypeMapping TypeName="ShoesDBModel.StoreStockRoom">
               <MappingFragment StoreEntitySet="StoreStockRoom">
+                <ScalarProperty Name="OperationType" ColumnName="OperationType" />
                 <ScalarProperty Name="StoreId" ColumnName="StoreId" />
                 <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
                 <ScalarProperty Name="EntryValue" ColumnName="EntryValue" />

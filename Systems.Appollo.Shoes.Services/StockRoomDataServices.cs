@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Systems.Appollo.Shoes.Data;
 using Systems.Appollo.Shoes.Data.DataModels;
 
-namespace Systems.Appollo.Shoes.Data.Services
+namespace Systems.Appollo.Shoes.Services
 {
     public class StockRoomDataServices
     {
@@ -52,10 +51,9 @@ namespace Systems.Appollo.Shoes.Data.Services
             SaveChanges();
         }
 
-        public List<ModelDto> GetAllAvaibleModels()
+        public List<ModelDto> GetAllAvailableModels()
         {
             var availableModelKeys = _shoesDataEntities.StockRooms
-                .Where(st => st.OperationType == "IN")
                 .GroupBy(st => st.ProductId)
                 .Select(p => p.OrderByDescending(t => t.Id).FirstOrDefault())
                 .Where(st => st.StockValue > 0)
@@ -76,10 +74,10 @@ namespace Systems.Appollo.Shoes.Data.Services
         public List<ColorDto> GetAllStockShoesColorByModelId(int modelId)
         {
             var availableColorKeys = _shoesDataEntities.StockRooms
-                .Where(st => st.OperationType == "IN")
                 .Where(st => st.Product.ModelId == modelId)
                 .GroupBy(st => st.ProductId)
                 .Select(p => p.OrderByDescending(t => t.Id).FirstOrDefault())
+                .Where(st => st.StockValue > 0)
                 .Select(st => st.Product.ColorId)
                 .Distinct()
                 .ToList();
@@ -95,10 +93,10 @@ namespace Systems.Appollo.Shoes.Data.Services
         public List<double> GetAllShoesSizesByColorAndModel(int modeId, int? colorId)
         {
             return _shoesDataEntities.StockRooms
-                .Where(st => st.OperationType == "IN")
                 .Where(st => st.Product.ModelId == modeId && st.Product.ColorId == colorId)
                 .GroupBy(st => st.ProductId)
                 .Select(p => p.OrderByDescending(t => t.Id).FirstOrDefault())
+                .Where(st => st.StockValue > 0)
                 .Select(st => st.Product.Size)
                 .Distinct()
                 .ToList();
@@ -113,8 +111,9 @@ namespace Systems.Appollo.Shoes.Data.Services
         {
             var currentProduct = _productServices.FindProduct(
                 newStockRoomDto.ModelId,
-                newStockRoomDto.SelectedColor.ColorId.Value,
+                newStockRoomDto.SelectedColor.ColorId,
                 newStockRoomDto.Size);
+
             var lastStockRoom = GetLastStockRoomByProductId(currentProduct.Id);
             var stocks = newStockRoomDto.Quantity;
             if (lastStockRoom != null)
@@ -173,18 +172,79 @@ namespace Systems.Appollo.Shoes.Data.Services
                 .FirstOrDefault();
         }
 
+        private StockRoom GetLastStockRoomByProductId(int modelId, int colorId, double size)
+        {
+            var currentProduct = _productServices.FindProduct(modelId, colorId, size);
+            return currentProduct == null ? null : GetLastStockRoomByProductId(currentProduct.Id);
+        }
+
+        private StoreStockRoom GetLastStoreStockRoomByProductId(int productId)
+        {
+            return _shoesDataEntities.StoreStockRooms
+                .Where(s => s.ProductId == productId)
+                .OrderByDescending(s => s.Id)
+                .FirstOrDefault();
+        }
+
+        private StoreStockRoom GetLastStoreStockRoomByProductId(int modelId, int colorId, double size)
+        {
+            var currentProduct = _productServices.FindProduct(modelId, colorId, size);
+            return currentProduct == null ? null : GetLastStoreStockRoomByProductId(currentProduct.Id);
+        }
+
         public int GetTotalShoesInStockRoomByProduct(int modelId, int? colorId, double size)
         {
-            var lastStockEntry = _shoesDataEntities.StockRooms
-                .Where(st =>
-                    st.Product.ModelId == modelId
-                    && st.Product.ColorId == colorId
-                    && st.Product.Size == size)
-                .Where(st => st.OperationType == "IN")
-                .GroupBy(st => st.ProductId)
-                .Select(p => p.OrderByDescending(t => t.Id).FirstOrDefault())
-                .SingleOrDefault();
-            return lastStockEntry?.EntryValue ?? 0;
+            var currentProduct = _productServices.FindProduct(modelId, colorId, size);
+            if (currentProduct == null) return 0;
+            var lastStockEntry = GetLastStockRoomByProductId(currentProduct.Id);
+            return lastStockEntry?.StockValue ?? 0;
+        }
+
+        public void SupplyStoreStockRoom(StoreStockRoomDto storeStockRoomDto)
+        {
+            if (storeStockRoomDto.ColorId == null)
+                throw new InvalidOperationException("Error: No enter new Store StockRoom if Color is null");
+            if (storeStockRoomDto.Size == null)
+                throw new InvalidOperationException("Error: No enter new Store StockRoom if Shoes Size is null");
+
+            var modelId = storeStockRoomDto.ModelId;
+            var colorId = storeStockRoomDto.ColorId.Value;
+            var size = storeStockRoomDto.Size.Value;
+            var currentProduct = _productServices.FindProduct(modelId, colorId, size);
+            if (currentProduct == null)
+                throw new StockRoomOperationException("No Found a product item to supply Store StockRoom");
+
+            var lastStockRoom = GetLastStockRoomByProductId(currentProduct.Id);
+            if (lastStockRoom == null)
+                throw new StockRoomOperationException("No Found any stock room to execute the operation");
+            if (lastStockRoom.StockValue < storeStockRoomDto.Quantity)
+                throw new StockRoomOperationException(
+                    "It is not possible to move requested quantity to selected store");
+
+            var newStockRoom = new StockRoom()
+            {
+                ProductId = lastStockRoom.ProductId,
+                StockValue = lastStockRoom.StockValue - storeStockRoomDto.Quantity,
+                EntryDate = storeStockRoomDto.DateOfSupplier,
+                EntryValue = -storeStockRoomDto.Quantity,
+                OperationType = OperationType.OUT.ToString()
+            };
+            _shoesDataEntities.StockRooms.Add(newStockRoom);
+            var lastStoreStockRoom = GetLastStoreStockRoomByProductId(currentProduct.Id);
+            var storeStocks = storeStockRoomDto.Quantity;
+            if (lastStoreStockRoom != null)
+                storeStocks += lastStoreStockRoom.StockValue;
+            var newStoreStockRoom = new StoreStockRoom
+            {
+                ProductId = currentProduct.Id,
+                StockValue = storeStocks,
+                EntryDate = storeStockRoomDto.DateOfSupplier,
+                EntryValue = storeStockRoomDto.Quantity,
+                StoreId = storeStockRoomDto.StoreId,
+                OperationType = OperationType.IN.ToString()
+            };
+            _shoesDataEntities.StoreStockRooms.Add(newStoreStockRoom);
+            SaveChanges();
         }
     }
 }

@@ -35,11 +35,11 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
 
         private void NewStockroomEntryForm_Load(object sender, EventArgs e)
         {
-            var shoesModels = ShoesDataClientServices.StockRoomServices.GetAllAvaibleModels();
+            var shoesModels = ShoesDataClientServices.StockRoomServices.GetAllAvailableModels();
             var stores = ShoesDataClientServices.StoreServices.GetAllStores();
             modelComboBox.DataSource = shoesModels;
             storeComboBox.DataSource = stores;
-            bool isEnable = shoesModels.Count > 0 && stores.Count > 0;
+            var isEnable = shoesModels.Count > 0 && stores.Count > 0;
             addButton.Enabled = isEnable;
             photoLinkLabel.Enabled = isEnable;
             ReloadShoesModelPicture(SelectedModelDto);
@@ -54,32 +54,11 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
             }
         }
 
-        private ColorDto SelectedColorDto
-        {
-            get
-            {
-                if (colorComboBox.SelectedItem == null) return null;
-                return colorComboBox.SelectedItem as ColorDto;
-            }
-        }
+        private ColorDto SelectedColorDto => colorComboBox.SelectedItem as ColorDto;
 
-        private ModelDto SelectedModelDto
-        {
-            get
-            {
-                if (modelComboBox.SelectedItem == null) return null;
-                return modelComboBox.SelectedItem as ModelDto;
-            }
-        }
+        private ModelDto SelectedModelDto => modelComboBox.SelectedItem as ModelDto;
 
-        private SupplierDto SelectedSupplierDto
-        {
-            get
-            {
-                if (storeComboBox.SelectedItem == null) return null;
-                return storeComboBox.SelectedItem as SupplierDto;
-            }
-        }
+        private StoreDto SelectedStoreDto => storeComboBox.SelectedItem as StoreDto;
 
         private List<ColorDto> Colors { get; set; }
 
@@ -93,58 +72,47 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if (SelectedColorDto == null)
+            if (SelectedColorDto == null 
+                || SelectedModelDto == null 
+                || SelectedStoreDto == null 
+                || ShoesSize == null)
             {
-                MessageBox.Show(Messages.SELECTED_COLOR_REQUIRED, Constants.MESSAGE_CAPTION);
+                MessageBox.Show(Messages.STORE_SUPPIER_VALUES_REQUIRED, Constants.MESSAGE_CAPTION);
                 return;
             }
 
-            if (SelectedModelDto == null)
-            {
-                MessageBox.Show(Messages.SELECTED_MODEL_REQUIRED, Constants.MESSAGE_CAPTION);
-                return;
-            }
-
-            if (SelectedSupplierDto == null)
-            {
-                MessageBox.Show(Messages.SELECTED_SUPPLIER_REQUIRED, Constants.MESSAGE_CAPTION);
-                return;
-            }
-
-            var newDto = new StockRoomDto
+            var newDto = new StoreStockRoomDto()
             {
                 ModelId = SelectedModelDto.ModelId,
-                SelectedColor = SelectedColorDto,
-                Size = Convert.ToDouble(sizeComboBox.SelectedItem),
+                ColorId = SelectedColorDto.ColorId,
+                Size = ShoesSize,
                 Quantity = (int)quantityNumericUpDown.Value,
-                EntryDate = dateInTime.Value,
-                SupplierId = SelectedSupplierDto.SupplierId
+                DateOfSupplier = dateInTime.Value,
+                StoreId = SelectedStoreDto.StoreId
             };
-            ShoesDataClientServices.StockRoomServices.InsertNewProductInStock(newDto);
+            ShoesDataClientServices.StockRoomServices.SupplyStoreStockRoom(newDto);
             ResetView();
             MessageBox.Show(Messages.NEW_PRODUCT_CREATED_SUCESSS, Constants.MESSAGE_CAPTION);
         }
+
+        private double? ShoesSize => (double?) sizeComboBox.SelectedItem;
 
         private void ResetView()
         {
             quantityNumericUpDown.Value = 1;
             dateInTime.Value = DateTime.Now;
-            if (SelectedColorDto.ColorId == null)
-            {
-                Colors = ShoesDataClientServices.ColorServices.GetAllColors();
-                colorComboBox.DataSource = Colors;
-            }
+            if (SelectedColorDto.ColorId != null) return;
+            Colors = ShoesDataClientServices.ColorServices.GetAllColors();
+            colorComboBox.DataSource = Colors;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                var uploadPicture = PictureViewUtils.ReadImageFromFilePath(openFileDialog1.FileName);
-                ShoesDataClientServices.ModelServices.UpdateShoesModelPicture(SelectedModelDto.ModelId, uploadPicture);
-                SelectedModelDto.Photo = uploadPicture;
-                LoadNewPhoto(openFileDialog1.FileName);
-            }
+            if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
+            var uploadPicture = PictureViewUtils.ReadImageFromFilePath(openFileDialog1.FileName);
+            ShoesDataClientServices.ModelServices.UpdateShoesModelPicture(SelectedModelDto.ModelId, uploadPicture);
+            SelectedModelDto.Photo = uploadPicture;
+            LoadNewPhoto(openFileDialog1.FileName);
         }
 
         private void LoadNewPhoto(string fileName)
@@ -171,8 +139,9 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
             var modelId = SelectedModelDto.ModelId;
             var colorId = SelectedColorDto.ColorId;
             var size = (double)sizeComboBox.SelectedItem;
-            int totalShoes = ShoesDataClientServices.StockRoomServices.GetTotalShoesInStockRoomByProduct(modelId, colorId, size);
+            var totalShoes = ShoesDataClientServices.StockRoomServices.GetTotalShoesInStockRoomByProduct(modelId, colorId, size);
             quantityNumericUpDown.Maximum = totalShoes;
+            quantityNumericUpDown.Value = totalShoes;
         }
     }
 }

@@ -76,8 +76,9 @@
     <Compile Include="Dtos\ColorDto.cs" />
     <Compile Include="Dtos\ModelDto.cs" />
     <Compile Include="Dtos\SellerDto.cs" />
-    <Compile Include="Dtos\StockroomDto.cs" />
+    <Compile Include="Dtos\StockRoomDto.cs" />
     <Compile Include="Dtos\StoreDto.cs" />
+    <Compile Include="Dtos\StoreStockRoomDto.cs" />
     <Compile Include="Dtos\SupplierDto.cs" />
     <Compile Include="Model.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
