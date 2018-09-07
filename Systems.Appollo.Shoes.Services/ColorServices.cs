@@ -9,17 +9,17 @@ namespace Systems.Appollo.Shoes.Data.Services
 {
     public class ColorServices
     {
-        private readonly ShoesDBEntities shoesDataEntities;
+        private readonly ShoesDBEntities _shoesDataEntities;
         
         public ColorServices(ShoesDBEntities shoesDataEntities1)
         {
-            this.shoesDataEntities = shoesDataEntities1;
+            this._shoesDataEntities = shoesDataEntities1;
         }
 
         public void InsertColor(string colorName)
         {
-            Color newColor = new Color() { Name = colorName };
-            shoesDataEntities.Colors.Add(newColor);
+            var newColor = new Color() { Name = colorName };
+            _shoesDataEntities.Colors.Add(newColor);
             SaveChanges();
         }
 
@@ -37,37 +37,32 @@ namespace Systems.Appollo.Shoes.Data.Services
 
         public void DeleteColor(int? colorId)
         {
-            Color deleted = FindColor(colorId);
-            if (deleted != null)
-            {
-                shoesDataEntities.Colors.Remove(deleted);
-                SaveChanges();
-            }
+            var deleted = FindColor(colorId);
+            if (deleted == null) return;
+            _shoesDataEntities.Colors.Remove(deleted);
+            SaveChanges();
         }
 
         public List<ColorDto> GetAllColors()
         {
-            return shoesDataEntities.Colors
+            return _shoesDataEntities.Colors
                     .Select(c => new ColorDto() { ColorId = c.Id, Name = c.Name })
                     .ToList();
         }
 
-        public bool ExistColorByName(String colorName)
+        public bool ExistColorByName(string colorName)
         {
-            if (colorName == null)
-                return false;
-
-            return shoesDataEntities.Colors.Any(c => c.Name == colorName);
+            return colorName != null && _shoesDataEntities.Colors.Any(c => c.Name == colorName);
         }
 
         public Color FindColor(int? colorId)
         {
-            return shoesDataEntities.Colors.Where(c => c.Id == colorId).SingleOrDefault();
+            return _shoesDataEntities.Colors.SingleOrDefault(c => c.Id == colorId);
         }
 
         private void SaveChanges()
         {
-            shoesDataEntities.SaveChanges();
+            _shoesDataEntities.SaveChanges();
         }
     }
 }

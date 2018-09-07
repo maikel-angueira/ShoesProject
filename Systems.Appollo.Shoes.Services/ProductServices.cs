@@ -8,16 +8,16 @@ namespace Systems.Appollo.Shoes.Data.Services
 {
     public class ProductServices
     {
-        private readonly ShoesDBEntities shoesDataEntities;
+        private readonly ShoesDBEntities _shoesDataEntities;
 
         public ProductServices(ShoesDBEntities shoesDataEntities1)
         {
-            this.shoesDataEntities = shoesDataEntities1;
+            this._shoesDataEntities = shoesDataEntities1;
         }
 
         public bool ExistProduct(int modelId, int colorId, double size)
         {
-            return shoesDataEntities.Products.Any(p =>
+            return _shoesDataEntities.Products.Any(p =>
                     p.ModelId == modelId
                         && p.ColorId == colorId
                         && p.Size == size);
@@ -25,12 +25,10 @@ namespace Systems.Appollo.Shoes.Data.Services
 
         public Product FindProduct(int modelId, int colorId, double size)
         {
-            return shoesDataEntities.Products.Where(p =>
-                    p.ModelId == modelId
+            return _shoesDataEntities.Products
+                   .SingleOrDefault(p => p.ModelId == modelId
                         && p.ColorId == colorId
-                        && p.Size == size)
-                   .SingleOrDefault();
+                        && p.Size == size);
         }
-
     }
 }

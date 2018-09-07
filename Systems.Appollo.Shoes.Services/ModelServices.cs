@@ -9,29 +9,29 @@ namespace Systems.Appollo.Shoes.Data.Services
 {
     public class ModelServices
     {
-        private readonly ShoesDBEntities shoesDataEntities;
+        private readonly ShoesDBEntities _shoesDataEntities;
         
 
         public ModelServices(ShoesDBEntities shoesDataEntities1)
         {
-            this.shoesDataEntities = shoesDataEntities1;
+            this._shoesDataEntities = shoesDataEntities1;
         }
 
-        public void InsertModel(string name, String description, byte[] photo)
+        public void InsertModel(string name, string description, byte[] photo)
         {
             var newModel = new Model { Name = name, Description = description, Photo = photo };
-            shoesDataEntities.Models.Add(newModel);
+            _shoesDataEntities.Models.Add(newModel);
             SaveChanges();
         }
 
         private void SaveChanges()
         {
-            shoesDataEntities.SaveChanges();
+            _shoesDataEntities.SaveChanges();
         }
 
         public List<ModelDto> GetAllModels()
         {
-            return shoesDataEntities.Models
+            return _shoesDataEntities.Models
                 .Select(m => new ModelDto
                 {
                     ModelId = m.Id,
@@ -43,44 +43,38 @@ namespace Systems.Appollo.Shoes.Data.Services
 
         public bool ExistModelByName(string newModelName)
         {
-            return shoesDataEntities.Models.Any(m => m.Name == newModelName);
+            return _shoesDataEntities.Models.Any(m => m.Name == newModelName);
         }
 
         public void UpdateModel(ModelDto updatedModelDto)
         {
-            Model model = FindModelById(updatedModelDto.ModelId);
-            if (model != null)
-            {
-                model.Description = updatedModelDto.Description;
-                model.Name = updatedModelDto.Name;
-                model.Photo = updatedModelDto.Photo;
-                SaveChanges();
-            }
+            var model = FindModelById(updatedModelDto.ModelId);
+            if (model == null) return;
+            model.Description = updatedModelDto.Description;
+            model.Name = updatedModelDto.Name;
+            model.Photo = updatedModelDto.Photo;
+            SaveChanges();
         }
 
         private Model FindModelById(int modelId)
         {
-            return shoesDataEntities.Models.Where(m => m.Id == modelId).SingleOrDefault();
+            return _shoesDataEntities.Models.SingleOrDefault(m => m.Id == modelId);
         }
 
         public void RemoveModel(int modelId)
         {
             var deletedModel = FindModelById(modelId);
-            if (deletedModel != null)
-            {
-                shoesDataEntities.Models.Remove(deletedModel);
-                SaveChanges();
-            }
+            if (deletedModel == null) return;
+            _shoesDataEntities.Models.Remove(deletedModel);
+            SaveChanges();
         }
 
         public void UpdateShoesModelPicture(int modelId, byte[] uploadPicture)
         {
             var currentShoesModel = FindModelById(modelId);
-            if (currentShoesModel != null)
-            {
-                currentShoesModel.Photo = uploadPicture;
-                SaveChanges();
-            }
+            if (currentShoesModel == null) return;
+            currentShoesModel.Photo = uploadPicture;
+            SaveChanges();
         }
     }
 }

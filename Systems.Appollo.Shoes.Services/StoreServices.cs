@@ -9,12 +9,12 @@ namespace Systems.Appollo.Shoes.Data.Services
 {
     public class StoreServices
     {
-        private readonly ShoesDBEntities shoesDataEntities;
+        private readonly ShoesDBEntities _shoesDataEntities;
         
 
         public StoreServices(ShoesDBEntities shoesDataEntities1)
         {
-            this.shoesDataEntities = shoesDataEntities1;
+            this._shoesDataEntities = shoesDataEntities1;
         }
 
         public void InsertStore(string name, string address, int sellerId)
@@ -26,35 +26,33 @@ namespace Systems.Appollo.Shoes.Data.Services
                 SellerId = sellerId
             };
 
-            shoesDataEntities.Stores.Add(newStore);
+            _shoesDataEntities.Stores.Add(newStore);
             SaveChanges();
         }
 
         public bool ExistStoreByName(string storeName)
         {
-            return shoesDataEntities.Stores.Any(s => s.Name == storeName);
+            return _shoesDataEntities.Stores.Any(s => s.Name == storeName);
         }
 
-        public Store FindStoreById(int storeId)
+        private Store FindStoreById(int storeId)
         {
-            return shoesDataEntities.Stores.Where(s => s.Id == storeId).SingleOrDefault();
+            return _shoesDataEntities.Stores.SingleOrDefault(s => s.Id == storeId);
         }
 
         public void UpdateStore(StoreDto storeDto)
         {
             var updatedStore = FindStoreById(storeDto.StoreId);
-            if (updatedStore != null)
-            {
-                updatedStore.Name = storeDto.Name;
-                updatedStore.Address = storeDto.Address;
-                updatedStore.SellerId = storeDto.SellerId;
-                SaveChanges();
-            }
+            if (updatedStore == null) return;
+            updatedStore.Name = storeDto.Name;
+            updatedStore.Address = storeDto.Address;
+            updatedStore.SellerId = storeDto.SellerId;
+            SaveChanges();
         }
 
         public List<StoreDto> GetAllStores()
         {
-            return shoesDataEntities.Stores.Select(
+            return _shoesDataEntities.Stores.Select(
                 s => new StoreDto
                 {
                     StoreId = s.Id,
@@ -67,16 +65,14 @@ namespace Systems.Appollo.Shoes.Data.Services
         public void RemoveStore(int storeId)
         {
             var deletedStore = FindStoreById(storeId);
-            if (deletedStore != null)
-            {
-                shoesDataEntities.Stores.Remove(deletedStore);
-                SaveChanges();
-            }
+            if (deletedStore == null) return;
+            _shoesDataEntities.Stores.Remove(deletedStore);
+            SaveChanges();
         }
 
         private void SaveChanges()
         {
-            this.shoesDataEntities.SaveChanges();
+            this._shoesDataEntities.SaveChanges();
         }
     }
 }

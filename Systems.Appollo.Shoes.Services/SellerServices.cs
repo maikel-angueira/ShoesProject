@@ -9,28 +9,28 @@ namespace Systems.Appollo.Shoes.Data.Services
 {
     public class SellerServices
     {
-        private readonly ShoesDBEntities shoesDataEntities;
+        private readonly ShoesDBEntities _shoesDataEntities;
 
         public SellerServices(ShoesDBEntities shoesDataEntities1)
         {
-            this.shoesDataEntities = shoesDataEntities1;
+            this._shoesDataEntities = shoesDataEntities1;
         }
 
         public void InsertSeller(string name, String address, byte[] photo)
         {
             var newSeller = new Seller { Name = name, Address = address, Photo = photo };
-            shoesDataEntities.Sellers.Add(newSeller);
+            _shoesDataEntities.Sellers.Add(newSeller);
             SaveChanges();
         }
 
         private void SaveChanges()
         {
-            shoesDataEntities.SaveChanges();
+            _shoesDataEntities.SaveChanges();
         }
 
         public List<SellerDto> GetAllSellers()
         {
-            return shoesDataEntities.Sellers
+            return _shoesDataEntities.Sellers
                 .Select(s => new SellerDto
                 {
                     SellerId = s.Id,
@@ -42,34 +42,30 @@ namespace Systems.Appollo.Shoes.Data.Services
 
         public bool ExistSellerByName(string sellerName)
         {
-            return shoesDataEntities.Sellers.Any(s => s.Name == sellerName);
+            return _shoesDataEntities.Sellers.Any(s => s.Name == sellerName);
         }
 
         public void UpdateSeller(SellerDto sellerDto)
         {
-            Seller currentSeller = FindSellerById(sellerDto.SellerId);
-            if (currentSeller != null)
-            {
-                currentSeller.Address = sellerDto.Address;
-                currentSeller.Name = sellerDto.Name;
-                currentSeller.Photo = sellerDto.Photo;
-                SaveChanges();
-            }
+            var currentSeller = FindSellerById(sellerDto.SellerId);
+            if (currentSeller == null) return;
+            currentSeller.Address = sellerDto.Address;
+            currentSeller.Name = sellerDto.Name;
+            currentSeller.Photo = sellerDto.Photo;
+            SaveChanges();
         }
 
         private Seller FindSellerById(int sellerId)
         {
-            return shoesDataEntities.Sellers.Where(s => s.Id == sellerId).SingleOrDefault();
+            return _shoesDataEntities.Sellers.SingleOrDefault(s => s.Id == sellerId);
         }
 
         public void RemoveSeller(int sellerId)
         {
             var deletedSeller = FindSellerById(sellerId);
-            if (deletedSeller != null)
-            {
-                shoesDataEntities.Sellers.Remove(deletedSeller);
-                SaveChanges();
-            }
+            if (deletedSeller == null) return;
+            _shoesDataEntities.Sellers.Remove(deletedSeller);
+            SaveChanges();
         }
 
     }

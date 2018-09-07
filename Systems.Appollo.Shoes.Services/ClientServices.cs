@@ -9,28 +9,28 @@ namespace Systems.Appollo.Shoes.Data.Services
 {
     public class ClientServices
     {
-        private readonly ShoesDBEntities shoesDataEntities;
+        private readonly ShoesDBEntities _shoesDataEntities;
 
         public ClientServices(ShoesDBEntities shoesDataEntities1)
         {
-            this.shoesDataEntities = shoesDataEntities1;
+            this._shoesDataEntities = shoesDataEntities1;
         }
 
         public void InsertClient(string name, String address, byte[] photo)
         {
             var newSeller = new Client { Name = name, Address = address, Photo = photo };
-            shoesDataEntities.Clients.Add(newSeller);
+            _shoesDataEntities.Clients.Add(newSeller);
             SaveChanges();
         }
 
         private void SaveChanges()
         {
-            shoesDataEntities.SaveChanges();
+            _shoesDataEntities.SaveChanges();
         }
 
         public List<ClientDto> GetAllClients()
         {
-            return shoesDataEntities.Clients
+            return _shoesDataEntities.Clients
                 .Select(s => new ClientDto
                 {
                     ClientId = s.Id,
@@ -42,34 +42,30 @@ namespace Systems.Appollo.Shoes.Data.Services
 
         public bool ExistClientByName(string clientName)
         {
-            return shoesDataEntities.Clients.Any(s => s.Name == clientName);
+            return _shoesDataEntities.Clients.Any(s => s.Name == clientName);
         }
 
         public void UpdateClient(ClientDto clientDto)
         {
-            Client currentClient = FindClientById(clientDto.ClientId);
-            if (currentClient != null)
-            {
-                currentClient.Address = clientDto.Address;
-                currentClient.Name = clientDto.Name;
-                currentClient.Photo = clientDto.Photo;
-                SaveChanges();
-            }
+            var currentClient = FindClientById(clientDto.ClientId);
+            if (currentClient == null) return;
+            currentClient.Address = clientDto.Address;
+            currentClient.Name = clientDto.Name;
+            currentClient.Photo = clientDto.Photo;
+            SaveChanges();
         }
 
         private Client FindClientById(int clientId)
         {
-            return shoesDataEntities.Clients.Where(s => s.Id == clientId).SingleOrDefault();
+            return _shoesDataEntities.Clients.SingleOrDefault(s => s.Id == clientId);
         }
 
         public void RemoveClient(int clientId)
         {
             var deletedClient = FindClientById(clientId);
-            if (deletedClient != null)
-            {
-                shoesDataEntities.Clients.Remove(deletedClient);
-                SaveChanges();
-            }
+            if (deletedClient == null) return;
+            _shoesDataEntities.Clients.Remove(deletedClient);
+            SaveChanges();
         }
     }
 }
