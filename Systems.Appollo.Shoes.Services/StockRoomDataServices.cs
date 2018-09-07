@@ -55,14 +55,14 @@ namespace Systems.Appollo.Shoes.Data.Services
             shoesDataEntities.SaveChanges();
         }
 
-        private StockRoom AddNewStockRoomUpdatingTotal(StockRoomDto stockRoomDto)
+        private StockRoom AddNewStockRoomUpdatingTotal(StockRoomDto newStockRoomDto)
         {
             Product currentProduct = productServices.FindProduct(
-                stockRoomDto.ModelId,
-                stockRoomDto.SelectedColor.ColorId.Value,
-                stockRoomDto.Size);
+                newStockRoomDto.ModelId,
+                newStockRoomDto.SelectedColor.ColorId.Value,
+                newStockRoomDto.Size);
             var lastStockRoom = GetLastStockRoomByProductId(currentProduct.Id);
-            int stocks = stockRoomDto.Quantity;
+            int stocks = newStockRoomDto.Quantity;
             if (lastStockRoom != null)
                 stocks += lastStockRoom.StockValue;
 
@@ -70,9 +70,10 @@ namespace Systems.Appollo.Shoes.Data.Services
             {
                 ProductId = currentProduct.Id,
                 StockValue = stocks,
-                EntryValue = stockRoomDto.Quantity,
-                EntryDate = stockRoomDto.EntryDate,
-                OperationType = OperationType.IN.ToString()
+                EntryValue = newStockRoomDto.Quantity,
+                EntryDate = newStockRoomDto.EntryDate,
+                OperationType = OperationType.IN.ToString(),
+                SupplierId = newStockRoomDto.SupplierId
             };
             shoesDataEntities.StockRooms.Add(newStockRoom);
             return newStockRoom;
@@ -88,22 +89,23 @@ namespace Systems.Appollo.Shoes.Data.Services
             shoesDataEntities.CheckingAccounts.Add(newCheckingAccount);
         }
 
-        private StockRoom AddNewStockRoomAndProduct(StockRoomDto stockRoomDto, int colorId)
+        private StockRoom AddNewStockRoomAndProduct(StockRoomDto newStockRoomDto, int colorId)
         {
             Product currentProduct = new Product
             {
-                ModelId = stockRoomDto.ModelId,
+                ModelId = newStockRoomDto.ModelId,
                 ColorId = colorId,
-                Size = stockRoomDto.Size,
+                Size = newStockRoomDto.Size,
             };
             shoesDataEntities.Products.Add(currentProduct);
             var newStockRoom = new StockRoom
             {
                 ProductId = currentProduct.Id,
-                StockValue = stockRoomDto.Quantity,
-                EntryValue = stockRoomDto.Quantity,
-                EntryDate = stockRoomDto.EntryDate,
-                OperationType = OperationType.IN.ToString()
+                StockValue = newStockRoomDto.Quantity,
+                EntryValue = newStockRoomDto.Quantity,
+                EntryDate = newStockRoomDto.EntryDate,
+                OperationType = OperationType.IN.ToString(),
+                SupplierId = newStockRoomDto.SupplierId
             };
             shoesDataEntities.StockRooms.Add(newStockRoom);
             return newStockRoom;

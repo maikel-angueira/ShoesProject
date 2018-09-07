@@ -84,6 +84,15 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
             }
         }
 
+        private SupplierDto SelectedSupplierDto
+        {
+            get
+            {
+                if (supplierComboBox.SelectedItem == null) return null;
+                return supplierComboBox.SelectedItem as SupplierDto;
+            }
+        }
+
         private List<ColorDto> Colors { get; set; }
 
         private void modelComboBox_SelectedValueChanged(object sender, EventArgs e)
@@ -105,6 +114,12 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
                 return;
             }
 
+            if (SelectedSupplierDto == null)
+            {
+                MessageBox.Show(Messages.SELECTED_SUPPLIER_REQUIRED, Constants.MESSAGE_CAPTION);
+                return;
+            }
+
             var newDto = new StockRoomDto
             {
                 ModelId = SelectedModelDto.ModelId,
@@ -112,7 +127,8 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
                 Size = Convert.ToDouble(sizeComboBox.SelectedItem),
                 Quantity = (int)quantityNumericUpDown.Value,
                 UnitCost = (double)costNumericUpDown.Value,
-                EntryDate = dateInTime.Value
+                EntryDate = dateInTime.Value,
+                SupplierId = SelectedSupplierDto.SupplierId
             };
             ShoesDataClientServices.StockRoomServices.InsertNewProductInStock(newDto);
             ResetView();
