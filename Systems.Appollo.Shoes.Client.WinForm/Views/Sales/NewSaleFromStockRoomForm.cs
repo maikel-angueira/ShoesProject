@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Systems.Appollo.Shoes.Client.WinForm.DataServices;
+using Systems.Appollo.Shoes.Client.WinForm.Utils;
 using Systems.Appollo.Shoes.Data.DataModels;
 using Systems.Appollo.Shoes.Data.Dtos;
 
@@ -53,7 +54,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
 
         private ColorDto SelectedColorDto => colorComboBox.SelectedItem as ColorDto;
 
-        private double? SelectedShoesSize => (double?) sizeComboBox.SelectedItem;
+        private double? SelectedShoesSize => (double?)sizeComboBox.SelectedItem;
 
         private void modelComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -107,6 +108,17 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            if (priceNumericUpDown.Value == 0)
+            {
+                if (MessageBox.Show(
+                    Messages.SALE_PRODUCT_PRICE_EQUAL_CERO,
+                    Constants.MESSAGE_CAPTION,
+                    MessageBoxButtons.YesNo) != DialogResult.Yes)
+                {
+                    return;
+                }
+            }
+
             var newSaleProductDto = new SaleProductDto
             {
                 ColorId = SelectedColorDto.ColorId,
@@ -114,8 +126,8 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
                 ModelId = SelectedModelDto.ModelId,
                 ModelName = SelectedModelDto.Name,
                 ModelPhoto = SelectedModelDto.Photo,
-                Price = (double) priceNumericUpDown.Value,
-                Quantity = (int) quantityNumericUpDown.Value,
+                Price = (double)priceNumericUpDown.Value,
+                Quantity = (int)quantityNumericUpDown.Value,
                 Size = SelectedShoesSize
             };
             CurrentSaleDto.SalesProducts.Add(newSaleProductDto);
@@ -141,6 +153,14 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
 
         private void removeProductButton_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show(
+                    Messages.REMOVE_PRODUCT_FROM_SALE,
+                    Constants.MESSAGE_CAPTION,
+                    MessageBoxButtons.YesNo) != DialogResult.Yes)
+            {
+                return;
+            }
+
             if (SelectedSaleProductDto == null) return;
             var isLoaded =
                 SelectedSaleProductDto.ModelId == SelectedModelDto.ModelId
@@ -163,6 +183,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
             CurrentSaleDto.DateOfSale = saleDateTimePicker.Value;
             ShoesDataServices.SalesServices.AddSalesAndDecrementStockProducts(CurrentSaleDto);
             ResetView();
+            MessageBox.Show(Messages.SALE_CREATED_SUCCCESS, Constants.MESSAGE_CAPTION);
         }
 
         private void ResetView()
@@ -177,7 +198,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
             UpdateToolStripStatus();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void newSaleButton_Click(object sender, EventArgs e)
         {
             addButton.Enabled = true;
             newSaleButton.Enabled = false;
@@ -186,6 +207,13 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
 
         private void removeAllButton_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show(
+                    Messages.REMOVE_ALL_PRODUCT_FROM_SALE,
+                    Constants.MESSAGE_CAPTION,
+                    MessageBoxButtons.YesNo) != DialogResult.Yes)
+            {
+                return;
+            }
             saleProductDtoBindingSource.Clear();
             CurrentSaleDto.SalesProducts.Clear();
             removeProductButton.Enabled = false;

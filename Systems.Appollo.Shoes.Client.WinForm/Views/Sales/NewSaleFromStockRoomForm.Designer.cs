@@ -42,27 +42,27 @@
             this.modelComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.removeProductButton = new System.Windows.Forms.Button();
+            this.saleDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             this.saveSalesButton = new System.Windows.Forms.Button();
             this.clientComboBox = new System.Windows.Forms.ComboBox();
             this.saleProductDataGridView = new System.Windows.Forms.DataGridView();
             this.saleProductDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
+            this.removeProductButton = new System.Windows.Forms.Button();
             this.saleDetailsStatusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.quantityToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.totalSaleToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.saleDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.newSaleButton = new System.Windows.Forms.Button();
+            this.removeAllButton = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.newSaleButton = new System.Windows.Forms.Button();
-            this.removeAllButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceNumericUpDown)).BeginInit();
@@ -211,16 +211,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalles de la Venta por Productos";
             // 
-            // removeProductButton
+            // saleDateTimePicker
             // 
-            this.removeProductButton.Enabled = false;
-            this.removeProductButton.Location = new System.Drawing.Point(922, 505);
-            this.removeProductButton.Name = "removeProductButton";
-            this.removeProductButton.Size = new System.Drawing.Size(99, 23);
-            this.removeProductButton.TabIndex = 2;
-            this.removeProductButton.Text = "Eliminar Producto";
-            this.removeProductButton.UseVisualStyleBackColor = true;
-            this.removeProductButton.Click += new System.EventHandler(this.removeProductButton_Click);
+            this.saleDateTimePicker.Location = new System.Drawing.Point(322, 20);
+            this.saleDateTimePicker.Name = "saleDateTimePicker";
+            this.saleDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.saleDateTimePicker.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(275, 23);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Fecha:";
             // 
             // saveSalesButton
             // 
@@ -280,6 +285,17 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Cliente:";
             // 
+            // removeProductButton
+            // 
+            this.removeProductButton.Enabled = false;
+            this.removeProductButton.Location = new System.Drawing.Point(922, 505);
+            this.removeProductButton.Name = "removeProductButton";
+            this.removeProductButton.Size = new System.Drawing.Size(99, 23);
+            this.removeProductButton.TabIndex = 2;
+            this.removeProductButton.Text = "Eliminar Producto";
+            this.removeProductButton.UseVisualStyleBackColor = true;
+            this.removeProductButton.Click += new System.EventHandler(this.removeProductButton_Click);
+            // 
             // saleDetailsStatusStrip
             // 
             this.saleDetailsStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -318,21 +334,27 @@
             this.totalSaleToolStripStatusLabel.Size = new System.Drawing.Size(28, 17);
             this.totalSaleToolStripStatusLabel.Text = "0.00";
             // 
-            // label7
+            // newSaleButton
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(275, 23);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Fecha:";
+            this.newSaleButton.Enabled = false;
+            this.newSaleButton.Location = new System.Drawing.Point(263, 505);
+            this.newSaleButton.Name = "newSaleButton";
+            this.newSaleButton.Size = new System.Drawing.Size(102, 23);
+            this.newSaleButton.TabIndex = 4;
+            this.newSaleButton.Text = "Nueva Venta";
+            this.newSaleButton.UseVisualStyleBackColor = true;
+            this.newSaleButton.Click += new System.EventHandler(this.newSaleButton_Click);
             // 
-            // saleDateTimePicker
+            // removeAllButton
             // 
-            this.saleDateTimePicker.Location = new System.Drawing.Point(322, 20);
-            this.saleDateTimePicker.Name = "saleDateTimePicker";
-            this.saleDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.saleDateTimePicker.TabIndex = 13;
+            this.removeAllButton.Enabled = false;
+            this.removeAllButton.Location = new System.Drawing.Point(817, 505);
+            this.removeAllButton.Name = "removeAllButton";
+            this.removeAllButton.Size = new System.Drawing.Size(99, 23);
+            this.removeAllButton.TabIndex = 5;
+            this.removeAllButton.Text = "Eliminar Todos";
+            this.removeAllButton.UseVisualStyleBackColor = true;
+            this.removeAllButton.Click += new System.EventHandler(this.removeAllButton_Click);
             // 
             // Column1
             // 
@@ -383,28 +405,6 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             this.Column6.Width = 60;
-            // 
-            // newSaleButton
-            // 
-            this.newSaleButton.Enabled = false;
-            this.newSaleButton.Location = new System.Drawing.Point(263, 505);
-            this.newSaleButton.Name = "newSaleButton";
-            this.newSaleButton.Size = new System.Drawing.Size(102, 23);
-            this.newSaleButton.TabIndex = 4;
-            this.newSaleButton.Text = "Nueva Venta";
-            this.newSaleButton.UseVisualStyleBackColor = true;
-            this.newSaleButton.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // removeAllButton
-            // 
-            this.removeAllButton.Enabled = false;
-            this.removeAllButton.Location = new System.Drawing.Point(817, 505);
-            this.removeAllButton.Name = "removeAllButton";
-            this.removeAllButton.Size = new System.Drawing.Size(99, 23);
-            this.removeAllButton.TabIndex = 5;
-            this.removeAllButton.Text = "Eliminar Todos";
-            this.removeAllButton.UseVisualStyleBackColor = true;
-            this.removeAllButton.Click += new System.EventHandler(this.removeAllButton_Click);
             // 
             // NewSaleFromStockRoomForm
             // 
@@ -466,13 +466,13 @@
         private System.Windows.Forms.BindingSource saleProductDtoBindingSource;
         private System.Windows.Forms.DateTimePicker saleDateTimePicker;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button newSaleButton;
+        private System.Windows.Forms.Button removeAllButton;
         private System.Windows.Forms.DataGridViewImageColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.Button newSaleButton;
-        private System.Windows.Forms.Button removeAllButton;
     }
 }
