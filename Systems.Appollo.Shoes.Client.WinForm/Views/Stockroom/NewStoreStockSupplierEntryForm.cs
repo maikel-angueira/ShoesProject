@@ -91,6 +91,10 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
                 StoreId = SelectedStoreDto.StoreId
             };
             ShoesDataClientServices.StoreStockRoomServices.SupplyStoreStockRoom(newDto);
+            var max = quantityNumericUpDown.Maximum;
+            max -= newDto.Quantity;
+            quantityNumericUpDown.Maximum = max;
+            quantityNumericUpDown.Value = max;
             ResetView();
             MessageBox.Show(Messages.NEW_PRODUCT_CREATED_SUCESSS, Constants.MESSAGE_CAPTION);
         }
@@ -99,7 +103,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
 
         private void ResetView()
         {
-            quantityNumericUpDown.Value = 1;
             dateInTime.Value = DateTime.Now;
             if (SelectedColorDto.ColorId != null) return;
             Colors = ShoesDataClientServices.ColorServices.GetAllColors();

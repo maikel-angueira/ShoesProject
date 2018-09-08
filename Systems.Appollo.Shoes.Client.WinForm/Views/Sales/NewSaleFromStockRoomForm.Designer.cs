@@ -107,9 +107,19 @@
             // quantityNumericUpDown
             // 
             this.quantityNumericUpDown.Location = new System.Drawing.Point(253, 161);
+            this.quantityNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.quantityNumericUpDown.Name = "quantityNumericUpDown";
             this.quantityNumericUpDown.Size = new System.Drawing.Size(82, 20);
             this.quantityNumericUpDown.TabIndex = 9;
+            this.quantityNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label5
             // 

@@ -45,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.modelComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cancelSaleButton = new System.Windows.Forms.Button();
             this.saleDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -58,6 +59,9 @@
             this.quantityToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.totalSaleToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.storeNameToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.storeToolStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.removeAllButton = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,10 +69,6 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.storeNameToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.storeToolStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).BeginInit();
@@ -157,9 +157,19 @@
             // quantityNumericUpDown
             // 
             this.quantityNumericUpDown.Location = new System.Drawing.Point(254, 284);
+            this.quantityNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.quantityNumericUpDown.Name = "quantityNumericUpDown";
             this.quantityNumericUpDown.Size = new System.Drawing.Size(82, 20);
             this.quantityNumericUpDown.TabIndex = 9;
+            this.quantityNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label5
             // 
@@ -245,6 +255,14 @@
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Modelo:";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Location = new System.Drawing.Point(13, 124);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(331, 328);
+            this.groupBox4.TabIndex = 14;
+            this.groupBox4.TabStop = false;
             // 
             // groupBox2
             // 
@@ -379,6 +397,23 @@
             this.totalSaleToolStripStatusLabel.Size = new System.Drawing.Size(28, 17);
             this.totalSaleToolStripStatusLabel.Text = "0.00";
             // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(46, 17);
+            this.toolStripStatusLabel2.Text = "Tienda:";
+            // 
+            // storeNameToolStripStatusLabel
+            // 
+            this.storeNameToolStripStatusLabel.Name = "storeNameToolStripStatusLabel";
+            this.storeNameToolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
+            // 
+            // storeToolStripLabel
+            // 
+            this.storeToolStripLabel.Name = "storeToolStripLabel";
+            this.storeToolStripLabel.Size = new System.Drawing.Size(94, 17);
+            this.storeToolStripLabel.Text = "[Sin Seleccionar]";
+            // 
             // removeAllButton
             // 
             this.removeAllButton.Enabled = false;
@@ -439,31 +474,6 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             this.Column6.Width = 60;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Location = new System.Drawing.Point(13, 124);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(331, 328);
-            this.groupBox4.TabIndex = 14;
-            this.groupBox4.TabStop = false;
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(46, 17);
-            this.toolStripStatusLabel2.Text = "Tienda:";
-            // 
-            // storeNameToolStripStatusLabel
-            // 
-            this.storeNameToolStripStatusLabel.Name = "storeNameToolStripStatusLabel";
-            this.storeNameToolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
-            // 
-            // storeToolStripLabel
-            // 
-            this.storeToolStripLabel.Name = "storeToolStripLabel";
-            this.storeToolStripLabel.Size = new System.Drawing.Size(94, 17);
-            this.storeToolStripLabel.Text = "[Sin Seleccionar]";
             // 
             // NewSaleFromStoreStockRoomForm
             // 
@@ -530,15 +540,15 @@
         private System.Windows.Forms.Button cancelSaleButton;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button newSaleButton;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel storeNameToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel storeToolStripLabel;
         private System.Windows.Forms.DataGridViewImageColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.ToolStripStatusLabel storeNameToolStripStatusLabel;
-        private System.Windows.Forms.ToolStripStatusLabel storeToolStripLabel;
     }
 }
