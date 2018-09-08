@@ -10,6 +10,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Utils
     {
         private Constants() {}
 
-        public const string MESSAGE_CAPTION = "Shoes System";
+        public const string MESSAGE_CAPTION = "Sistema Control de Zapatos";
     }
 }

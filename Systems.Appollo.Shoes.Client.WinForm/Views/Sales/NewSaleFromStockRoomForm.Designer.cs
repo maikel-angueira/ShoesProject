@@ -230,9 +230,9 @@
             // saveSalesButton
             // 
             this.saveSalesButton.Enabled = false;
-            this.saveSalesButton.Location = new System.Drawing.Point(547, 18);
+            this.saveSalesButton.Location = new System.Drawing.Point(538, 18);
             this.saveSalesButton.Name = "saveSalesButton";
-            this.saveSalesButton.Size = new System.Drawing.Size(87, 23);
+            this.saveSalesButton.Size = new System.Drawing.Size(96, 23);
             this.saveSalesButton.TabIndex = 1;
             this.saveSalesButton.Text = "Salvar Venta";
             this.saveSalesButton.UseVisualStyleBackColor = true;
