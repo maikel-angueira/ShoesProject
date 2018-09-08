@@ -48,6 +48,7 @@
     <Compile Include="ModelServices.cs" />
     <Compile Include="ProductServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalesServices.cs" />
     <Compile Include="SellerServices.cs" />
     <Compile Include="StockRoomDataServices.cs" />
     <Compile Include="StockRoomOperationException.cs" />

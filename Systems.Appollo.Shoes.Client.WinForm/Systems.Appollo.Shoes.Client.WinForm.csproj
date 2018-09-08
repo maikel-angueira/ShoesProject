@@ -100,6 +100,18 @@
     <Compile Include="Views\Color\UpdateColorForm.Designer.cs">
       <DependentUpon>UpdateColorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Login\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Login\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sales\NewSaleFromStockRoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Sales\NewSaleFromStockRoomForm.Designer.cs">
+      <DependentUpon>NewSaleFromStockRoomForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Seller\NewSellerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +206,12 @@
     <EmbeddedResource Include="Views\Color\UpdateColorForm.resx">
       <DependentUpon>UpdateColorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Sales\NewSaleFromStockRoomForm.resx">
+      <DependentUpon>NewSaleFromStockRoomForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Seller\NewSellerForm.resx">
       <DependentUpon>NewSellerForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +247,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Systems.Appollo.Shoes.Data.DataModels.ColorDto.datasource" />
+    <None Include="Properties\DataSources\Systems.Appollo.Shoes.Data.Dtos.SaleProductDto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

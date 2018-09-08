@@ -164,7 +164,7 @@ namespace Systems.Appollo.Shoes.Services
             return newStockRoom;
         }
 
-        private StockRoom GetLastStockRoomByProductId(int productId)
+        public StockRoom GetLastStockRoomByProductId(int productId)
         {
             return _shoesDataEntities.StockRooms
                 .Where(s => s.ProductId == productId)
@@ -172,13 +172,13 @@ namespace Systems.Appollo.Shoes.Services
                 .FirstOrDefault();
         }
 
-        private StockRoom GetLastStockRoomByProductId(int modelId, int colorId, double size)
+        public StockRoom GetLastStockRoomByProductId(int modelId, int colorId, double size)
         {
             var currentProduct = _productServices.FindProduct(modelId, colorId, size);
             return currentProduct == null ? null : GetLastStockRoomByProductId(currentProduct.Id);
         }
 
-        private StoreStockRoom GetLastStoreStockRoomByProductId(int productId)
+        public StoreStockRoom GetLastStoreStockRoomByProductId(int productId)
         {
             return _shoesDataEntities.StoreStockRooms
                 .Where(s => s.ProductId == productId)
@@ -186,13 +186,13 @@ namespace Systems.Appollo.Shoes.Services
                 .FirstOrDefault();
         }
 
-        private StoreStockRoom GetLastStoreStockRoomByProductId(int modelId, int colorId, double size)
+        public StoreStockRoom GetLastStoreStockRoomByProductId(int modelId, int colorId, double size)
         {
             var currentProduct = _productServices.FindProduct(modelId, colorId, size);
             return currentProduct == null ? null : GetLastStoreStockRoomByProductId(currentProduct.Id);
         }
 
-        public int GetTotalShoesInStockRoomByProduct(int modelId, int? colorId, double size)
+        public int GetTotalShoesInStockRoomByProduct(int modelId, int? colorId, double? size)
         {
             var currentProduct = _productServices.FindProduct(modelId, colorId, size);
             if (currentProduct == null) return 0;

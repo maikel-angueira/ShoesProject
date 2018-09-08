@@ -16,12 +16,14 @@ using Systems.Appollo.Shoes.Client.WinForm.Views.Client;
 using Systems.Appollo.Shoes.Client.WinForm.Views.Supplier;
 using Systems.Appollo.Shoes.Client.WinForm.Views.Store;
 using Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom;
+using Systems.Appollo.Shoes.Client.WinForm.Views.Sales;
+using Systems.Appollo.Shoes.Client.WinForm.Views.Login;
 
 namespace Systems.Appollo.Shoes.Client.WinForm
 {
     public partial class ShoesMainForm : Form
     {
-        private ShoesClientServices dataServices;
+        private ShoesClientServices _shoesDataServices;
 
         public ShoesMainForm()
         {
@@ -52,47 +54,49 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         private void nuevoToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             var newColorForm = new NewColorForm();
-            newColorForm.ColorDataServices = dataServices.ColorServices;
+            newColorForm.ColorDataServices = _shoesDataServices.ColorServices;
             newColorForm.ShowDialog();
         }
 
         private void nuevoToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             var newModelForm = new NewModelForm();
-            newModelForm.ModelDataServices = dataServices.ModelServices;
+            newModelForm.ModelDataServices = _shoesDataServices.ModelServices;
             newModelForm.ShowDialog();
         }
 
         private void actualizarToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             var updateColorForm = new UpdateColorForm();
-            updateColorForm.ColorDataServices = dataServices.ColorServices;
+            updateColorForm.ColorDataServices = _shoesDataServices.ColorServices;
             updateColorForm.ShowDialog();
         }
 
         private void ShoesMainForm_Load(object sender, EventArgs e)
         {
-            this.dataServices = new ShoesClientServices();
+            this._shoesDataServices = new ShoesClientServices();
+            var loginForm = new LoginForm();
+            loginForm.ShowDialog();
         }
 
         private void actualizarToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             var updateModelForm = new UpdateModelForm();
-            updateModelForm.ModelDataServices = dataServices.ModelServices;
+            updateModelForm.ModelDataServices = _shoesDataServices.ModelServices;
             updateModelForm.ShowDialog();
         }
 
         private void nuevoToolStripMenuItem5_Click(object sender, EventArgs e)
         {
             var newSellerForm = new NewSellerForm();
-            newSellerForm.SellerDataServices = dataServices.SellerServices;
+            newSellerForm.SellerDataServices = _shoesDataServices.SellerServices;
             newSellerForm.ShowDialog();
         }
 
         private void actualizarToolStripMenuItem5_Click(object sender, EventArgs e)
         {
             var updateSellerForm = new UpdateSellerForm();
-            updateSellerForm.SellerDataServices = dataServices.SellerServices;
+            updateSellerForm.SellerDataServices = _shoesDataServices.SellerServices;
             updateSellerForm.ShowDialog();
         }
 
@@ -100,7 +104,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         {
             var clientForm = new NewClientForm()
             {
-                ClientDataServices = dataServices.ClientServices
+                ClientDataServices = _shoesDataServices.ClientServices
             };
             clientForm.ShowDialog();
         }
@@ -109,7 +113,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         {
             var updateClientForm = new UpdateClientForm()
             {
-                ClientDataServices = dataServices.ClientServices
+                ClientDataServices = _shoesDataServices.ClientServices
             };
             updateClientForm.ShowDialog();
         }
@@ -118,7 +122,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         {
             var supplierForm = new UpdateSupplierForm()
             {
-                SupplierDataServices = dataServices.SupplierServices
+                SupplierDataServices = _shoesDataServices.SupplierServices
             };
             supplierForm.ShowDialog();
         }
@@ -127,7 +131,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         {
             var newSupplierForm = new NewSupplierForm()
             {
-                SupplierDataServices = dataServices.SupplierServices
+                SupplierDataServices = _shoesDataServices.SupplierServices
             };
             newSupplierForm.ShowDialog();
         }
@@ -136,7 +140,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         {
             var newStoreForm = new NewStoreForm()
             {
-                ShoesDataServices = dataServices
+                ShoesDataServices = _shoesDataServices
             };
             newStoreForm.ShowDialog();
         }
@@ -145,7 +149,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         {
             var updateStoreForm = new UpdateStoreForm
             {
-                ShoesDataClientServices = dataServices
+                ShoesDataClientServices = _shoesDataServices
             };
             updateStoreForm.ShowDialog();
         }
@@ -159,7 +163,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         {
             var newStockroomForm = new NewStockRoomEntryForm()
             {
-                ShoesDataClientServices = dataServices
+                ShoesDataClientServices = _shoesDataServices
             };
             newStockroomForm.ShowDialog();
         }
@@ -168,7 +172,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         {
             var newStockroomForm = new NewStockRoomEntryForm()
             {
-                ShoesDataClientServices = dataServices
+                ShoesDataClientServices = _shoesDataServices
             };
             newStockroomForm.ShowDialog();
         }
@@ -177,7 +181,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         {
             var newStockRoomSupplierFrom = new NewStockRoomSupplierEntryForm
             {
-                ShoesDataClientServices = dataServices
+                ShoesDataClientServices = _shoesDataServices
             };
 
             newStockRoomSupplierFrom.ShowDialog();
@@ -187,7 +191,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         {
             var newStockRoomSupplierFrom = new NewStockRoomSupplierEntryForm
             {
-                ShoesDataClientServices = dataServices
+                ShoesDataClientServices = _shoesDataServices
             };
 
             newStockRoomSupplierFrom.ShowDialog();
@@ -197,9 +201,18 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         {
             var newStoreSupplierStockForm = new NewStoreStockSupplierEntryForm
             {
-                ShoesDataClientServices = dataServices
+                ShoesDataClientServices = _shoesDataServices
             };
             newStoreSupplierStockForm.ShowDialog();
+        }
+
+        private void ventaAClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var newSaleStockRoomForm = new NewSaleFromStockRoomForm()
+            {
+                ShoesDataServices = _shoesDataServices
+            };
+            newSaleStockRoomForm.ShowDialog();
         }
     }
 }

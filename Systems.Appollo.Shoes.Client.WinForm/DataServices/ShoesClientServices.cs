@@ -9,41 +9,35 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
 {
     public class ShoesClientServices
     {
-        private readonly ColorServices colorServices;
-        private readonly ModelServices modelServices;
-        private readonly SellerServices sellerServices;
-        private readonly ClientServices clientServices;
-        private readonly SupplierServices supplierServices;
-        private readonly StoreServices storeServices;
-        private readonly StockRoomDataServices stockroomServices;
-        private readonly ProductServices productServices;
-
         public ShoesClientServices()
         {
-            this.colorServices = new ColorServices(ShoesApplicationContext.ShoesDataEntities);
-            this.modelServices = new ModelServices(ShoesApplicationContext.ShoesDataEntities);
-            this.sellerServices = new SellerServices(ShoesApplicationContext.ShoesDataEntities);
-            this.clientServices = new ClientServices(ShoesApplicationContext.ShoesDataEntities);
-            this.supplierServices = new SupplierServices(ShoesApplicationContext.ShoesDataEntities);
-            this.storeServices = new StoreServices(ShoesApplicationContext.ShoesDataEntities);
-            this.productServices = new ProductServices(ShoesApplicationContext.ShoesDataEntities);
-            this.stockroomServices = new StockRoomDataServices(ShoesApplicationContext.ShoesDataEntities, colorServices, productServices);
+            this.ColorServices = new ColorServices(ShoesApplicationContext.ShoesDataEntities);
+            this.ModelServices = new ModelServices(ShoesApplicationContext.ShoesDataEntities);
+            this.SellerServices = new SellerServices(ShoesApplicationContext.ShoesDataEntities);
+            this.ClientServices = new ClientServices(ShoesApplicationContext.ShoesDataEntities);
+            this.SupplierServices = new SupplierServices(ShoesApplicationContext.ShoesDataEntities);
+            this.StoreServices = new StoreServices(ShoesApplicationContext.ShoesDataEntities);
+            var productServices = new ProductServices(ShoesApplicationContext.ShoesDataEntities);
+            this.StockRoomServices = new StockRoomDataServices(ShoesApplicationContext.ShoesDataEntities,
+                ColorServices, productServices);
+            this.SalesServices = new SalesServices(ShoesApplicationContext.ShoesDataEntities,
+                StockRoomServices, productServices);
         }
 
-        public ClientServices ClientServices => clientServices;
+        public ClientServices ClientServices { get; }
 
-        public ColorServices ColorServices => colorServices;
+        public ColorServices ColorServices { get; }
 
-        public ModelServices ModelServices => modelServices;
+        public ModelServices ModelServices { get; }
 
-        public SellerServices SellerServices => sellerServices;
+        public SellerServices SellerServices { get; }
 
-        public SupplierServices SupplierServices => supplierServices;
+        public SupplierServices SupplierServices { get; }
 
-        public StoreServices StoreServices => storeServices;
+        public StoreServices StoreServices { get; }
 
-        public StockRoomDataServices StockRoomServices => stockroomServices;
+        public StockRoomDataServices StockRoomServices { get; }
 
-        public ProductServices ProductServices => productServices;
+        public SalesServices SalesServices { get; }
     }
 }

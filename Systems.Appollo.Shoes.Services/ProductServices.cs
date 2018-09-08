@@ -20,7 +20,7 @@ namespace Systems.Appollo.Shoes.Services
                         && p.Size == size);
         }
 
-        public Product FindProduct(int modelId, int? colorId, double size)
+        public Product FindProduct(int modelId, int? colorId, double? size)
         {
             return _shoesDataEntities.Products
                    .SingleOrDefault(p => p.ModelId == modelId

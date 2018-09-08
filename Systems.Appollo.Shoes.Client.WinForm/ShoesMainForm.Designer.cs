@@ -140,20 +140,21 @@
             this.ventaAClientesToolStripMenuItem,
             this.surtirTiendaToolStripMenuItem});
             this.salidasToolStripMenuItem.Name = "salidasToolStripMenuItem";
-            this.salidasToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.salidasToolStripMenuItem.Text = "&Salidas";
+            this.salidasToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
+            this.salidasToolStripMenuItem.Text = "&Registrar Ventas";
             // 
             // ventaAClientesToolStripMenuItem
             // 
             this.ventaAClientesToolStripMenuItem.Name = "ventaAClientesToolStripMenuItem";
-            this.ventaAClientesToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.ventaAClientesToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.ventaAClientesToolStripMenuItem.Text = "Ventas a Clientes";
+            this.ventaAClientesToolStripMenuItem.Click += new System.EventHandler(this.ventaAClientesToolStripMenuItem_Click);
             // 
             // surtirTiendaToolStripMenuItem
             // 
             this.surtirTiendaToolStripMenuItem.Name = "surtirTiendaToolStripMenuItem";
-            this.surtirTiendaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.surtirTiendaToolStripMenuItem.Text = "&Abastecer Tiendas";
+            this.surtirTiendaToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.surtirTiendaToolStripMenuItem.Text = "Ventas de Tiendas";
             // 
             // administraciónToolStripMenuItem
             // 
