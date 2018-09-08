@@ -215,7 +215,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
             colorComboBox.DataSource = new List<ColorDto>();
             sizeComboBox.DataSource = new List<double>();
             priceNumericUpDown.Value = 0;
-            quantityNumericUpDown.Value = 0;
+            quantityNumericUpDown.Value = 1;
             storeToolStripLabel.Text = "[Sin Seleccionar]";
             UpdateToolStripStatus();
         }
