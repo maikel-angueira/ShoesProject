@@ -90,7 +90,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
                 DateOfSupplier = dateInTime.Value,
                 StoreId = SelectedStoreDto.StoreId
             };
-            ShoesDataClientServices.StockRoomServices.SupplyStoreStockRoom(newDto);
+            ShoesDataClientServices.StoreStockRoomServices.SupplyStoreStockRoom(newDto);
             ResetView();
             MessageBox.Show(Messages.NEW_PRODUCT_CREATED_SUCESSS, Constants.MESSAGE_CAPTION);
         }

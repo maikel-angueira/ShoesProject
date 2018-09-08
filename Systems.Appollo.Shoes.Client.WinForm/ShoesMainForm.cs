@@ -214,5 +214,14 @@ namespace Systems.Appollo.Shoes.Client.WinForm
             };
             newSaleStockRoomForm.ShowDialog();
         }
+
+        private void surtirTiendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var newSaleStockRoomForm = new NewSaleFromStoreStockRoomForm()
+            {
+                ShoesDataServices = _shoesDataServices
+            };
+            newSaleStockRoomForm.ShowDialog();
+        }
     }
 }

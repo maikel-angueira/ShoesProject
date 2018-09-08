@@ -14,9 +14,9 @@ using Systems.Appollo.Shoes.Data.Dtos;
 
 namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
 {
-    public partial class NewSaleFromStockRoomForm : Form
+    public partial class NewSaleFromStoreStockRoomForm : Form
     {
-        public NewSaleFromStockRoomForm()
+        public NewSaleFromStoreStockRoomForm()
         {
             InitializeComponent();
             saleProductDataGridView.AutoGenerateColumns = false;
@@ -44,11 +44,22 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
 
         private void NewSaleFromStockRoomForm_Load(object sender, EventArgs e)
         {
-            var clients = ShoesDataServices.ClientServices.GetAllClients();
-            clientComboBox.DataSource = clients;
-            var availableModels = ShoesDataServices.StockRoomServices.GetAllAvailableModels();
+            var stores = ShoesDataServices.StoreServices.GetAllStores();
+            storeComboBox.DataSource = stores;
+            newSaleButton.Enabled = stores.Count > 0;
+        }
+
+        private void UpdateAvailablesModelByStore(int storeId)
+        {
+            var availableModels =
+                            ShoesDataServices.StoreStockRoomServices.GetAllAvailableModelsByStoreId(storeId);
             addButton.Enabled = availableModels.Count > 0;
             modelComboBox.DataSource = availableModels;
+            if (availableModels.Count == 0)
+            {
+                colorComboBox.DataSource = new List<ColorDto>();
+                sizeComboBox.DataSource = new List<double>();
+            }
         }
 
         private ModelDto SelectedModelDto => modelComboBox.SelectedItem as ModelDto;
@@ -66,7 +77,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
             }
 
             var colorByModels =
-                ShoesDataServices.StockRoomServices.GetAllStockShoesColorByModelId(SelectedModelDto.ModelId);
+                ShoesDataServices.StoreStockRoomServices.GetAllStockShoesColorByModelId(SelectedStoreDto.StoreId, SelectedModelDto.ModelId);
             colorComboBox.DataSource = colorByModels;
         }
 
@@ -79,7 +90,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
             }
 
             var shoesSizes =
-                ShoesDataServices.StockRoomServices.GetAllShoesSizesByColorAndModel(SelectedModelDto.ModelId,
+                ShoesDataServices.StoreStockRoomServices.GetAllShoesSizesByColorAndModel(SelectedStoreDto.StoreId, SelectedModelDto.ModelId,
                     SelectedColorDto.ColorId);
             sizeComboBox.DataSource = shoesSizes;
         }
@@ -94,7 +105,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
             var modelId = SelectedModelDto.ModelId;
             var colorId = SelectedColorDto.ColorId;
             var totalShoes =
-                ShoesDataServices.StockRoomServices.GetTotalShoesInStockRoomByProduct(modelId, colorId,
+                ShoesDataServices.StoreStockRoomServices.GetTotalShoesInStockRoomByProduct(SelectedStoreDto.StoreId, modelId, colorId,
                     SelectedShoesSize);
             var shoesSales = CurrentSaleDto.SalesProducts.Where(dto =>
                     dto.ModelId == modelId
@@ -112,9 +123,9 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
             if (priceNumericUpDown.Value == 0)
             {
                 if (MessageBox.Show(
-                    Messages.SALE_PRODUCT_PRICE_EQUAL_CERO,
-                    Constants.MESSAGE_CAPTION,
-                    MessageBoxButtons.YesNo) != DialogResult.Yes)
+                        Messages.SALE_PRODUCT_PRICE_EQUAL_CERO,
+                        Constants.MESSAGE_CAPTION,
+                        MessageBoxButtons.YesNo) != DialogResult.Yes)
                 {
                     return;
                 }
@@ -176,17 +187,16 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
             if (isLoaded) UpdateProductsSizeMax();
         }
 
-        private ClientDto SelectedClientDto => clientComboBox.SelectedItem as ClientDto;
+        private StoreDto SelectedStoreDto => storeComboBox.SelectedItem as StoreDto;
 
         private void saveSalesButton_Click(object sender, EventArgs e)
         {
-            CurrentSaleDto.ClientId = SelectedClientDto?.ClientId ?? null;
+            CurrentSaleDto.StoreId = SelectedStoreDto?.StoreId ?? null;
             CurrentSaleDto.DateOfSale = saleDateTimePicker.Value;
-            ShoesDataServices.SalesServices.AddSalesAndDecrementStockProducts(CurrentSaleDto);
-            var message = SelectedClientDto == null 
-                ? string.Format(Messages.SALE_CREATED_SUCCCESS, CurrentSaleDto.TotalSaleAmount) 
-                : string.Format(Messages.SALE_FOR_ClIENT_CREATED_SUCCCESS, SelectedClientDto.Name, CurrentSaleDto.TotalSaleAmount);
-            ResetView();            
+            ShoesDataServices.SalesServices.AddStoreSalesAndDecrementStockProducts(CurrentSaleDto);
+            var message = string.Format(Messages.SALE_FOR_STORE_CREATED_SUCCCESS, SelectedStoreDto.Name,
+                    CurrentSaleDto.TotalSaleAmount);
+            ResetView();
             MessageBox.Show(message, Constants.MESSAGE_CAPTION);
         }
 
@@ -198,15 +208,27 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
             removeAllButton.Enabled = false;
             addButton.Enabled = false;
             newSaleButton.Enabled = true;
+            cancelSaleButton.Enabled = false;
             saleProductDtoBindingSource.Clear();
+            storeComboBox.Enabled = true;
+            modelComboBox.DataSource = new List<ModelDto>();
+            colorComboBox.DataSource = new List<ColorDto>();
+            sizeComboBox.DataSource = new List<double>();
+            priceNumericUpDown.Value = 0;
+            quantityNumericUpDown.Value = 0;
+            storeToolStripLabel.Text = "[Sin Seleccionar]";
             UpdateToolStripStatus();
         }
 
         private void newSaleButton_Click(object sender, EventArgs e)
         {
+            CurrentSaleDto = NewSaleDto();           
+            UpdateAvailablesModelByStore(SelectedStoreDto.StoreId);
             addButton.Enabled = true;
             newSaleButton.Enabled = false;
-            CurrentSaleDto = NewSaleDto();
+            storeComboBox.Enabled = false;
+            cancelSaleButton.Enabled = true;
+            storeToolStripLabel.Text = SelectedStoreDto.Name;
         }
 
         private void removeAllButton_Click(object sender, EventArgs e)
@@ -218,13 +240,19 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
             {
                 return;
             }
+
             saleProductDtoBindingSource.Clear();
             CurrentSaleDto.SalesProducts.Clear();
             removeProductButton.Enabled = false;
             saveSalesButton.Enabled = false;
-            removeAllButton.Enabled = false;
+            removeAllButton.Enabled = false;            
             UpdateProductsSizeMax();
             UpdateToolStripStatus();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ResetView();
         }
     }
 }

@@ -11,17 +11,20 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
     {
         public ShoesClientServices()
         {
-            this.ColorServices = new ColorServices(ShoesApplicationContext.ShoesDataEntities);
-            this.ModelServices = new ModelServices(ShoesApplicationContext.ShoesDataEntities);
-            this.SellerServices = new SellerServices(ShoesApplicationContext.ShoesDataEntities);
-            this.ClientServices = new ClientServices(ShoesApplicationContext.ShoesDataEntities);
-            this.SupplierServices = new SupplierServices(ShoesApplicationContext.ShoesDataEntities);
-            this.StoreServices = new StoreServices(ShoesApplicationContext.ShoesDataEntities);
-            var productServices = new ProductServices(ShoesApplicationContext.ShoesDataEntities);
-            this.StockRoomServices = new StockRoomDataServices(ShoesApplicationContext.ShoesDataEntities,
+            var shoesDbEntities = ShoesApplicationContext.ShoesDataEntities;
+            this.ColorServices = new ColorServices(shoesDbEntities);
+            this.ModelServices = new ModelServices(shoesDbEntities);
+            this.SellerServices = new SellerServices(shoesDbEntities);
+            this.ClientServices = new ClientServices(shoesDbEntities);
+            this.SupplierServices = new SupplierServices(shoesDbEntities);
+            this.StoreServices = new StoreServices(shoesDbEntities);
+            var productServices = new ProductServices(shoesDbEntities);
+            this.StockRoomServices = new StockRoomDataServices(shoesDbEntities,
                 ColorServices, productServices);
-            this.SalesServices = new SalesServices(ShoesApplicationContext.ShoesDataEntities,
-                StockRoomServices, productServices);
+            this.StoreStockRoomServices = new StoreStockRoomDataServices(
+                shoesDbEntities, StockRoomServices, productServices);
+            this.SalesServices = new SalesServices(shoesDbEntities,
+                StockRoomServices, StoreStockRoomServices, productServices);
         }
 
         public ClientServices ClientServices { get; }
@@ -39,5 +42,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
         public StockRoomDataServices StockRoomServices { get; }
 
         public SalesServices SalesServices { get; }
+        public StoreStockRoomDataServices StoreStockRoomServices { get;}
     }
 }

@@ -106,6 +106,12 @@
     <Compile Include="Views\Login\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Sales\NewSaleFromStoreStockRoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Sales\NewSaleFromStoreStockRoomForm.Designer.cs">
+      <DependentUpon>NewSaleFromStoreStockRoomForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Sales\NewSaleFromStockRoomForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Sales\NewSaleFromStoreStockRoomForm.resx">
+      <DependentUpon>NewSaleFromStoreStockRoomForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Sales\NewSaleFromStockRoomForm.resx">
       <DependentUpon>NewSaleFromStockRoomForm.cs</DependentUpon>

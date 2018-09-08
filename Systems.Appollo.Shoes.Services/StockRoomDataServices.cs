@@ -69,7 +69,7 @@ namespace Systems.Appollo.Shoes.Services
                     Photo = model.Photo,
                     Description = model.Description
                 }).ToList();
-        }
+        }        
 
         public List<ColorDto> GetAllStockShoesColorByModelId(int modelId)
         {
@@ -176,21 +176,7 @@ namespace Systems.Appollo.Shoes.Services
         {
             var currentProduct = _productServices.FindProduct(modelId, colorId, size);
             return currentProduct == null ? null : GetLastStockRoomByProductId(currentProduct.Id);
-        }
-
-        public StoreStockRoom GetLastStoreStockRoomByProductId(int productId)
-        {
-            return _shoesDataEntities.StoreStockRooms
-                .Where(s => s.ProductId == productId)
-                .OrderByDescending(s => s.Id)
-                .FirstOrDefault();
-        }
-
-        public StoreStockRoom GetLastStoreStockRoomByProductId(int modelId, int colorId, double size)
-        {
-            var currentProduct = _productServices.FindProduct(modelId, colorId, size);
-            return currentProduct == null ? null : GetLastStoreStockRoomByProductId(currentProduct.Id);
-        }
+        }        
 
         public int GetTotalShoesInStockRoomByProduct(int modelId, int? colorId, double? size)
         {
@@ -198,53 +184,6 @@ namespace Systems.Appollo.Shoes.Services
             if (currentProduct == null) return 0;
             var lastStockEntry = GetLastStockRoomByProductId(currentProduct.Id);
             return lastStockEntry?.StockValue ?? 0;
-        }
-
-        public void SupplyStoreStockRoom(StoreStockRoomDto storeStockRoomDto)
-        {
-            if (storeStockRoomDto.ColorId == null)
-                throw new InvalidOperationException("Error: No enter new Store StockRoom if Color is null");
-            if (storeStockRoomDto.Size == null)
-                throw new InvalidOperationException("Error: No enter new Store StockRoom if Shoes Size is null");
-
-            var modelId = storeStockRoomDto.ModelId;
-            var colorId = storeStockRoomDto.ColorId.Value;
-            var size = storeStockRoomDto.Size.Value;
-            var currentProduct = _productServices.FindProduct(modelId, colorId, size);
-            if (currentProduct == null)
-                throw new StockRoomOperationException("No Found a product item to supply Store StockRoom");
-
-            var lastStockRoom = GetLastStockRoomByProductId(currentProduct.Id);
-            if (lastStockRoom == null)
-                throw new StockRoomOperationException("No Found any stock room to execute the operation");
-            if (lastStockRoom.StockValue < storeStockRoomDto.Quantity)
-                throw new StockRoomOperationException(
-                    "It is not possible to move requested quantity to selected store");
-
-            var newStockRoom = new StockRoom()
-            {
-                ProductId = lastStockRoom.ProductId,
-                StockValue = lastStockRoom.StockValue - storeStockRoomDto.Quantity,
-                EntryDate = storeStockRoomDto.DateOfSupplier,
-                EntryValue = -storeStockRoomDto.Quantity,
-                OperationType = OperationType.OUT.ToString()
-            };
-            _shoesDataEntities.StockRooms.Add(newStockRoom);
-            var lastStoreStockRoom = GetLastStoreStockRoomByProductId(currentProduct.Id);
-            var storeStocks = storeStockRoomDto.Quantity;
-            if (lastStoreStockRoom != null)
-                storeStocks += lastStoreStockRoom.StockValue;
-            var newStoreStockRoom = new StoreStockRoom
-            {
-                ProductId = currentProduct.Id,
-                StockValue = storeStocks,
-                EntryDate = storeStockRoomDto.DateOfSupplier,
-                EntryValue = storeStockRoomDto.Quantity,
-                StoreId = storeStockRoomDto.StoreId,
-                OperationType = OperationType.IN.ToString()
-            };
-            _shoesDataEntities.StoreStockRooms.Add(newStoreStockRoom);
-            SaveChanges();
-        }
+        }        
     }
 }

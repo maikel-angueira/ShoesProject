@@ -155,6 +155,7 @@
             this.surtirTiendaToolStripMenuItem.Name = "surtirTiendaToolStripMenuItem";
             this.surtirTiendaToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.surtirTiendaToolStripMenuItem.Text = "Ventas de Tiendas";
+            this.surtirTiendaToolStripMenuItem.Click += new System.EventHandler(this.surtirTiendaToolStripMenuItem_Click);
             // 
             // administraciónToolStripMenuItem
             // 

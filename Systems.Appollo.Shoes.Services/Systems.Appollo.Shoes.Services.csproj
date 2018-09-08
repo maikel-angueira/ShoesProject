@@ -53,6 +53,7 @@
     <Compile Include="StockRoomDataServices.cs" />
     <Compile Include="StockRoomOperationException.cs" />
     <Compile Include="StoreServices.cs" />
+    <Compile Include="StoreStockRoomDataServices.cs" />
     <Compile Include="SupplierServices.cs" />
   </ItemGroup>
   <ItemGroup>
