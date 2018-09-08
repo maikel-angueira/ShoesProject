@@ -25,5 +25,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Utils
         public const string SALE_PRODUCT_PRICE_EQUAL_CERO = "Estás adicionando un producto con precio de venta igual a 0. Estás seguro de continuar?";
         public const string REMOVE_PRODUCT_FROM_SALE = "Estás seguro de eliminar el producto seleccionado de la Venta?";
         public const string REMOVE_ALL_PRODUCT_FROM_SALE = "Estás seguro de eliminar todos los productos de la Venta?";
+        public const string NO_AVAILABLES_MODEL_ON_THE_STORE = "No hay zapatos disponibles en la tienda seleccionada: {0}";
     }
 }

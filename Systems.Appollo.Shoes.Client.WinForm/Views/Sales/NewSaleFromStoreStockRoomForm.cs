@@ -222,9 +222,24 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
 
         private void newSaleButton_Click(object sender, EventArgs e)
         {
-            CurrentSaleDto = NewSaleDto();           
-            UpdateAvailablesModelByStore(SelectedStoreDto.StoreId);
-            addButton.Enabled = true;
+            var availableModels = 
+                ShoesDataServices.StoreStockRoomServices
+                    .GetAllAvailableModelsByStoreId(SelectedStoreDto.StoreId);
+
+            if (availableModels.Count == 0)
+            {
+                MessageBox.Show(string.Format(Messages.NO_AVAILABLES_MODEL_ON_THE_STORE, SelectedStoreDto.Name), Constants.MESSAGE_CAPTION);
+                return;
+            }
+
+            addButton.Enabled = availableModels.Count > 0;
+            modelComboBox.DataSource = availableModels;
+            if (availableModels.Count == 0)
+            {
+                colorComboBox.DataSource = new List<ColorDto>();
+                sizeComboBox.DataSource = new List<double>();
+            }
+            CurrentSaleDto = NewSaleDto();
             newSaleButton.Enabled = false;
             storeComboBox.Enabled = false;
             cancelSaleButton.Enabled = true;
@@ -245,7 +260,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
             CurrentSaleDto.SalesProducts.Clear();
             removeProductButton.Enabled = false;
             saveSalesButton.Enabled = false;
-            removeAllButton.Enabled = false;            
+            removeAllButton.Enabled = false;
             UpdateProductsSizeMax();
             UpdateToolStripStatus();
         }
