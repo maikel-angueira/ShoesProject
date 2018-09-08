@@ -62,6 +62,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.newSaleButton = new System.Windows.Forms.Button();
+            this.removeAllButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceNumericUpDown)).BeginInit();
@@ -394,11 +395,23 @@
             this.newSaleButton.UseVisualStyleBackColor = true;
             this.newSaleButton.Click += new System.EventHandler(this.button1_Click);
             // 
+            // removeAllButton
+            // 
+            this.removeAllButton.Enabled = false;
+            this.removeAllButton.Location = new System.Drawing.Point(817, 505);
+            this.removeAllButton.Name = "removeAllButton";
+            this.removeAllButton.Size = new System.Drawing.Size(99, 23);
+            this.removeAllButton.TabIndex = 5;
+            this.removeAllButton.Text = "Eliminar Todos";
+            this.removeAllButton.UseVisualStyleBackColor = true;
+            this.removeAllButton.Click += new System.EventHandler(this.removeAllButton_Click);
+            // 
             // NewSaleFromStockRoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 558);
+            this.Controls.Add(this.removeAllButton);
             this.Controls.Add(this.newSaleButton);
             this.Controls.Add(this.saleDetailsStatusStrip);
             this.Controls.Add(this.groupBox2);
@@ -460,5 +473,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.Button newSaleButton;
+        private System.Windows.Forms.Button removeAllButton;
     }
 }

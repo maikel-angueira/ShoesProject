@@ -121,6 +121,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
             CurrentSaleDto.SalesProducts.Add(newSaleProductDto);
             saleProductDtoBindingSource.Add(newSaleProductDto);
             saveSalesButton.Enabled = true;
+            removeAllButton.Enabled = true;
             UpdateToolStripStatus();
             UpdateProductsSizeMax();
         }
@@ -149,6 +150,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
             saleProductDtoBindingSource.RemoveCurrent();
             removeProductButton.Enabled = SelectedSaleProductDto != null;
             saveSalesButton.Enabled = CurrentSaleDto.SalesProducts.Count > 0;
+            removeAllButton.Enabled = CurrentSaleDto.SalesProducts.Count > 0;
             UpdateToolStripStatus();
             if (isLoaded) UpdateProductsSizeMax();
         }
@@ -168,6 +170,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
             CurrentSaleDto = NewSaleDto();
             saveSalesButton.Enabled = false;
             removeProductButton.Enabled = false;
+            removeAllButton.Enabled = false;
             addButton.Enabled = false;
             newSaleButton.Enabled = true;
             saleProductDtoBindingSource.Clear();
@@ -178,6 +181,18 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
         {
             addButton.Enabled = true;
             newSaleButton.Enabled = false;
+            CurrentSaleDto = NewSaleDto();
+        }
+
+        private void removeAllButton_Click(object sender, EventArgs e)
+        {
+            saleProductDtoBindingSource.Clear();
+            CurrentSaleDto.SalesProducts.Clear();
+            removeProductButton.Enabled = false;
+            saveSalesButton.Enabled = false;
+            removeAllButton.Enabled = false;
+            UpdateProductsSizeMax();
+            UpdateToolStripStatus();
         }
     }
 }
