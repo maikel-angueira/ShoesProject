@@ -126,6 +126,7 @@ namespace Systems.Appollo.Shoes.Services
                 StockValue = lastStockRoom.StockValue - storeStockRoomDto.Quantity,
                 EntryDate = storeStockRoomDto.DateOfSupplier,
                 EntryValue = -storeStockRoomDto.Quantity,
+                StoreId = storeStockRoomDto.StoreId,
                 OperationType = OperationType.OUT.ToString()
             };
             _shoesDataEntities.StockRooms.Add(newStockRoom);

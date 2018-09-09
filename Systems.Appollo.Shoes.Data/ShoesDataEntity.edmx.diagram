@@ -31,6 +31,7 @@
         <AssociationConnector Association="ShoesDBModel.FK_StoreStockRoom_To_Product" />
         <AssociationConnector Association="ShoesDBModel.FK_StockRoom_To_Supplier" />
         <AssociationConnector Association="ShoesDBModel.FK_StoreStockRoom_To_Store" />
+        <AssociationConnector Association="ShoesDBModel.FK_StockRoom_To_Store" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

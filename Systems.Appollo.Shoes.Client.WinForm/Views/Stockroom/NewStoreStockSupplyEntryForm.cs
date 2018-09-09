@@ -14,11 +14,11 @@ using Systems.Appollo.Shoes.Data.DataModels;
 
 namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
 {
-    public partial class NewStoreStockSupplierEntryForm : Form
+    public partial class NewStoreStockSupplyEntryForm : Form
     {
         public ShoesClientServices ShoesDataClientServices { get; set; }
 
-        public NewStoreStockSupplierEntryForm()
+        public NewStoreStockSupplyEntryForm()
         {
             InitializeComponent();
         }
@@ -80,7 +80,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom
                 MessageBox.Show(Messages.STORE_SUPPIER_VALUES_REQUIRED, Constants.MESSAGE_CAPTION);
                 return;
             }
-
+            
             var newDto = new StoreStockRoomDto()
             {
                 ModelId = SelectedModelDto.ModelId,

@@ -26,9 +26,11 @@ namespace Systems.Appollo.Shoes.Data
         public System.DateTime EntryDate { get; set; }
         public Nullable<int> SupplierId { get; set; }
         public string OperationType { get; set; }
+        public Nullable<int> StoreId { get; set; }
     
         public virtual ICollection<CheckingAccount> CheckingAccounts { get; set; }
         public virtual Product Product { get; set; }
         public virtual Supplier Supplier { get; set; }
+        public virtual Store Store { get; set; }
     }
 }
