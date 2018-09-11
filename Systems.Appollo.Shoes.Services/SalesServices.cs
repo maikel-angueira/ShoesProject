@@ -23,7 +23,7 @@ namespace Systems.Appollo.Shoes.Services
             _productServices = productServices;
         }
 
-        public void AddSalesAndDecrementStockProducts(SaleDto saleDto)
+        public void AddSalesToStockAndDecrementProducts(SaleDto saleDto)
         {
             var newSale = new Sale()
             {
@@ -62,7 +62,7 @@ namespace Systems.Appollo.Shoes.Services
             _shoesDataEntities.SaveChanges();
         }
 
-        public void AddStoreSalesAndDecrementStockProducts(SaleDto saleDto)
+        public void AddSalesToStoreAndDecrementStockProducts(SaleDto saleDto)
         {
             var newSale = new Sale()
             {

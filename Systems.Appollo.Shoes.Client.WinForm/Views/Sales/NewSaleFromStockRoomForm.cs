@@ -182,7 +182,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
         {
             CurrentSaleDto.ClientId = SelectedClientDto?.ClientId ?? null;
             CurrentSaleDto.SellingDate = saleDateTimePicker.Value;
-            ShoesDataServices.SalesServices.AddSalesAndDecrementStockProducts(CurrentSaleDto);
+            ShoesDataServices.SalesServices.AddSalesToStockAndDecrementProducts(CurrentSaleDto);
             var message = SelectedClientDto == null 
                 ? string.Format(Messages.SALE_CREATED_SUCCCESS, CurrentSaleDto.TotalSaleAmount) 
                 : string.Format(Messages.SALE_FOR_ClIENT_CREATED_SUCCCESS, SelectedClientDto.Name, CurrentSaleDto.TotalSaleAmount);
