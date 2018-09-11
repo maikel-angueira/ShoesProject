@@ -25,6 +25,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
                 shoesDbEntities, StockRoomServices, productServices);
             this.SalesServices = new SalesServices(shoesDbEntities,
                 StockRoomServices, StoreStockRoomServices, productServices);
+            this.ShoesTypeDataServices = new ShoesTypeServices(shoesDbEntities);
         }
 
         public ClientServices ClientServices { get; }
@@ -43,5 +44,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
 
         public SalesServices SalesServices { get; }
         public StoreStockRoomDataServices StoreStockRoomServices { get;}
+
+        public  ShoesTypeServices ShoesTypeDataServices { get; }
     }
 }

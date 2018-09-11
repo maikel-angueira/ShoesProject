@@ -40,7 +40,7 @@ namespace Systems.Appollo.Shoes.Services
                     ProductId = currentProduct.Id,
                     SaleId = newSale.Id,
                     Quantity = saleProductDto.Quantity,
-                    UnitPrice = saleProductDto.Price
+                    SellingPrice = saleProductDto.Price
                 };
                 _shoesDataEntities.SaleProducts.Add(newSaleProduct);
                 var lastStockRoom = _stockRoomDataServices.GetLastStockRoomByProductId(currentProduct.Id);
@@ -53,13 +53,6 @@ namespace Systems.Appollo.Shoes.Services
                     OperationType = OperationType.OUT.ToString()
                 };
                 _shoesDataEntities.StockRooms.Add(newStockRoom);
-                var newCheckingAccount = new CheckingAccount()
-                {
-                    StockRoomId = newStockRoom.Id,
-                    SaleId = newSale.Id,
-                    Incoming = saleProductDto.TotalAmount
-                };
-                _shoesDataEntities.CheckingAccounts.Add(newCheckingAccount);
                 SaveChanges();
             }
         }
@@ -86,7 +79,7 @@ namespace Systems.Appollo.Shoes.Services
                     ProductId = currentProduct.Id,
                     SaleId = newSale.Id,
                     Quantity = saleProductDto.Quantity,
-                    UnitPrice = saleProductDto.Price
+                    SellingPrice = saleProductDto.Price
                 };
                 _shoesDataEntities.SaleProducts.Add(newSaleProduct);
                 var lastStockRoom = _storeStockRoomDataServices.GetLastStoreStockRoomByProductId(saleDto.StoreId.Value, currentProduct.Id);
@@ -100,13 +93,6 @@ namespace Systems.Appollo.Shoes.Services
                     OperationType = OperationType.OUT.ToString()
                 };
                 _shoesDataEntities.StoreStockRooms.Add(newStoreStockRoom);
-                var newCheckingAccount = new CheckingAccount()
-                {
-                    StoreStockRoomId = newStoreStockRoom.Id,
-                    SaleId = newSale.Id,
-                    Incoming = saleProductDto.TotalAmount
-                };
-                _shoesDataEntities.CheckingAccounts.Add(newCheckingAccount);
                 SaveChanges();
             }
         }

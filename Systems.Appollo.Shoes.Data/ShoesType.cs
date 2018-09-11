@@ -12,18 +12,17 @@ namespace Systems.Appollo.Shoes.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Color
+    public partial class ShoesType
     {
-        public Color()
+        public ShoesType()
         {
-            this.AvailableColorModels = new HashSet<AvailableColorModel>();
-            this.Products = new HashSet<Product>();
+            this.Models = new HashSet<Model>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Type { get; set; }
+        public string Description { get; set; }
     
-        public virtual ICollection<AvailableColorModel> AvailableColorModels { get; set; }
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Model> Models { get; set; }
     }
 }

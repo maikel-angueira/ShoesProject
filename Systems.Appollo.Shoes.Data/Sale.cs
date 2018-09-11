@@ -16,7 +16,6 @@ namespace Systems.Appollo.Shoes.Data
     {
         public Sale()
         {
-            this.CheckingAccounts = new HashSet<CheckingAccount>();
             this.SaleProducts = new HashSet<SaleProduct>();
         }
     
@@ -27,7 +26,6 @@ namespace Systems.Appollo.Shoes.Data
     
         public virtual Client Client { get; set; }
         public virtual Store Store { get; set; }
-        public virtual ICollection<CheckingAccount> CheckingAccounts { get; set; }
         public virtual ICollection<SaleProduct> SaleProducts { get; set; }
     }
 }

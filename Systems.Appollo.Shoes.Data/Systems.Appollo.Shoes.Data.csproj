@@ -63,7 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckingAccount.cs">
+    <Compile Include="AvailableColorModel.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Client.cs">
@@ -78,6 +78,7 @@
     <Compile Include="Dtos\SaleDto.cs" />
     <Compile Include="Dtos\SaleProductDto.cs" />
     <Compile Include="Dtos\SellerDto.cs" />
+    <Compile Include="Dtos\ShoesTypeDto.cs" />
     <Compile Include="Dtos\StockRoomDto.cs" />
     <Compile Include="Dtos\StoreDto.cs" />
     <Compile Include="Dtos\StoreStockRoomDto.cs" />
@@ -120,6 +121,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ShoesDataEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ShoesType.cs">
+      <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="StockRoom.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>

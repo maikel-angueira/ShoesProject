@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Systems.Appollo.Shoes.Data;
 using Systems.Appollo.Shoes.Data.DataModels;
@@ -64,6 +65,30 @@ namespace Systems.Appollo.Shoes.Services
             var deletedModel = FindModelById(modelId);
             if (deletedModel == null) return;
             _shoesDataEntities.Models.Remove(deletedModel);
+            SaveChanges();
+        }
+
+        public void InsertModel(ModelDto newModelDto)
+        {
+            var newModel = new Model
+            {
+                Name = newModelDto.Name,
+                Description = newModelDto.Description,
+                Photo = newModelDto.Photo,
+                Cost = newModelDto.Cost,
+                TypeId = newModelDto.ShoesTypeId                
+            };
+
+            newModelDto.AvailablesColors.ForEach(dto =>
+            {
+                var newModelColor = new AvailableColorModel
+                {
+                    ColorId = dto.ColorId.Value,
+                    ModelId = newModel.Id
+                };
+                _shoesDataEntities.AvailableColorModels.Add(newModelColor);
+            });
+            _shoesDataEntities.Models.Add(newModel);
             SaveChanges();
         }
 

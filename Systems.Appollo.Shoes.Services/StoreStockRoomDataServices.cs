@@ -12,7 +12,7 @@ namespace Systems.Appollo.Shoes.Services
     {
         private readonly ShoesDBEntities _shoesDataEntities;        
         private readonly ProductServices _productServices;
-        private StockRoomDataServices _stockRoomDataServices;
+        private readonly StockRoomDataServices _stockRoomDataServices;
 
         public StoreStockRoomDataServices(ShoesDBEntities shoesDataEntities, StockRoomDataServices stockRoomServices,
             ProductServices productServices)

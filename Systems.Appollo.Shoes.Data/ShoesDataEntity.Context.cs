@@ -25,17 +25,18 @@ namespace Systems.Appollo.Shoes.Data
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<AvailableColorModel> AvailableColorModels { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Color> Colors { get; set; }
         public DbSet<Model> Models { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Sale> Sales { get; set; }
-        public DbSet<Seller> Sellers { get; set; }
-        public DbSet<Store> Stores { get; set; }
-        public DbSet<Supplier> Suppliers { get; set; }
-        public DbSet<CheckingAccount> CheckingAccounts { get; set; }
         public DbSet<SaleProduct> SaleProducts { get; set; }
+        public DbSet<Seller> Sellers { get; set; }
         public DbSet<StockRoom> StockRooms { get; set; }
+        public DbSet<Store> Stores { get; set; }
         public DbSet<StoreStockRoom> StoreStockRooms { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<ShoesType> ShoesTypes { get; set; }
     }
 }

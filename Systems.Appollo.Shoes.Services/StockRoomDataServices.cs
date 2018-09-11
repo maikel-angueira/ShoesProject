@@ -45,9 +45,7 @@ namespace Systems.Appollo.Shoes.Services
             else
             {
                 newStockRoom = AddNewStockRoomUpdatingTotal(stockRoomDto);
-            }
-
-            AddNewChargeToAccount(newStockRoom.Id, stockRoomDto.Quantity, stockRoomDto.UnitCost);
+            }            
             SaveChanges();
         }
 
@@ -130,17 +128,7 @@ namespace Systems.Appollo.Shoes.Services
             };
             _shoesDataEntities.StockRooms.Add(newStockRoom);
             return newStockRoom;
-        }
-
-        private void AddNewChargeToAccount(int stockRoomId, int quantity, double unitCost)
-        {
-            var newCheckingAccount = new CheckingAccount
-            {
-                Charge = quantity * unitCost,
-                StockRoomId = stockRoomId
-            };
-            _shoesDataEntities.CheckingAccounts.Add(newCheckingAccount);
-        }
+        }      
 
         private StockRoom AddNewStockRoomAndProduct(StockRoomDto newStockRoomDto, int colorId)
         {

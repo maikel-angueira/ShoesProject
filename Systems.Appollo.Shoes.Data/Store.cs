@@ -17,8 +17,8 @@ namespace Systems.Appollo.Shoes.Data
         public Store()
         {
             this.Sales = new HashSet<Sale>();
-            this.StoreStockRooms = new HashSet<StoreStockRoom>();
             this.StockRooms = new HashSet<StockRoom>();
+            this.StoreStockRooms = new HashSet<StoreStockRoom>();
         }
     
         public int Id { get; set; }
@@ -28,7 +28,7 @@ namespace Systems.Appollo.Shoes.Data
     
         public virtual ICollection<Sale> Sales { get; set; }
         public virtual Seller Seller { get; set; }
-        public virtual ICollection<StoreStockRoom> StoreStockRooms { get; set; }
         public virtual ICollection<StockRoom> StockRooms { get; set; }
+        public virtual ICollection<StoreStockRoom> StoreStockRooms { get; set; }
     }
 }

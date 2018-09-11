@@ -14,11 +14,6 @@ namespace Systems.Appollo.Shoes.Data
     
     public partial class StoreStockRoom
     {
-        public StoreStockRoom()
-        {
-            this.CheckingAccounts = new HashSet<CheckingAccount>();
-        }
-    
         public int Id { get; set; }
         public int ProductId { get; set; }
         public int StockValue { get; set; }
@@ -27,7 +22,6 @@ namespace Systems.Appollo.Shoes.Data
         public int StoreId { get; set; }
         public string OperationType { get; set; }
     
-        public virtual ICollection<CheckingAccount> CheckingAccounts { get; set; }
         public virtual Product Product { get; set; }
         public virtual Store Store { get; set; }
     }

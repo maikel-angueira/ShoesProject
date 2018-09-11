@@ -16,14 +16,19 @@ namespace Systems.Appollo.Shoes.Data
     {
         public Model()
         {
+            this.AvailableColorModels = new HashSet<AvailableColorModel>();
             this.Products = new HashSet<Product>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
+        public double Cost { get; set; }
         public string Description { get; set; }
         public byte[] Photo { get; set; }
+        public int TypeId { get; set; }
     
+        public virtual ICollection<AvailableColorModel> AvailableColorModels { get; set; }
         public virtual ICollection<Product> Products { get; set; }
+        public virtual ShoesType ShoesType { get; set; }
     }
 }

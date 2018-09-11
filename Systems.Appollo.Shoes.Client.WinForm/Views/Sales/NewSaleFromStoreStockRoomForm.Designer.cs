@@ -34,7 +34,6 @@
             this.storeComboBox = new System.Windows.Forms.ComboBox();
             this.newSaleButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.addButton = new System.Windows.Forms.Button();
             this.quantityNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.priceNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -46,6 +45,7 @@
             this.modelComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.addButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cancelSaleButton = new System.Windows.Forms.Button();
             this.saleDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -73,6 +73,7 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceNumericUpDown)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.saleProductDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleProductDtoBindingSource)).BeginInit();
@@ -82,7 +83,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.addButton);
             this.groupBox1.Controls.Add(this.quantityNumericUpDown);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.priceNumericUpDown);
@@ -118,7 +118,7 @@
             this.storeComboBox.DisplayMember = "Name";
             this.storeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.storeComboBox.FormattingEnabled = true;
-            this.storeComboBox.Location = new System.Drawing.Point(59, 19);
+            this.storeComboBox.Location = new System.Drawing.Point(65, 19);
             this.storeComboBox.Name = "storeComboBox";
             this.storeComboBox.Size = new System.Drawing.Size(258, 21);
             this.storeComboBox.TabIndex = 11;
@@ -126,11 +126,11 @@
             // newSaleButton
             // 
             this.newSaleButton.Enabled = false;
-            this.newSaleButton.Location = new System.Drawing.Point(215, 56);
+            this.newSaleButton.Location = new System.Drawing.Point(221, 56);
             this.newSaleButton.Name = "newSaleButton";
             this.newSaleButton.Size = new System.Drawing.Size(102, 23);
             this.newSaleButton.TabIndex = 4;
-            this.newSaleButton.Text = "Nueva Venta";
+            this.newSaleButton.Text = "Iniciar Venta";
             this.newSaleButton.UseVisualStyleBackColor = true;
             this.newSaleButton.Click += new System.EventHandler(this.newSaleButton_Click);
             // 
@@ -142,17 +142,6 @@
             this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Tienda:";
-            // 
-            // addButton
-            // 
-            this.addButton.Enabled = false;
-            this.addButton.Location = new System.Drawing.Point(254, 352);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(82, 23);
-            this.addButton.TabIndex = 12;
-            this.addButton.Text = "Adicionar";
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // quantityNumericUpDown
             // 
@@ -258,11 +247,23 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.addButton);
             this.groupBox4.Location = new System.Drawing.Point(13, 124);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(331, 328);
+            this.groupBox4.Size = new System.Drawing.Size(331, 357);
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
+            // 
+            // addButton
+            // 
+            this.addButton.Enabled = false;
+            this.addButton.Location = new System.Drawing.Point(221, 234);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(102, 23);
+            this.addButton.TabIndex = 12;
+            this.addButton.Text = "Añadir a Venta";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // groupBox2
             // 
@@ -497,6 +498,7 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceNumericUpDown)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.saleProductDataGridView)).EndInit();

@@ -8,6 +8,7 @@ namespace Systems.Appollo.Shoes.Data.DataModels
 {
     public class ModelDto
     {
+        
         public int ModelId
         {
             get; set;
@@ -27,5 +28,11 @@ namespace Systems.Appollo.Shoes.Data.DataModels
         {
             get; set;
         }
+
+        public double Cost { get; set; }
+
+        public int ShoesTypeId { get; set; }
+
+        public List<ColorDto> AvailablesColors { get; set; }
     }
 }

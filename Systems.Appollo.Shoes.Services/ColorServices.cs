@@ -14,11 +14,16 @@ namespace Systems.Appollo.Shoes.Services
             this._shoesDataEntities = shoesDataEntities1;
         }
 
-        public void InsertColor(string colorName)
+        public ColorDto InsertColor(string colorName)
         {
             var newColor = new Color() { Name = colorName };
             _shoesDataEntities.Colors.Add(newColor);
             SaveChanges();
+            return new ColorDto
+            {
+                ColorId = newColor.Id,
+                Name = newColor.Name
+            };
         }
 
         public ColorDto UpdateColor(int? colorId, string newColor)

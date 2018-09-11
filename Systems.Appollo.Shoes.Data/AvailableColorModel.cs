@@ -12,17 +12,13 @@ namespace Systems.Appollo.Shoes.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class CheckingAccount
+    public partial class AvailableColorModel
     {
         public int Id { get; set; }
-        public Nullable<int> StockRoomId { get; set; }
-        public Nullable<int> StoreStockRoomId { get; set; }
-        public Nullable<double> Charge { get; set; }
-        public Nullable<double> Incoming { get; set; }
-        public Nullable<int> SaleId { get; set; }
+        public int ModelId { get; set; }
+        public int ColorId { get; set; }
     
-        public virtual Sale Sale { get; set; }
-        public virtual StockRoom StockRoom { get; set; }
-        public virtual StoreStockRoom StoreStockRoom { get; set; }
+        public virtual Color Color { get; set; }
+        public virtual Model Model { get; set; }
     }
 }

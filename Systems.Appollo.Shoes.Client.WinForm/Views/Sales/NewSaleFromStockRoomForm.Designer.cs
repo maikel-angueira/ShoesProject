@@ -96,11 +96,11 @@
             // addButton
             // 
             this.addButton.Enabled = false;
-            this.addButton.Location = new System.Drawing.Point(253, 229);
+            this.addButton.Location = new System.Drawing.Point(233, 229);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(82, 23);
+            this.addButton.Size = new System.Drawing.Size(102, 23);
             this.addButton.TabIndex = 12;
-            this.addButton.Text = "Adicionar";
+            this.addButton.Text = "Añadir a Venta";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 

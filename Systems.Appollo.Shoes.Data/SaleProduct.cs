@@ -18,7 +18,7 @@ namespace Systems.Appollo.Shoes.Data
         public int SaleId { get; set; }
         public int ProductId { get; set; }
         public int Quantity { get; set; }
-        public double UnitPrice { get; set; }
+        public double SellingPrice { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual Sale Sale { get; set; }

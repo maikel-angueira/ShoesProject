@@ -61,7 +61,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
         private void nuevoToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             var newModelForm = new NewModelForm();
-            newModelForm.ModelDataServices = _shoesDataServices.ModelServices;
+            newModelForm.ShoesDbServices = _shoesDataServices;
             newModelForm.ShowDialog();
         }
 
@@ -199,7 +199,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var newStoreSupplierStockForm = new NewStoreStockSupplierEntryForm
+            var newStoreSupplierStockForm = new NewStoreStockSupplyEntryForm
             {
                 ShoesDataClientServices = _shoesDataServices
             };
