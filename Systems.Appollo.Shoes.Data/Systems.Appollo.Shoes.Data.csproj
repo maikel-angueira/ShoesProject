@@ -63,9 +63,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AvailableColorModel.cs">
-      <DependentUpon>ShoesDataEntity.tt</DependentUpon>
-    </Compile>
     <Compile Include="Client.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>
@@ -84,6 +81,9 @@
     <Compile Include="Dtos\StoreStockRoomDto.cs" />
     <Compile Include="Dtos\SupplierDto.cs" />
     <Compile Include="Model.cs">
+      <DependentUpon>ShoesDataEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelColor.cs">
       <DependentUpon>ShoesDataEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="OperationType.cs">

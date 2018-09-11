@@ -44,7 +44,7 @@ namespace Systems.Appollo.Shoes.Services
 
             foreach (var dto in modelDtos)
             {
-                var colorByModels =_shoesDataEntities.AvailableColorModels
+                var colorByModels =_shoesDataEntities.ModelColors
                     .Where(c => c.ModelId == dto.ModelId)
                     .Select(c =>
                                 new ColorDto
@@ -100,12 +100,12 @@ namespace Systems.Appollo.Shoes.Services
 
             newModelDto.AvailablesColors.ForEach(dto =>
             {
-                var newModelColor = new AvailableColorModel
+                var newModelColor = new ModelColor
                 {
                     ColorId = dto.ColorId.Value,
                     ModelId = newModel.Id
                 };
-                _shoesDataEntities.AvailableColorModels.Add(newModelColor);
+                _shoesDataEntities.ModelColors.Add(newModelColor);
             });
             _shoesDataEntities.Models.Add(newModel);
             SaveChanges();

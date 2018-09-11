@@ -5,7 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="7215e8e54e6d4035a6387a47750bb7b2" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="ShoesDBModel.AvailableColorModel" Width="2" PointX="3" PointY="6.75" />
         <EntityTypeShape EntityType="ShoesDBModel.Client" Width="1.5" PointX="3.75" PointY="15.75" />
         <EntityTypeShape EntityType="ShoesDBModel.Color" Width="1.5" PointX="0.75" PointY="6.75" />
         <EntityTypeShape EntityType="ShoesDBModel.Model" Width="1.5" PointX="0.75" PointY="2.375" />
@@ -17,8 +16,6 @@
         <EntityTypeShape EntityType="ShoesDBModel.Store" Width="1.5" PointX="6" PointY="1" />
         <EntityTypeShape EntityType="ShoesDBModel.StoreStockRoom" Width="1.5" PointX="11.25" PointY="6.375" />
         <EntityTypeShape EntityType="ShoesDBModel.Supplier" Width="1.5" PointX="6" PointY="11.375" />
-        <AssociationConnector Association="ShoesDBModel.FK_AvailableColorModel_To_Color" />
-        <AssociationConnector Association="ShoesDBModel.FK_AvailableColorModel_To_Model" />
         <AssociationConnector Association="ShoesDBModel.FK_Sale_To_Client" />
         <AssociationConnector Association="ShoesDBModel.FK_Product_To_Color" />
         <AssociationConnector Association="ShoesDBModel.FK_Product_To_Model" />
@@ -33,6 +30,9 @@
         <AssociationConnector Association="ShoesDBModel.FK_StoreStockRoom_To_Store" />
         <EntityTypeShape EntityType="ShoesDBModel.ShoesType" Width="1.5" PointX="0.75" PointY="9.875" />
         <AssociationConnector Association="ShoesDBModel.FK_Model_To_ShoesType" />
+        <EntityTypeShape EntityType="ShoesDBModel.ModelColor" Width="1.5" PointX="3" PointY="4.5" />
+        <AssociationConnector Association="ShoesDBModel.FK_ModelColor_To_Color" />
+        <AssociationConnector Association="ShoesDBModel.FK_ModelColor_To_Model" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

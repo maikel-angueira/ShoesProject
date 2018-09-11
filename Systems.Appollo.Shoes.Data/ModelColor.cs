@@ -12,7 +12,7 @@ namespace Systems.Appollo.Shoes.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class AvailableColorModel
+    public partial class ModelColor
     {
         public int Id { get; set; }
         public int ModelId { get; set; }

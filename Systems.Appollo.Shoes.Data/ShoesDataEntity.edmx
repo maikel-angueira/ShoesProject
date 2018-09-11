@@ -5,14 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ShoesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="AvailableColorModel">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ModelId" Type="int" Nullable="false" />
-          <Property Name="ColorId" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="Id" />
@@ -39,6 +31,14 @@
           <Property Name="Description" Type="text" />
           <Property Name="Photo" Type="varbinary(max)" />
           <Property Name="TypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ModelColor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ModelId" Type="int" Nullable="false" />
+          <Property Name="ColorId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -128,34 +128,6 @@
           <Property Name="Address" Type="text" />
           <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK_AvailableColorModel_To_Color">
-          <End Role="Color" Type="Self.Color" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AvailableColorModel" Type="Self.AvailableColorModel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Color">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AvailableColorModel">
-              <PropertyRef Name="ColorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AvailableColorModel_To_Model">
-          <End Role="Model" Type="Self.Model" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AvailableColorModel" Type="Self.AvailableColorModel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Model">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AvailableColorModel">
-              <PropertyRef Name="ModelId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Model_To_ShoesType">
           <End Role="ShoesType" Type="Self.ShoesType" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -167,6 +139,34 @@
             </Principal>
             <Dependent Role="Model">
               <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModelColor_To_Color">
+          <End Role="Color" Type="Self.Color" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ModelColor" Type="Self.ModelColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ModelColor">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModelColor_To_Model">
+          <End Role="Model" Type="Self.Model" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ModelColor" Type="Self.ModelColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ModelColor">
+              <PropertyRef Name="ModelId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -321,10 +321,10 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ShoesDBModelStoreContainer">
-          <EntitySet Name="AvailableColorModel" EntityType="Self.AvailableColorModel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Model" EntityType="Self.Model" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ModelColor" EntityType="Self.ModelColor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SaleProduct" EntityType="Self.SaleProduct" Schema="dbo" store:Type="Tables" />
@@ -334,17 +334,17 @@
           <EntitySet Name="Store" EntityType="Self.Store" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StoreStockRoom" EntityType="Self.StoreStockRoom" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_AvailableColorModel_To_Color" Association="Self.FK_AvailableColorModel_To_Color">
-            <End Role="Color" EntitySet="Color" />
-            <End Role="AvailableColorModel" EntitySet="AvailableColorModel" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AvailableColorModel_To_Model" Association="Self.FK_AvailableColorModel_To_Model">
-            <End Role="Model" EntitySet="Model" />
-            <End Role="AvailableColorModel" EntitySet="AvailableColorModel" />
-          </AssociationSet>
           <AssociationSet Name="FK_Model_To_ShoesType" Association="Self.FK_Model_To_ShoesType">
             <End Role="ShoesType" EntitySet="ShoesType" />
             <End Role="Model" EntitySet="Model" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModelColor_To_Color" Association="Self.FK_ModelColor_To_Color">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="ModelColor" EntitySet="ModelColor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModelColor_To_Model" Association="Self.FK_ModelColor_To_Model">
+            <End Role="Model" EntitySet="Model" />
+            <End Role="ModelColor" EntitySet="ModelColor" />
           </AssociationSet>
           <AssociationSet Name="FK_Product_To_Color" Association="Self.FK_Product_To_Color">
             <End Role="Color" EntitySet="Color" />
@@ -400,7 +400,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ShoesDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ShoesDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AvailableColorModels" EntityType="ShoesDBModel.AvailableColorModel" />
           <EntitySet Name="Clients" EntityType="ShoesDBModel.Client" />
           <EntitySet Name="Colors" EntityType="ShoesDBModel.Color" />
           <EntitySet Name="Models" EntityType="ShoesDBModel.Model" />
@@ -412,14 +411,6 @@
           <EntitySet Name="Stores" EntityType="ShoesDBModel.Store" />
           <EntitySet Name="StoreStockRooms" EntityType="ShoesDBModel.StoreStockRoom" />
           <EntitySet Name="Suppliers" EntityType="ShoesDBModel.Supplier" />
-          <AssociationSet Name="FK_AvailableColorModel_To_Color" Association="ShoesDBModel.FK_AvailableColorModel_To_Color">
-            <End Role="Color" EntitySet="Colors" />
-            <End Role="AvailableColorModel" EntitySet="AvailableColorModels" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AvailableColorModel_To_Model" Association="ShoesDBModel.FK_AvailableColorModel_To_Model">
-            <End Role="Model" EntitySet="Models" />
-            <End Role="AvailableColorModel" EntitySet="AvailableColorModels" />
-          </AssociationSet>
           <AssociationSet Name="FK_Sale_To_Client" Association="ShoesDBModel.FK_Sale_To_Client">
             <End Role="Client" EntitySet="Clients" />
             <End Role="Sale" EntitySet="Sales" />
@@ -473,21 +464,20 @@
             <End Role="ShoesType" EntitySet="ShoesTypes" />
             <End Role="Model" EntitySet="Models" />
           </AssociationSet>
+          <EntitySet Name="ModelColors" EntityType="ShoesDBModel.ModelColor" />
+          <AssociationSet Name="FK_ModelColor_To_Color" Association="ShoesDBModel.FK_ModelColor_To_Color">
+            <End Role="Color" EntitySet="Colors" />
+            <End Role="ModelColor" EntitySet="ModelColors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModelColor_To_Model" Association="ShoesDBModel.FK_ModelColor_To_Model">
+            <End Role="Model" EntitySet="Models" />
+            <End Role="ModelColor" EntitySet="ModelColors" />
+          </AssociationSet>
         </EntityContainer>
         <EnumType Name="OperationType">
           <Member Name="IN" />
           <Member Name="OUT" />
         </EnumType>
-        <EntityType Name="AvailableColorModel">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ModelId" Type="Int32" Nullable="false" />
-          <Property Name="ColorId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Color" Relationship="ShoesDBModel.FK_AvailableColorModel_To_Color" FromRole="AvailableColorModel" ToRole="Color" />
-          <NavigationProperty Name="Model" Relationship="ShoesDBModel.FK_AvailableColorModel_To_Model" FromRole="AvailableColorModel" ToRole="Model" />
-        </EntityType>
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="Id" />
@@ -504,8 +494,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="AvailableColorModels" Relationship="ShoesDBModel.FK_AvailableColorModel_To_Color" FromRole="Color" ToRole="AvailableColorModel" />
           <NavigationProperty Name="Products" Relationship="ShoesDBModel.FK_Product_To_Color" FromRole="Color" ToRole="Product" />
+          <NavigationProperty Name="ModelColors" Relationship="ShoesDBModel.FK_ModelColor_To_Color" FromRole="Color" ToRole="ModelColor" />
         </EntityType>
         <EntityType Name="Model">
           <Key>
@@ -517,9 +507,9 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="TypeId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AvailableColorModels" Relationship="ShoesDBModel.FK_AvailableColorModel_To_Model" FromRole="Model" ToRole="AvailableColorModel" />
           <NavigationProperty Name="Products" Relationship="ShoesDBModel.FK_Product_To_Model" FromRole="Model" ToRole="Product" />
           <NavigationProperty Name="ShoesType" Relationship="ShoesDBModel.FK_Model_To_ShoesType" FromRole="Model" ToRole="ShoesType" />
+          <NavigationProperty Name="ModelColors" Relationship="ShoesDBModel.FK_ModelColor_To_Model" FromRole="Model" ToRole="ModelColor" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -622,34 +612,6 @@
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="StockRooms" Relationship="ShoesDBModel.FK_StockRoom_To_Supplier" FromRole="Supplier" ToRole="StockRoom" />
         </EntityType>
-        <Association Name="FK_AvailableColorModel_To_Color">
-          <End Type="ShoesDBModel.Color" Role="Color" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ShoesDBModel.AvailableColorModel" Role="AvailableColorModel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Color">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AvailableColorModel">
-              <PropertyRef Name="ColorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AvailableColorModel_To_Model">
-          <End Type="ShoesDBModel.Model" Role="Model" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ShoesDBModel.AvailableColorModel" Role="AvailableColorModel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Model">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AvailableColorModel">
-              <PropertyRef Name="ModelId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Sale_To_Client">
           <End Type="ShoesDBModel.Client" Role="Client" Multiplicity="0..1" />
           <End Type="ShoesDBModel.Sale" Role="Sale" Multiplicity="*" />
@@ -823,21 +785,50 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ModelColor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModelId" Type="Int32" Nullable="false" />
+          <Property Name="ColorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Color" Relationship="ShoesDBModel.FK_ModelColor_To_Color" FromRole="ModelColor" ToRole="Color" />
+          <NavigationProperty Name="Model" Relationship="ShoesDBModel.FK_ModelColor_To_Model" FromRole="ModelColor" ToRole="Model" />
+        </EntityType>
+        <Association Name="FK_ModelColor_To_Color">
+          <End Type="ShoesDBModel.Color" Role="Color" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ShoesDBModel.ModelColor" Role="ModelColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ModelColor">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModelColor_To_Model">
+          <End Type="ShoesDBModel.Model" Role="Model" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ShoesDBModel.ModelColor" Role="ModelColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ModelColor">
+              <PropertyRef Name="ModelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ShoesDBModelStoreContainer" CdmEntityContainer="ShoesDBEntities">
-          <EntitySetMapping Name="AvailableColorModels">
-            <EntityTypeMapping TypeName="ShoesDBModel.AvailableColorModel">
-              <MappingFragment StoreEntitySet="AvailableColorModel">
-                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
-                <ScalarProperty Name="ModelId" ColumnName="ModelId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Clients">
             <EntityTypeMapping TypeName="ShoesDBModel.Client">
               <MappingFragment StoreEntitySet="Client">
@@ -961,6 +952,15 @@
               <MappingFragment StoreEntitySet="ShoesType">
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModelColors">
+            <EntityTypeMapping TypeName="ShoesDBModel.ModelColor">
+              <MappingFragment StoreEntitySet="ModelColor">
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="ModelId" ColumnName="ModelId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

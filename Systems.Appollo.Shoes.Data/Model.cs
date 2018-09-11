@@ -16,8 +16,8 @@ namespace Systems.Appollo.Shoes.Data
     {
         public Model()
         {
-            this.AvailableColorModels = new HashSet<AvailableColorModel>();
             this.Products = new HashSet<Product>();
+            this.ModelColors = new HashSet<ModelColor>();
         }
     
         public int Id { get; set; }
@@ -27,8 +27,8 @@ namespace Systems.Appollo.Shoes.Data
         public byte[] Photo { get; set; }
         public int TypeId { get; set; }
     
-        public virtual ICollection<AvailableColorModel> AvailableColorModels { get; set; }
         public virtual ICollection<Product> Products { get; set; }
         public virtual ShoesType ShoesType { get; set; }
+        public virtual ICollection<ModelColor> ModelColors { get; set; }
     }
 }
