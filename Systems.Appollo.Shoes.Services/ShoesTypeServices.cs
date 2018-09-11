@@ -19,13 +19,15 @@ namespace Systems.Appollo.Shoes.Services
 
         public List<ShoesTypeDto> GetAllShoesType()
         {
-            return shoesDataEntities.ShoesTypes.Select(sh =>
-                    new ShoesTypeDto
-                    {
-                        Id = sh.Id,
-                        Name = sh.Type,
-                        Description = sh.Description
-                    }).ToList();
+            return shoesDataEntities.ShoesTypes
+                        .OrderBy(st => st.Type)
+                        .Select(sh =>
+                                    new ShoesTypeDto
+                                    {
+                                        Id = sh.Id,
+                                        Name = sh.Type,
+                                        Description = sh.Description
+                                    }).ToList();
         }
     }
 }
