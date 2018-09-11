@@ -29,6 +29,6 @@ namespace Systems.Appollo.Shoes.Data.Dtos
             }
         }
 
-        public DateTime DateOfSale { get; set; }
+        public DateTime SellingDate { get; set; }
     }
 }

@@ -192,7 +192,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Sales
         private void saveSalesButton_Click(object sender, EventArgs e)
         {
             CurrentSaleDto.StoreId = SelectedStoreDto?.StoreId ?? null;
-            CurrentSaleDto.DateOfSale = saleDateTimePicker.Value;
+            CurrentSaleDto.SellingDate = saleDateTimePicker.Value;
             ShoesDataServices.SalesServices.AddStoreSalesAndDecrementStockProducts(CurrentSaleDto);
             var message = string.Format(Messages.SALE_FOR_STORE_CREATED_SUCCCESS, SelectedStoreDto.Name,
                     CurrentSaleDto.TotalSaleAmount);

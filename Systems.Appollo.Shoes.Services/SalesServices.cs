@@ -27,7 +27,7 @@ namespace Systems.Appollo.Shoes.Services
         {
             var newSale = new Sale()
             {
-                SellingDate = saleDto.DateOfSale,
+                SellingDate = saleDto.SellingDate,
                 ClientId = saleDto.ClientId
             };
             _shoesDataEntities.Sales.Add(newSale);
@@ -49,7 +49,7 @@ namespace Systems.Appollo.Shoes.Services
                     ProductId = currentProduct.Id,
                     StockValue = lastStockRoom.StockValue - saleProductDto.Quantity,
                     EntryValue = -saleProductDto.Quantity,
-                    EntryDate = saleDto.DateOfSale,
+                    EntryDate = saleDto.SellingDate,
                     OperationType = OperationType.OUT.ToString()
                 };
                 _shoesDataEntities.StockRooms.Add(newStockRoom);
@@ -66,7 +66,7 @@ namespace Systems.Appollo.Shoes.Services
         {
             var newSale = new Sale()
             {
-                SellingDate = saleDto.DateOfSale,
+                SellingDate = saleDto.SellingDate,
                 StoreId = saleDto.StoreId
             };
             _shoesDataEntities.Sales.Add(newSale);
@@ -88,7 +88,7 @@ namespace Systems.Appollo.Shoes.Services
                     ProductId = currentProduct.Id,
                     StockValue = lastStockRoom.StockValue - saleProductDto.Quantity,
                     EntryValue = -saleProductDto.Quantity,
-                    EntryDate = saleDto.DateOfSale,
+                    EntryDate = saleDto.SellingDate,
                     StoreId = saleDto.StoreId.Value,
                     OperationType = OperationType.OUT.ToString()
                 };
