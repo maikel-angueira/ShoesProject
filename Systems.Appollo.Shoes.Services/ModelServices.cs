@@ -98,6 +98,7 @@ namespace Systems.Appollo.Shoes.Services
                 TypeId = newModelDto.ShoesTypeId
             };
 
+            _shoesDataEntities.Models.Add(newModel);
             newModelDto.AvailablesColors.ForEach(dto =>
             {
                 var newModelColor = new ModelColor
@@ -107,7 +108,6 @@ namespace Systems.Appollo.Shoes.Services
                 };
                 _shoesDataEntities.ModelColors.Add(newModelColor);
             });
-            _shoesDataEntities.Models.Add(newModel);
             SaveChanges();
         }
 
