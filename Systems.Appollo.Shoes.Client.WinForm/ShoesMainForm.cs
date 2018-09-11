@@ -81,8 +81,10 @@ namespace Systems.Appollo.Shoes.Client.WinForm
 
         private void actualizarToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            var updateModelForm = new UpdateModelForm();
-            updateModelForm.ModelDataServices = _shoesDataServices.ModelServices;
+            var updateModelForm = new UpdateModelForm()
+            {
+                ShoesClientDataServices = _shoesDataServices
+            };
             updateModelForm.ShowDialog();
         }
 

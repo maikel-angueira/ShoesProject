@@ -100,6 +100,11 @@ namespace Systems.Appollo.Shoes.Services
                 .ToList();
         }
 
+        public bool ExistAnyStockEntryByModelId(int modelId)
+        {
+            return _shoesDataEntities.StockRooms.Any(st => st.Product.ModelId == modelId);
+        }
+
         private void SaveChanges()
         {
             _shoesDataEntities.SaveChanges();

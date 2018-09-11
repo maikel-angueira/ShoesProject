@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Systems.Appollo.Shoes.Client.WinForm.DataServices;
 using Systems.Appollo.Shoes.Client.WinForm.Utils;
 using Systems.Appollo.Shoes.Data.DataModels;
 using Systems.Appollo.Shoes.Services;
@@ -15,13 +16,14 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
 {
     public partial class UpdateModelForm : Form
     {
-        private ModelServices modelDataServices;
+        private const string AVAILABLE_FOR_ALL_COLORS = "Disponible todos colores";
 
         public UpdateModelForm()
         {
             InitializeComponent();
             modelDataGrid.AutoGenerateColumns = false;
             UploadNewPhoto = false;
+            costNumericUpDown.Maximum = decimal.MaxValue;
         }
 
         private void updateButton_Click(object sender, EventArgs e)
@@ -36,7 +38,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
             }
 
             if (SelectedModel.Name != ModelName
-                    && ModelDataServices.ExistModelByName(ModelName))
+                    && ShoesClientDataServices.ModelServices.ExistModelByName(ModelName))
             {
                 MessageBox.Show(Messages.ELEMENT_EXISTS, Constants.MESSAGE_CAPTION);
                 return;
@@ -53,10 +55,12 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
                 ModelId = SelectedModel.ModelId,
                 Name = ModelName,
                 Description = ModelDescription,
-                Photo = newUploadPhoto
+                Photo = newUploadPhoto,
+                ShoesTypeId = (int)shoesTypeComboBox.SelectedValue,
+                Cost = (double)costNumericUpDown.Value
             };
 
-            ModelDataServices.UpdateModel(updatedModelDto);
+            ShoesClientDataServices.ModelServices.UpdateModel(updatedModelDto);
             UpdateView(updatedModelDto);
             MessageBox.Show(string.Format(Messages.ELEMENT_UPDATED_SUCCESS, EntityNames.MODEL_ENTITY_NAME), Constants.MESSAGE_CAPTION);
         }
@@ -79,19 +83,22 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
             SelectedModel.Name = updatedDto.Name;
             SelectedModel.Description = updatedDto.Description;
             SelectedModel.Photo = updatedDto.Photo;
+            SelectedModel.Cost = updatedDto.Cost;
+            SelectedModel.ShoesTypeId = updatedDto.ShoesTypeId;
             modelDataGrid.Refresh();
         }
 
-        public ModelServices ModelDataServices
+        public ShoesClientServices ShoesClientDataServices
         {
-            get => modelDataServices;
-            set => modelDataServices = value;
+            get; set;
         }
 
         private void UpdateModelForm_Load(object sender, EventArgs e)
         {
-            List<ModelDto> models = ModelDataServices.GetAllModels();
+            List<ModelDto> models = ShoesClientDataServices.ModelServices.GetAllModels();
             modelDataGrid.DataSource = models;
+            var shoesTypes = ShoesClientDataServices.ShoesTypeDataServices.GetAllShoesType();
+            shoesTypeComboBox.DataSource = shoesTypes;
         }
 
         private void modelDataGrid_SelectionChanged(object sender, EventArgs e)
@@ -105,13 +112,17 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
             modelNameTextBox.Text = SelectedModel.Name;
             modelDescriptionTextBox.Text = SelectedModel.Description;
             PictureViewUtils.LoadImageToControl(SelectedModel.Photo, modelPictureBox);
-            EnableButtons();
-        }
-
-        private void EnableButtons()
-        {
+            costNumericUpDown.Value = (decimal)SelectedModel.Cost;
+            bool allowModify = !ShoesClientDataServices.StockRoomServices.ExistAnyStockEntryByModelId(SelectedModel.ModelId);
+            costNumericUpDown.Enabled = allowModify;
+            removeButton.Enabled = allowModify;
             updateButton.Enabled = true;
-            removeButton.Enabled = true;
+            shoesTypeComboBox.SelectedValue = SelectedModel.ShoesTypeId;
+            colorCheckedListBox.Items.Clear();
+            if (SelectedModel.AvailablesColors.Count > 0)
+                SelectedModel.AvailablesColors.ForEach(dto => colorCheckedListBox.Items.Add(dto.Name, true));
+            else
+                colorCheckedListBox.Items.Add(AVAILABLE_FOR_ALL_COLORS, true);
         }
 
         private void DisableButtons()
@@ -173,9 +184,9 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
             if (dialogResult != DialogResult.Yes)
                 return;
 
-            ModelDataServices.RemoveModel(SelectedModel.ModelId);
+            ShoesClientDataServices.ModelServices.RemoveModel(SelectedModel.ModelId);
             UploadNewPhoto = false;
-            var models = ModelDataServices.GetAllModels();
+            var models = ShoesClientDataServices.ModelServices.GetAllModels();
             modelDataGrid.DataSource = models;
             modelDataGrid.Refresh();
             if (models.Count == 0)

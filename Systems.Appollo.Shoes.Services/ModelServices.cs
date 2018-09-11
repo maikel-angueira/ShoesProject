@@ -9,7 +9,7 @@ namespace Systems.Appollo.Shoes.Services
     public class ModelServices
     {
         private readonly ShoesDBEntities _shoesDataEntities;
-        
+
 
         public ModelServices(ShoesDBEntities shoesDataEntities1)
         {
@@ -30,14 +30,31 @@ namespace Systems.Appollo.Shoes.Services
 
         public List<ModelDto> GetAllModels()
         {
-            return _shoesDataEntities.Models
+            var modelDtos = _shoesDataEntities.Models
                 .Select(m => new ModelDto
                 {
                     ModelId = m.Id,
                     Description = m.Description,
                     Name = m.Name,
-                    Photo = m.Photo
+                    Photo = m.Photo,
+                    Cost = m.Cost,
+                    ShoesTypeId = m.ShoesType.Id
                 }).ToList();
+
+
+            foreach (var dto in modelDtos)
+            {
+                var colorByModels =_shoesDataEntities.AvailableColorModels
+                    .Where(c => c.ModelId == dto.ModelId)
+                    .Select(c =>
+                                new ColorDto
+                                {
+                                    ColorId = c.ColorId,
+                                    Name = c.Color.Name
+                                }).ToList();
+                dto.AvailablesColors = colorByModels;
+            }
+            return modelDtos;
         }
 
         public bool ExistModelByName(string newModelName)
@@ -52,6 +69,8 @@ namespace Systems.Appollo.Shoes.Services
             model.Description = updatedModelDto.Description;
             model.Name = updatedModelDto.Name;
             model.Photo = updatedModelDto.Photo;
+            model.TypeId = updatedModelDto.ShoesTypeId;
+            model.Cost = updatedModelDto.Cost;
             SaveChanges();
         }
 
@@ -76,7 +95,7 @@ namespace Systems.Appollo.Shoes.Services
                 Description = newModelDto.Description,
                 Photo = newModelDto.Photo,
                 Cost = newModelDto.Cost,
-                TypeId = newModelDto.ShoesTypeId                
+                TypeId = newModelDto.ShoesTypeId
             };
 
             newModelDto.AvailablesColors.ForEach(dto =>
