@@ -35,8 +35,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.quantityNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.costNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.dateInTime = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
@@ -46,7 +44,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.shoesPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shoesPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +65,7 @@
             this.modelComboBox.Name = "modelComboBox";
             this.modelComboBox.Size = new System.Drawing.Size(290, 21);
             this.modelComboBox.TabIndex = 1;
-            this.modelComboBox.SelectedValueChanged += new System.EventHandler(this.modelComboBox_SelectedValueChanged);
+            this.modelComboBox.SelectedIndexChanged += new System.EventHandler(this.modelComboBox_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -84,6 +81,7 @@
             this.colorComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.colorComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.colorComboBox.DisplayMember = "Name";
+            this.colorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.colorComboBox.FormattingEnabled = true;
             this.colorComboBox.Location = new System.Drawing.Point(17, 86);
             this.colorComboBox.Name = "colorComboBox";
@@ -102,7 +100,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(225, 201);
+            this.label4.Location = new System.Drawing.Point(167, 201);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 6;
@@ -110,7 +108,7 @@
             // 
             // quantityNumericUpDown
             // 
-            this.quantityNumericUpDown.Location = new System.Drawing.Point(224, 217);
+            this.quantityNumericUpDown.Location = new System.Drawing.Point(166, 217);
             this.quantityNumericUpDown.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -122,31 +120,13 @@
             0,
             0});
             this.quantityNumericUpDown.Name = "quantityNumericUpDown";
-            this.quantityNumericUpDown.Size = new System.Drawing.Size(80, 20);
+            this.quantityNumericUpDown.Size = new System.Drawing.Size(103, 20);
             this.quantityNumericUpDown.TabIndex = 7;
             this.quantityNumericUpDown.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(123, 201);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Costo(U):";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // costNumericUpDown
-            // 
-            this.costNumericUpDown.DecimalPlaces = 2;
-            this.costNumericUpDown.Location = new System.Drawing.Point(126, 218);
-            this.costNumericUpDown.Name = "costNumericUpDown";
-            this.costNumericUpDown.Size = new System.Drawing.Size(80, 20);
-            this.costNumericUpDown.TabIndex = 9;
             // 
             // dateInTime
             // 
@@ -166,7 +146,7 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(414, 237);
+            this.addButton.Location = new System.Drawing.Point(363, 237);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 15;
@@ -176,7 +156,7 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(495, 237);
+            this.closeButton.Location = new System.Drawing.Point(444, 237);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 23);
             this.closeButton.TabIndex = 16;
@@ -187,7 +167,7 @@
             // photoLinkLabel
             // 
             this.photoLinkLabel.AutoSize = true;
-            this.photoLinkLabel.Location = new System.Drawing.Point(411, 175);
+            this.photoLinkLabel.Location = new System.Drawing.Point(374, 154);
             this.photoLinkLabel.Name = "photoLinkLabel";
             this.photoLinkLabel.Size = new System.Drawing.Size(77, 13);
             this.photoLinkLabel.TabIndex = 17;
@@ -217,7 +197,7 @@
             "50"});
             this.sizeComboBox.Location = new System.Drawing.Point(20, 216);
             this.sizeComboBox.Name = "sizeComboBox";
-            this.sizeComboBox.Size = new System.Drawing.Size(80, 21);
+            this.sizeComboBox.Size = new System.Drawing.Size(117, 21);
             this.sizeComboBox.TabIndex = 18;
             // 
             // openFileDialog1
@@ -227,9 +207,9 @@
             // shoesPictureBox
             // 
             this.shoesPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.shoesPictureBox.Location = new System.Drawing.Point(411, 17);
+            this.shoesPictureBox.Location = new System.Drawing.Point(373, 17);
             this.shoesPictureBox.Name = "shoesPictureBox";
-            this.shoesPictureBox.Size = new System.Drawing.Size(162, 151);
+            this.shoesPictureBox.Size = new System.Drawing.Size(141, 134);
             this.shoesPictureBox.TabIndex = 14;
             this.shoesPictureBox.TabStop = false;
             // 
@@ -237,7 +217,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 272);
+            this.ClientSize = new System.Drawing.Size(531, 272);
             this.Controls.Add(this.sizeComboBox);
             this.Controls.Add(this.photoLinkLabel);
             this.Controls.Add(this.closeButton);
@@ -245,8 +225,6 @@
             this.Controls.Add(this.shoesPictureBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dateInTime);
-            this.Controls.Add(this.costNumericUpDown);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.quantityNumericUpDown);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -260,7 +238,6 @@
             this.Text = "Entrada desde Taller";
             this.Load += new System.EventHandler(this.NewStockroomEntryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shoesPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -276,8 +253,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown quantityNumericUpDown;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown costNumericUpDown;
         private System.Windows.Forms.DateTimePicker dateInTime;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox shoesPictureBox;
