@@ -55,7 +55,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ClientId" Type="int" />
-          <Property Name="DateOfSale" Type="datetime" Nullable="false" />
+          <Property Name="SellingDate" Type="datetime" Nullable="false" />
           <Property Name="StoreId" Type="int" />
         </EntityType>
         <EntityType Name="SaleProduct">
@@ -541,11 +541,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ClientId" Type="Int32" />
-          <Property Name="DateOfSale" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="StoreId" Type="Int32" />
           <NavigationProperty Name="Client" Relationship="ShoesDBModel.FK_Sale_To_Client" FromRole="Sale" ToRole="Client" />
           <NavigationProperty Name="Store" Relationship="ShoesDBModel.FK_Sale_To_Store" FromRole="Sale" ToRole="Store" />
           <NavigationProperty Name="SaleProducts" Relationship="ShoesDBModel.FK_SaleProduct_To_Sale" FromRole="Sale" ToRole="SaleProduct" />
+          <Property Name="SellingDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="SaleProduct">
           <Key>
@@ -881,8 +881,8 @@
           <EntitySetMapping Name="Sales">
             <EntityTypeMapping TypeName="ShoesDBModel.Sale">
               <MappingFragment StoreEntitySet="Sale">
+                <ScalarProperty Name="SellingDate" ColumnName="SellingDate" />
                 <ScalarProperty Name="StoreId" ColumnName="StoreId" />
-                <ScalarProperty Name="DateOfSale" ColumnName="DateOfSale" />
                 <ScalarProperty Name="ClientId" ColumnName="ClientId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

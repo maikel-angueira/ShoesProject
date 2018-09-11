@@ -27,7 +27,7 @@ namespace Systems.Appollo.Shoes.Services
         {
             var newSale = new Sale()
             {
-                DateOfSale = saleDto.DateOfSale,
+                SellingDate = saleDto.DateOfSale,
                 ClientId = saleDto.ClientId
             };
             _shoesDataEntities.Sales.Add(newSale);
@@ -66,7 +66,7 @@ namespace Systems.Appollo.Shoes.Services
         {
             var newSale = new Sale()
             {
-                DateOfSale = saleDto.DateOfSale,
+                SellingDate = saleDto.DateOfSale,
                 StoreId = saleDto.StoreId
             };
             _shoesDataEntities.Sales.Add(newSale);

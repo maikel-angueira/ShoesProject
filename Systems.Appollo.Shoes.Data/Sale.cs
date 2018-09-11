@@ -21,8 +21,8 @@ namespace Systems.Appollo.Shoes.Data
     
         public int Id { get; set; }
         public Nullable<int> ClientId { get; set; }
-        public System.DateTime DateOfSale { get; set; }
         public Nullable<int> StoreId { get; set; }
+        public System.DateTime SellingDate { get; set; }
     
         public virtual Client Client { get; set; }
         public virtual Store Store { get; set; }

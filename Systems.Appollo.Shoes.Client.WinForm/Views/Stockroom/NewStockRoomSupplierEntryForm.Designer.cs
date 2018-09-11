@@ -148,7 +148,7 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(371, 262);
+            this.addButton.Location = new System.Drawing.Point(365, 262);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 15;
@@ -158,7 +158,7 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(452, 262);
+            this.closeButton.Location = new System.Drawing.Point(446, 262);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 23);
             this.closeButton.TabIndex = 16;
@@ -169,7 +169,7 @@
             // photoLinkLabel
             // 
             this.photoLinkLabel.AutoSize = true;
-            this.photoLinkLabel.Location = new System.Drawing.Point(392, 157);
+            this.photoLinkLabel.Location = new System.Drawing.Point(377, 157);
             this.photoLinkLabel.Name = "photoLinkLabel";
             this.photoLinkLabel.Size = new System.Drawing.Size(77, 13);
             this.photoLinkLabel.TabIndex = 17;
@@ -228,7 +228,7 @@
             // shoesPictureBox
             // 
             this.shoesPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.shoesPictureBox.Location = new System.Drawing.Point(395, 17);
+            this.shoesPictureBox.Location = new System.Drawing.Point(380, 17);
             this.shoesPictureBox.Name = "shoesPictureBox";
             this.shoesPictureBox.Size = new System.Drawing.Size(138, 137);
             this.shoesPictureBox.TabIndex = 14;
@@ -238,7 +238,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 300);
+            this.ClientSize = new System.Drawing.Size(531, 295);
             this.Controls.Add(this.supplierComboBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.sizeComboBox);
