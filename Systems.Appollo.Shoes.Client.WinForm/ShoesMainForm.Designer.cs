@@ -70,6 +70,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.existenciaEnAlmacénToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolMainMenu.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -154,7 +155,7 @@
             // 
             this.surtirTiendaToolStripMenuItem.Name = "surtirTiendaToolStripMenuItem";
             this.surtirTiendaToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.surtirTiendaToolStripMenuItem.Text = "Ventas de Tiendas";
+            this.surtirTiendaToolStripMenuItem.Text = "Ventas en Tiendas";
             this.surtirTiendaToolStripMenuItem.Click += new System.EventHandler(this.surtirTiendaToolStripMenuItem_Click);
             // 
             // administraciónToolStripMenuItem
@@ -313,7 +314,8 @@
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ventasPorMesesToolStripMenuItem,
-            this.gananciaToolStripMenuItem});
+            this.gananciaToolStripMenuItem,
+            this.existenciaEnAlmacénToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "&Reportes";
@@ -321,13 +323,13 @@
             // ventasPorMesesToolStripMenuItem
             // 
             this.ventasPorMesesToolStripMenuItem.Name = "ventasPorMesesToolStripMenuItem";
-            this.ventasPorMesesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.ventasPorMesesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.ventasPorMesesToolStripMenuItem.Text = "Ventas por Meses";
             // 
             // gananciaToolStripMenuItem
             // 
             this.gananciaToolStripMenuItem.Name = "gananciaToolStripMenuItem";
-            this.gananciaToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.gananciaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.gananciaToolStripMenuItem.Text = "Existencia en Tiendas";
             this.gananciaToolStripMenuItem.Click += new System.EventHandler(this.gananciaToolStripMenuItem_Click);
             // 
@@ -410,6 +412,12 @@
             this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton4.Text = "toolStripButton4";
             // 
+            // existenciaEnAlmacénToolStripMenuItem
+            // 
+            this.existenciaEnAlmacénToolStripMenuItem.Name = "existenciaEnAlmacénToolStripMenuItem";
+            this.existenciaEnAlmacénToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.existenciaEnAlmacénToolStripMenuItem.Text = "Existencia en Almacén";
+            // 
             // ShoesMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -478,6 +486,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem existenciaEnAlmacénToolStripMenuItem;
     }
 }
 
