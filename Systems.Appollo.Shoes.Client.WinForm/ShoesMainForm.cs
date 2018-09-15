@@ -52,7 +52,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm
             }
             var stockRoomExistingForm = new StockRoomExistingForm()
             {
-                StockRoomReportManager = _shoesDataServices.StockRoomReportManager
+                ShoesClientDataServices = _shoesDataServices
             };
             stockRoomExistingForm.ShowDialog();
         }
