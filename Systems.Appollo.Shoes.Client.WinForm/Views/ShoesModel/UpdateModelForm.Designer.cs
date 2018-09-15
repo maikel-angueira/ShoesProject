@@ -49,6 +49,9 @@
             this.modelPictureBox = new System.Windows.Forms.PictureBox();
             this.closeButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.sexComboBox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.kidsCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.modelDataGrid)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -100,6 +103,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.kidsCheckBox);
+            this.groupBox2.Controls.Add(this.sexComboBox);
+            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.colorCheckedListBox);
             this.groupBox2.Controls.Add(this.costNumericUpDown);
@@ -124,7 +130,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(255, 116);
+            this.label5.Location = new System.Drawing.Point(163, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 16;
@@ -134,16 +140,16 @@
             // 
             this.colorCheckedListBox.Enabled = false;
             this.colorCheckedListBox.FormattingEnabled = true;
-            this.colorCheckedListBox.Location = new System.Drawing.Point(255, 133);
+            this.colorCheckedListBox.Location = new System.Drawing.Point(170, 133);
             this.colorCheckedListBox.Name = "colorCheckedListBox";
-            this.colorCheckedListBox.Size = new System.Drawing.Size(228, 79);
+            this.colorCheckedListBox.Size = new System.Drawing.Size(317, 79);
             this.colorCheckedListBox.TabIndex = 15;
             // 
             // costNumericUpDown
             // 
             this.costNumericUpDown.DecimalPlaces = 2;
             this.costNumericUpDown.Enabled = false;
-            this.costNumericUpDown.Location = new System.Drawing.Point(162, 133);
+            this.costNumericUpDown.Location = new System.Drawing.Point(328, 88);
             this.costNumericUpDown.Name = "costNumericUpDown";
             this.costNumericUpDown.Size = new System.Drawing.Size(87, 20);
             this.costNumericUpDown.TabIndex = 14;
@@ -151,7 +157,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(159, 116);
+            this.label4.Location = new System.Drawing.Point(325, 71);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 13);
             this.label4.TabIndex = 13;
@@ -162,16 +168,16 @@
             this.shoesTypeComboBox.DisplayMember = "Name";
             this.shoesTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.shoesTypeComboBox.FormattingEnabled = true;
-            this.shoesTypeComboBox.Location = new System.Drawing.Point(162, 87);
+            this.shoesTypeComboBox.Location = new System.Drawing.Point(166, 87);
             this.shoesTypeComboBox.Name = "shoesTypeComboBox";
-            this.shoesTypeComboBox.Size = new System.Drawing.Size(321, 21);
+            this.shoesTypeComboBox.Size = new System.Drawing.Size(156, 21);
             this.shoesTypeComboBox.TabIndex = 12;
             this.shoesTypeComboBox.ValueMember = "Id";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(159, 71);
+            this.label3.Location = new System.Drawing.Point(163, 71);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 11;
@@ -180,7 +186,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(163, 223);
+            this.label2.Location = new System.Drawing.Point(167, 252);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 8;
@@ -189,7 +195,7 @@
             // removeButton
             // 
             this.removeButton.Enabled = false;
-            this.removeButton.Location = new System.Drawing.Point(411, 380);
+            this.removeButton.Location = new System.Drawing.Point(415, 380);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(75, 23);
             this.removeButton.TabIndex = 7;
@@ -200,7 +206,7 @@
             // updateButton
             // 
             this.updateButton.Enabled = false;
-            this.updateButton.Location = new System.Drawing.Point(330, 380);
+            this.updateButton.Location = new System.Drawing.Point(334, 380);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
             this.updateButton.TabIndex = 6;
@@ -211,7 +217,7 @@
             // modelDescriptionTextBox
             // 
             this.modelDescriptionTextBox.AcceptsReturn = true;
-            this.modelDescriptionTextBox.Location = new System.Drawing.Point(164, 242);
+            this.modelDescriptionTextBox.Location = new System.Drawing.Point(168, 271);
             this.modelDescriptionTextBox.Multiline = true;
             this.modelDescriptionTextBox.Name = "modelDescriptionTextBox";
             this.modelDescriptionTextBox.Size = new System.Drawing.Size(324, 86);
@@ -219,7 +225,7 @@
             // 
             // modelNameTextBox
             // 
-            this.modelNameTextBox.Location = new System.Drawing.Point(162, 42);
+            this.modelNameTextBox.Location = new System.Drawing.Point(166, 42);
             this.modelNameTextBox.Name = "modelNameTextBox";
             this.modelNameTextBox.Size = new System.Drawing.Size(324, 20);
             this.modelNameTextBox.TabIndex = 3;
@@ -227,7 +233,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(159, 25);
+            this.label1.Location = new System.Drawing.Point(163, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 2;
@@ -249,7 +255,7 @@
             this.modelPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.modelPictureBox.Location = new System.Drawing.Point(6, 23);
             this.modelPictureBox.Name = "modelPictureBox";
-            this.modelPictureBox.Size = new System.Drawing.Size(141, 139);
+            this.modelPictureBox.Size = new System.Drawing.Size(151, 139);
             this.modelPictureBox.TabIndex = 0;
             this.modelPictureBox.TabStop = false;
             // 
@@ -266,6 +272,37 @@
             // openFileDialog1
             // 
             this.openFileDialog1.Filter = "Images (*.JPEG;*.BMP;*.JPG;*.GIF;*.PNG;*.)|*.JPEG;*.BMP;*.JPG;*.GIF;*.PNG\"";
+            // 
+            // sexComboBox
+            // 
+            this.sexComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sexComboBox.FormattingEnabled = true;
+            this.sexComboBox.Items.AddRange(new object[] {
+            "M",
+            "F"});
+            this.sexComboBox.Location = new System.Drawing.Point(422, 87);
+            this.sexComboBox.Name = "sexComboBox";
+            this.sexComboBox.Size = new System.Drawing.Size(66, 21);
+            this.sexComboBox.TabIndex = 24;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(419, 71);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(34, 13);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Sexo:";
+            // 
+            // kidsCheckBox
+            // 
+            this.kidsCheckBox.AutoSize = true;
+            this.kidsCheckBox.Location = new System.Drawing.Point(171, 225);
+            this.kidsCheckBox.Name = "kidsCheckBox";
+            this.kidsCheckBox.Size = new System.Drawing.Size(115, 17);
+            this.kidsCheckBox.TabIndex = 25;
+            this.kidsCheckBox.Text = "Modelo para Niños";
+            this.kidsCheckBox.UseVisualStyleBackColor = true;
             // 
             // UpdateModelForm
             // 
@@ -313,5 +350,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckedListBox colorCheckedListBox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox sexComboBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox kidsCheckBox;
     }
 }

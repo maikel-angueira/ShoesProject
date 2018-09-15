@@ -10,9 +10,9 @@ namespace Systems.Appollo.Shoes.Services.Data
         private readonly ShoesDBEntities _shoesDataEntities;
 
 
-        public ModelServices(ShoesDBEntities shoesDataEntities1)
+        public ModelServices(ShoesDBEntities shoesDB)
         {
-            this._shoesDataEntities = shoesDataEntities1;
+            this._shoesDataEntities = shoesDB;
         }
 
         public void InsertModel(string name, string description, byte[] photo)
@@ -37,7 +37,9 @@ namespace Systems.Appollo.Shoes.Services.Data
                     Name = m.Name,
                     Photo = m.Photo,
                     Cost = m.Cost,
-                    ShoesTypeId = m.ShoesType.Id
+                    ShoesTypeId = m.ShoesType.Id,
+                    Sex = m.Sex,
+                    IsForKids = m.IsForKids
                 }).ToList();
 
 
@@ -70,6 +72,8 @@ namespace Systems.Appollo.Shoes.Services.Data
             model.Photo = updatedModelDto.Photo;
             model.TypeId = updatedModelDto.ShoesTypeId;
             model.Cost = updatedModelDto.Cost;
+            model.Sex = updatedModelDto.Sex;
+            model.IsForKids = updatedModelDto.IsForKids;
             SaveChanges();
         }
 

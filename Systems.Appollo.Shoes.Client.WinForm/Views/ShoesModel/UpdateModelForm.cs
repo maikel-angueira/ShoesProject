@@ -57,7 +57,9 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
                 Description = ModelDescription,
                 Photo = newUploadPhoto,
                 ShoesTypeId = (int)shoesTypeComboBox.SelectedValue,
-                Cost = (double)costNumericUpDown.Value
+                Cost = (double)costNumericUpDown.Value,
+                Sex = sexComboBox.SelectedItem as string,
+                IsForKids = kidsCheckBox.Checked
             };
 
             ShoesClientDataServices.ModelServices.UpdateModel(updatedModelDto);
@@ -113,6 +115,8 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.Seller
             modelDescriptionTextBox.Text = SelectedModel.Description;
             PictureViewUtils.LoadImageToControl(SelectedModel.Photo, modelPictureBox);
             costNumericUpDown.Value = (decimal)SelectedModel.Cost;
+            sexComboBox.SelectedItem = SelectedModel.Sex;
+            kidsCheckBox.Checked = SelectedModel.IsForKids;
             bool allowModify = !ShoesClientDataServices.StockRoomServices.ExistAnyStockEntryByModelId(SelectedModel.ModelId);
             costNumericUpDown.Enabled = allowModify;
             removeButton.Enabled = allowModify;
