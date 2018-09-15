@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Systems.Appollo.Shoes.Clien
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Systems.Appollo.Shoes.Services", "Systems.Appollo.Shoes.Services\Systems.Appollo.Shoes.Services.csproj", "{87B360C0-9A9C-4478-93B6-046DBF889BBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridViewGrouper", "..\DataGridViewGrouper\DataGridViewGrouper\DataGridViewGrouper.csproj", "{785A6FBB-2BA0-42BE-84C4-1703BCAD15D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{87B360C0-9A9C-4478-93B6-046DBF889BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87B360C0-9A9C-4478-93B6-046DBF889BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87B360C0-9A9C-4478-93B6-046DBF889BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{785A6FBB-2BA0-42BE-84C4-1703BCAD15D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{785A6FBB-2BA0-42BE-84C4-1703BCAD15D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{785A6FBB-2BA0-42BE-84C4-1703BCAD15D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{785A6FBB-2BA0-42BE-84C4-1703BCAD15D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

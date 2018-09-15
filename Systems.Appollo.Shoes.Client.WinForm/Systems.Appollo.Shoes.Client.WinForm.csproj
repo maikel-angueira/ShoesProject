@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReportViews\StockRoomExistingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViews\StockRoomExistingForm.Designer.cs">
+      <DependentUpon>StockRoomExistingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShoesApplicationContext.cs" />
     <Compile Include="Utils\Constants.cs" />
     <Compile Include="DataServices\ShoesClientServices.cs" />
@@ -184,6 +190,9 @@
     <Compile Include="Views\Supplier\UpdateSupplierForm.Designer.cs">
       <DependentUpon>UpdateSupplierForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportViews\StockRoomExistingForm.resx">
+      <DependentUpon>StockRoomExistingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ShoesMainForm.resx">
       <DependentUpon>ShoesMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,6 +280,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DataGridViewGrouper\DataGridViewGrouper\DataGridViewGrouper.csproj">
+      <Project>{785a6fbb-2ba0-42be-84c4-1703bcad15d2}</Project>
+      <Name>DataGridViewGrouper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Systems.Appollo.Shoes.Data\Systems.Appollo.Shoes.Data.csproj">
       <Project>{E730F8A7-A880-4140-9AA2-5F80C58005DF}</Project>
       <Name>Systems.Appollo.Shoes.Data</Name>

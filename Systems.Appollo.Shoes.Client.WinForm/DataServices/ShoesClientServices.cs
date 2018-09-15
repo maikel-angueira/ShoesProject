@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Systems.Appollo.Shoes.Services;
 using Systems.Appollo.Shoes.Services.Data;
+using Systems.Appollo.Shoes.Services.Reports;
 
 namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
 {
@@ -27,6 +28,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
             this.SalesServices = new SalesServices(shoesDbEntities,
                 StockRoomServices, StoreStockRoomServices, productServices);
             this.ShoesTypeDataServices = new ShoesTypeServices(shoesDbEntities);
+            this.StockRoomReportManager = new StockRoomReportManager(shoesDbEntities);
         }
 
         public ClientServices ClientServices { get; }
@@ -47,5 +49,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
         public StoreStockRoomDataServices StoreStockRoomServices { get;}
 
         public  ShoesTypeServices ShoesTypeDataServices { get; }
+        public StockRoomReportManager StockRoomReportManager { get; }
     }
 }

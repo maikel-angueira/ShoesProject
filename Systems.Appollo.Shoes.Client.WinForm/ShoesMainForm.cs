@@ -18,6 +18,8 @@ using Systems.Appollo.Shoes.Client.WinForm.Views.Store;
 using Systems.Appollo.Shoes.Client.WinForm.Views.Stockroom;
 using Systems.Appollo.Shoes.Client.WinForm.Views.Sales;
 using Systems.Appollo.Shoes.Client.WinForm.Views.Login;
+using Systems.Appollo.Shoes.Client.WinForm.ReportViews;
+using Systems.Appollo.Shoes.Client.WinForm.Utils;
 
 namespace Systems.Appollo.Shoes.Client.WinForm
 {
@@ -42,7 +44,17 @@ namespace Systems.Appollo.Shoes.Client.WinForm
 
         private void existenciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            bool existStockProducts = _shoesDataServices.StockRoomServices.ExistProductOnTheStock();
+            if (!existStockProducts)
+            {
+                MessageBox.Show(Messages.NO_EXISTING_PRODUCTS_ON_THE_STOCK, Constants.MESSAGE_CAPTION);
+                return;
+            }
+            var stockRoomExistingForm = new StockRoomExistingForm()
+            {
+                StockRoomReportManager = _shoesDataServices.StockRoomReportManager
+            };
+            stockRoomExistingForm.ShowDialog();
         }
 
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
