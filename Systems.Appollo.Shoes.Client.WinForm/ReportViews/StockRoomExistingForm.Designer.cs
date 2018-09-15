@@ -64,6 +64,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.ReportViews
             this.productDetailsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productDetailsDataGridView.Size = new System.Drawing.Size(828, 450);
             this.productDetailsDataGridView.TabIndex = 1;
+            this.productDetailsDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.productDetailsDataGridView_DataError);
             // 
             // closeButton
             // 
@@ -164,6 +165,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.ReportViews
             this.Name = "StockRoomExistingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Existencia de Productos en Almacén";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StockRoomExistingForm_FormClosing);
             this.Load += new System.EventHandler(this.StockRoomExistingForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productDetailsDataGridView)).EndInit();
             this.ResumeLayout(false);

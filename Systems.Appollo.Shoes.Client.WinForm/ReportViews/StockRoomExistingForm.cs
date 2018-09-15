@@ -81,5 +81,15 @@ namespace Systems.Appollo.Shoes.Client.WinForm.ReportViews
         }
 
         private string FilterModelName => modelComboBox.SelectedItem as string;
+
+        private void productDetailsDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;           
+        }
+
+        private void StockRoomExistingForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            productDetailsDataGridView.DataSource = new List<ProductDetailsDto>();
+        }
     }
 }
