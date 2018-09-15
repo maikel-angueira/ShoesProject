@@ -15,13 +15,6 @@ namespace Systems.Appollo.Shoes.Services.Data
             this._shoesDataEntities = shoesDB;
         }
 
-        public void InsertModel(string name, string description, byte[] photo)
-        {
-            var newModel = new Model { Name = name, Description = description, Photo = photo };
-            _shoesDataEntities.Models.Add(newModel);
-            SaveChanges();
-        }
-
         private void SaveChanges()
         {
             _shoesDataEntities.SaveChanges();
