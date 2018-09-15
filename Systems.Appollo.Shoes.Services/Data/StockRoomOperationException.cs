@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Systems.Appollo.Shoes.Services
+namespace Systems.Appollo.Shoes.Services.Data
 {
     public class StockRoomOperationException: Exception
     {

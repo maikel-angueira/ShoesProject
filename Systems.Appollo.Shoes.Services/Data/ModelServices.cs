@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Systems.Appollo.Shoes.Data;
 using Systems.Appollo.Shoes.Data.DataModels;
 
-namespace Systems.Appollo.Shoes.Services
+namespace Systems.Appollo.Shoes.Services.Data
 {
     public class ModelServices
     {
@@ -95,7 +94,9 @@ namespace Systems.Appollo.Shoes.Services
                 Description = newModelDto.Description,
                 Photo = newModelDto.Photo,
                 Cost = newModelDto.Cost,
-                TypeId = newModelDto.ShoesTypeId
+                TypeId = newModelDto.ShoesTypeId,
+                Sex = newModelDto.Sex,
+                IsForKids = newModelDto.IsForKids
             };
 
             _shoesDataEntities.Models.Add(newModel);

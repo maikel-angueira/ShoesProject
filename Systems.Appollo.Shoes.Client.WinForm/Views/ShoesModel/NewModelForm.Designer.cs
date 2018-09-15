@@ -45,13 +45,17 @@
             this.selectColorRadioButton = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.colorCheckedListBox = new System.Windows.Forms.CheckedListBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.colorPanelContainer = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.sexComboBox = new System.Windows.Forms.ComboBox();
+            this.kidsCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.modelPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).BeginInit();
+            this.panel1.SuspendLayout();
             this.colorPanelContainer.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -73,7 +77,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(193, 296);
+            this.label2.Location = new System.Drawing.Point(192, 302);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 3;
@@ -82,7 +86,7 @@
             // descriptionTextBox
             // 
             this.descriptionTextBox.AcceptsReturn = true;
-            this.descriptionTextBox.Location = new System.Drawing.Point(196, 313);
+            this.descriptionTextBox.Location = new System.Drawing.Point(195, 319);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(314, 71);
@@ -111,7 +115,7 @@
             // 
             // insertButton
             // 
-            this.insertButton.Location = new System.Drawing.Point(355, 392);
+            this.insertButton.Location = new System.Drawing.Point(355, 396);
             this.insertButton.Name = "insertButton";
             this.insertButton.Size = new System.Drawing.Size(75, 23);
             this.insertButton.TabIndex = 6;
@@ -121,7 +125,7 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(436, 392);
+            this.closeButton.Location = new System.Drawing.Point(436, 396);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 23);
             this.closeButton.TabIndex = 8;
@@ -150,13 +154,13 @@
             this.shoesTypeComboBox.FormattingEnabled = true;
             this.shoesTypeComboBox.Location = new System.Drawing.Point(193, 82);
             this.shoesTypeComboBox.Name = "shoesTypeComboBox";
-            this.shoesTypeComboBox.Size = new System.Drawing.Size(321, 21);
+            this.shoesTypeComboBox.Size = new System.Drawing.Size(154, 21);
             this.shoesTypeComboBox.TabIndex = 10;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(193, 109);
+            this.label4.Location = new System.Drawing.Point(352, 66);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 13);
             this.label4.TabIndex = 11;
@@ -165,16 +169,16 @@
             // costNumericUpDown
             // 
             this.costNumericUpDown.DecimalPlaces = 2;
-            this.costNumericUpDown.Location = new System.Drawing.Point(196, 126);
+            this.costNumericUpDown.Location = new System.Drawing.Point(354, 83);
             this.costNumericUpDown.Name = "costNumericUpDown";
-            this.costNumericUpDown.Size = new System.Drawing.Size(77, 20);
+            this.costNumericUpDown.Size = new System.Drawing.Size(91, 20);
             this.costNumericUpDown.TabIndex = 12;
             // 
             // allColorRadioButton
             // 
             this.allColorRadioButton.AutoSize = true;
             this.allColorRadioButton.Checked = true;
-            this.allColorRadioButton.Location = new System.Drawing.Point(306, 127);
+            this.allColorRadioButton.Location = new System.Drawing.Point(8, 6);
             this.allColorRadioButton.Name = "allColorRadioButton";
             this.allColorRadioButton.Size = new System.Drawing.Size(55, 17);
             this.allColorRadioButton.TabIndex = 14;
@@ -185,7 +189,7 @@
             // selectColorRadioButton
             // 
             this.selectColorRadioButton.AutoSize = true;
-            this.selectColorRadioButton.Location = new System.Drawing.Point(366, 127);
+            this.selectColorRadioButton.Location = new System.Drawing.Point(76, 6);
             this.selectColorRadioButton.Name = "selectColorRadioButton";
             this.selectColorRadioButton.Size = new System.Drawing.Size(81, 17);
             this.selectColorRadioButton.TabIndex = 15;
@@ -195,53 +199,36 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(297, 121);
+            this.panel1.Controls.Add(this.allColorRadioButton);
+            this.panel1.Controls.Add(this.selectColorRadioButton);
+            this.panel1.Location = new System.Drawing.Point(6, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(195, 29);
+            this.panel1.Size = new System.Drawing.Size(310, 26);
             this.panel1.TabIndex = 16;
             // 
             // colorCheckedListBox
             // 
             this.colorCheckedListBox.FormattingEnabled = true;
-            this.colorCheckedListBox.Location = new System.Drawing.Point(3, 4);
+            this.colorCheckedListBox.Location = new System.Drawing.Point(10, 7);
             this.colorCheckedListBox.MultiColumn = true;
             this.colorCheckedListBox.Name = "colorCheckedListBox";
-            this.colorCheckedListBox.Size = new System.Drawing.Size(314, 94);
+            this.colorCheckedListBox.Size = new System.Drawing.Size(297, 94);
             this.colorCheckedListBox.TabIndex = 17;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(196, 160);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 13);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Colores Disponibles:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // colorPanelContainer
             // 
             this.colorPanelContainer.Controls.Add(this.linkLabel2);
             this.colorPanelContainer.Controls.Add(this.colorCheckedListBox);
             this.colorPanelContainer.Enabled = false;
-            this.colorPanelContainer.Location = new System.Drawing.Point(196, 174);
+            this.colorPanelContainer.Location = new System.Drawing.Point(3, 40);
             this.colorPanelContainer.Name = "colorPanelContainer";
-            this.colorPanelContainer.Size = new System.Drawing.Size(321, 119);
+            this.colorPanelContainer.Size = new System.Drawing.Size(314, 119);
             this.colorPanelContainer.TabIndex = 19;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(292, 109);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(222, 48);
-            this.groupBox1.TabIndex = 20;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Colores";
             // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(248, 101);
+            this.linkLabel2.Location = new System.Drawing.Point(239, 103);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(66, 13);
             this.linkLabel2.TabIndex = 18;
@@ -249,14 +236,56 @@
             this.linkLabel2.Text = "Nuevo Color";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Controls.Add(this.colorPanelContainer);
+            this.groupBox1.Location = new System.Drawing.Point(193, 109);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(324, 161);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Colores";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(447, 66);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Sexo:";
+            // 
+            // sexComboBox
+            // 
+            this.sexComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sexComboBox.FormattingEnabled = true;
+            this.sexComboBox.Items.AddRange(new object[] {
+            "M",
+            "F"});
+            this.sexComboBox.Location = new System.Drawing.Point(450, 82);
+            this.sexComboBox.Name = "sexComboBox";
+            this.sexComboBox.Size = new System.Drawing.Size(66, 21);
+            this.sexComboBox.TabIndex = 22;
+            // 
+            // kidsCheckBox
+            // 
+            this.kidsCheckBox.AutoSize = true;
+            this.kidsCheckBox.Location = new System.Drawing.Point(196, 277);
+            this.kidsCheckBox.Name = "kidsCheckBox";
+            this.kidsCheckBox.Size = new System.Drawing.Size(115, 17);
+            this.kidsCheckBox.TabIndex = 23;
+            this.kidsCheckBox.Text = "Modelo para Niños";
+            this.kidsCheckBox.UseVisualStyleBackColor = true;
+            // 
             // NewModelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 423);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.selectColorRadioButton);
-            this.Controls.Add(this.allColorRadioButton);
+            this.ClientSize = new System.Drawing.Size(521, 426);
+            this.Controls.Add(this.kidsCheckBox);
+            this.Controls.Add(this.sexComboBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.costNumericUpDown);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.shoesTypeComboBox);
@@ -269,8 +298,6 @@
             this.Controls.Add(this.modelNameTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.modelPictureBox);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.colorPanelContainer);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -280,8 +307,11 @@
             this.Load += new System.EventHandler(this.NewModelForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.modelPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.colorPanelContainer.ResumeLayout(false);
             this.colorPanelContainer.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,9 +336,11 @@
         private System.Windows.Forms.RadioButton selectColorRadioButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckedListBox colorCheckedListBox;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel colorPanelContainer;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox sexComboBox;
+        private System.Windows.Forms.CheckBox kidsCheckBox;
     }
 }

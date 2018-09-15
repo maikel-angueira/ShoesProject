@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Systems.Appollo.Shoes.Services;
+using Systems.Appollo.Shoes.Services.Data;
 
 namespace Systems.Appollo.Shoes.Client.WinForm.DataServices
 {

@@ -61,7 +61,9 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel
                 Photo = photoUpload,
                 Cost = (double)costNumericUpDown.Value,
                 ShoesTypeId = SelectedShoesType.Id,
-                AvailablesColors = GetColorDtoFromSelectedNames()
+                AvailablesColors = GetColorDtoFromSelectedNames(),
+                Sex = (string)sexComboBox.SelectedItem,
+                IsForKids = kidsCheckBox.Checked
             };         
 
             ShoesDbServices.ModelServices.InsertModel(newModelDto);
@@ -148,6 +150,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Views.ShoesModel
             var shoesTypes = ShoesDbServices.ShoesTypeDataServices.GetAllShoesType();
             shoesTypeComboBox.DataSource = shoesTypes;
             insertButton.Enabled = shoesTypes.Count > 0;
+            sexComboBox.SelectedIndex = 0;
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

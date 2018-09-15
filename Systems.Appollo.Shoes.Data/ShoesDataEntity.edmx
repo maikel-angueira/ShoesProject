@@ -31,6 +31,8 @@
           <Property Name="Description" Type="text" />
           <Property Name="Photo" Type="varbinary(max)" />
           <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="Sex" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="IsForKids" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="ModelColor">
           <Key>
@@ -510,6 +512,8 @@
           <NavigationProperty Name="Products" Relationship="ShoesDBModel.FK_Product_To_Model" FromRole="Model" ToRole="Product" />
           <NavigationProperty Name="ShoesType" Relationship="ShoesDBModel.FK_Model_To_ShoesType" FromRole="Model" ToRole="ShoesType" />
           <NavigationProperty Name="ModelColors" Relationship="ShoesDBModel.FK_ModelColor_To_Model" FromRole="Model" ToRole="ModelColor" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsForKids" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -850,6 +854,8 @@
           <EntitySetMapping Name="Models">
             <EntityTypeMapping TypeName="ShoesDBModel.Model">
               <MappingFragment StoreEntitySet="Model">
+                <ScalarProperty Name="IsForKids" ColumnName="IsForKids" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
                 <ScalarProperty Name="TypeId" ColumnName="TypeId" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

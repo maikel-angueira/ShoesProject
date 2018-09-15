@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Systems.Appollo.Shoes.Client.WinForm.Utils;
 using Systems.Appollo.Shoes.Data.DataModels;
 using Systems.Appollo.Shoes.Services;
+using Systems.Appollo.Shoes.Services.Data;
 
 namespace Systems.Appollo.Shoes.Client.WinForm.Views.Supplier
 {

@@ -1,8 +1,7 @@
-﻿using System;
-using Systems.Appollo.Shoes.Data;
+﻿using Systems.Appollo.Shoes.Data;
 using Systems.Appollo.Shoes.Data.Dtos;
 
-namespace Systems.Appollo.Shoes.Services
+namespace Systems.Appollo.Shoes.Services.Data
 {
     public class SalesServices
     {

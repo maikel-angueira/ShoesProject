@@ -26,6 +26,8 @@ namespace Systems.Appollo.Shoes.Data
         public string Description { get; set; }
         public byte[] Photo { get; set; }
         public int TypeId { get; set; }
+        public string Sex { get; set; }
+        public bool IsForKids { get; set; }
     
         public virtual ICollection<Product> Products { get; set; }
         public virtual ShoesType ShoesType { get; set; }

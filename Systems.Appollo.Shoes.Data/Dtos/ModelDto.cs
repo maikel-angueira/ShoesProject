@@ -34,5 +34,7 @@ namespace Systems.Appollo.Shoes.Data.DataModels
         public int ShoesTypeId { get; set; }
 
         public List<ColorDto> AvailablesColors { get; set; }
+        public string Sex { get; set; }
+        public bool IsForKids { get; set; }
     }
 }

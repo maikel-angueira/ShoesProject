@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Systems.Appollo.Shoes.Data;
 
-namespace Systems.Appollo.Shoes.Services
+namespace Systems.Appollo.Shoes.Services.Data
 {
     public class ProductServices
     {

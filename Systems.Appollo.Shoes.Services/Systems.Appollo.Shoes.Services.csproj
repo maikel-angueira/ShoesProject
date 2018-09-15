@@ -43,25 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientServices.cs" />
-    <Compile Include="ColorServices.cs" />
-    <Compile Include="ModelServices.cs" />
-    <Compile Include="ProductServices.cs" />
+    <Compile Include="Data\ClientServices.cs" />
+    <Compile Include="Data\ColorServices.cs" />
+    <Compile Include="Data\ModelServices.cs" />
+    <Compile Include="Data\ProductServices.cs" />
+    <Compile Include="Data\SalesServices.cs" />
+    <Compile Include="Data\SellerServices.cs" />
+    <Compile Include="Data\ShoesTypeServices.cs" />
+    <Compile Include="Data\StockRoomDataServices.cs" />
+    <Compile Include="Data\StockRoomOperationException.cs" />
+    <Compile Include="Data\StoreServices.cs" />
+    <Compile Include="Data\StoreStockRoomDataServices.cs" />
+    <Compile Include="Data\SupplierServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SalesServices.cs" />
-    <Compile Include="SellerServices.cs" />
-    <Compile Include="ShoesTypeServices.cs" />
-    <Compile Include="StockRoomDataServices.cs" />
-    <Compile Include="StockRoomOperationException.cs" />
-    <Compile Include="StoreServices.cs" />
-    <Compile Include="StoreStockRoomDataServices.cs" />
-    <Compile Include="SupplierServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Systems.Appollo.Shoes.Data\Systems.Appollo.Shoes.Data.csproj">
       <Project>{e730f8a7-a880-4140-9aa2-5f80c58005df}</Project>
       <Name>Systems.Appollo.Shoes.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\Dto" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
