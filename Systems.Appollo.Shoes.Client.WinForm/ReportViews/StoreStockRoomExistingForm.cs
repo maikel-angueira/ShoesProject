@@ -44,10 +44,10 @@ namespace Systems.Appollo.Shoes.Client.WinForm.ReportViews
         {
             this.stockRoomProductDetails = ShoesClientDataServices.StockRoomReportManager.GetStoreStockRoomExistingByStoreId(SelectedStoreDto.StoreId);
             filterButton.Enabled = stockRoomProductDetails.Count > 0;
+            modelComboBox.Items.Clear();
             if (stockRoomProductDetails.Count == 0)
             {
                 productDetailsDataGridView.DataSource = new List<ProductDetailsDto>();
-                modelComboBox.Items.Clear();
             }
             else
             {

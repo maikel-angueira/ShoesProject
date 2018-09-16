@@ -21,7 +21,8 @@ namespace Systems.Appollo.Shoes.Services.Reports
         {
             var lastStockByProducts = _shoesDBDataEntities.StockRooms
                 .GroupBy(st => st.ProductId)
-                .Select(g => g.OrderByDescending(st => st.Id).FirstOrDefault());
+                .Select(g => g.OrderByDescending(st => st.Id).FirstOrDefault())
+                .Where(st => st.StockValue > 0);
 
             return lastStockByProducts.Select(st =>
                     new ProductDetailsDto
@@ -40,7 +41,8 @@ namespace Systems.Appollo.Shoes.Services.Reports
             var lastStockByProducts = _shoesDBDataEntities.StoreStockRooms
                 .Where(st => st.StoreId == storeId)
                 .GroupBy(st => st.ProductId)
-                .Select(g => g.OrderByDescending(st => st.Id).FirstOrDefault());
+                .Select(g => g.OrderByDescending(st => st.Id).FirstOrDefault())
+                .Where(st => st.StockValue > 0);
 
             return lastStockByProducts.Select(st =>
                     new ProductDetailsDto

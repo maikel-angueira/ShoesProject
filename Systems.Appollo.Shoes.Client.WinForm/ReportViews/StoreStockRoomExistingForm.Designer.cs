@@ -37,7 +37,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.ReportViews
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.closeButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.modelComboBox = new System.Windows.Forms.ComboBox();
             this.filterButton = new System.Windows.Forms.Button();
@@ -116,20 +115,10 @@ namespace Systems.Appollo.Shoes.Client.WinForm.ReportViews
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
-            // closeButton
-            // 
-            this.closeButton.Location = new System.Drawing.Point(765, 505);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(75, 23);
-            this.closeButton.TabIndex = 2;
-            this.closeButton.Text = "Cerrar";
-            this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(497, 18);
+            this.label1.Location = new System.Drawing.Point(517, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 3;
@@ -139,16 +128,16 @@ namespace Systems.Appollo.Shoes.Client.WinForm.ReportViews
             // 
             this.modelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.modelComboBox.FormattingEnabled = true;
-            this.modelComboBox.Location = new System.Drawing.Point(549, 14);
+            this.modelComboBox.Location = new System.Drawing.Point(568, 14);
             this.modelComboBox.Name = "modelComboBox";
             this.modelComboBox.Size = new System.Drawing.Size(194, 21);
             this.modelComboBox.TabIndex = 4;
             // 
             // filterButton
             // 
-            this.filterButton.Location = new System.Drawing.Point(752, 12);
+            this.filterButton.Location = new System.Drawing.Point(765, 12);
             this.filterButton.Name = "filterButton";
-            this.filterButton.Size = new System.Drawing.Size(86, 23);
+            this.filterButton.Size = new System.Drawing.Size(73, 23);
             this.filterButton.TabIndex = 5;
             this.filterButton.Text = "Filtrar";
             this.filterButton.UseVisualStyleBackColor = true;
@@ -177,7 +166,7 @@ namespace Systems.Appollo.Shoes.Client.WinForm.ReportViews
             // 
             this.updateButton.Location = new System.Drawing.Point(277, 13);
             this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.Size = new System.Drawing.Size(88, 23);
             this.updateButton.TabIndex = 8;
             this.updateButton.Text = "Actualizar";
             this.updateButton.UseVisualStyleBackColor = true;
@@ -187,19 +176,19 @@ namespace Systems.Appollo.Shoes.Client.WinForm.ReportViews
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 534);
+            this.ClientSize = new System.Drawing.Size(852, 509);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.storeComboBox);
             this.Controls.Add(this.storeLabel);
             this.Controls.Add(this.filterButton);
             this.Controls.Add(this.modelComboBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.productDetailsDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "StoreStockRoomExistingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Existencia de Productos en Almacén";
+            this.Text = "Existencia de Productos en Tiendas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StockRoomExistingForm_FormClosing);
             this.Load += new System.EventHandler(this.StockRoomExistingForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productDetailsDataGridView)).EndInit();
@@ -210,7 +199,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.ReportViews
 
         #endregion
         private System.Windows.Forms.DataGridView productDetailsDataGridView;
-        private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.DataGridViewImageColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModelNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

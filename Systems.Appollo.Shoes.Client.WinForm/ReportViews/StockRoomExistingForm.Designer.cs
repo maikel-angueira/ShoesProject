@@ -31,7 +31,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.ReportViews
         private void InitializeComponent()
         {
             this.productDetailsDataGridView = new System.Windows.Forms.DataGridView();
-            this.closeButton = new System.Windows.Forms.Button();
             this.Column6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.ModelNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,16 +64,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.ReportViews
             this.productDetailsDataGridView.Size = new System.Drawing.Size(828, 450);
             this.productDetailsDataGridView.TabIndex = 1;
             this.productDetailsDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.productDetailsDataGridView_DataError);
-            // 
-            // closeButton
-            // 
-            this.closeButton.Location = new System.Drawing.Point(771, 505);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(75, 23);
-            this.closeButton.TabIndex = 2;
-            this.closeButton.Text = "Cerrar";
-            this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // Column6
             // 
@@ -155,13 +144,13 @@ namespace Systems.Appollo.Shoes.Client.WinForm.ReportViews
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 534);
+            this.ClientSize = new System.Drawing.Size(852, 512);
             this.Controls.Add(this.filterButton);
             this.Controls.Add(this.modelComboBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.productDetailsDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "StockRoomExistingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Existencia de Productos en Almacén";
@@ -175,7 +164,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.ReportViews
 
         #endregion
         private System.Windows.Forms.DataGridView productDetailsDataGridView;
-        private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.DataGridViewImageColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModelNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
