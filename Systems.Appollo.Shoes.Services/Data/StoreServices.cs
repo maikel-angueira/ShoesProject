@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Systems.Appollo.Shoes.Data;
 using Systems.Appollo.Shoes.Data.DataModels;
@@ -71,6 +72,11 @@ namespace Systems.Appollo.Shoes.Services.Data
         private void SaveChanges()
         {
             this._shoesDataEntities.SaveChanges();
+        }
+
+        public bool ExistAnyStore()
+        {
+            return this._shoesDataEntities.Stores.Any();
         }
     }
 }

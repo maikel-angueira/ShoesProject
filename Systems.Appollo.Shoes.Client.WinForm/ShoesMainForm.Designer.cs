@@ -331,7 +331,7 @@
             this.gananciaToolStripMenuItem.Name = "gananciaToolStripMenuItem";
             this.gananciaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.gananciaToolStripMenuItem.Text = "Existencia en Tiendas";
-            this.gananciaToolStripMenuItem.Click += new System.EventHandler(this.gananciaToolStripMenuItem_Click);
+            this.gananciaToolStripMenuItem.Click += new System.EventHandler(this.storeStockRoomExistingToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 

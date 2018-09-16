@@ -35,7 +35,7 @@ namespace Systems.Appollo.Shoes.Services.Reports
                     }).OrderByDescending(p => p.Total).ToList();
         }
 
-        public List<ProductDetailsDto> GetStoreStockRoomExistences(int storeId)
+        public List<ProductDetailsDto> GetStoreStockRoomExistingByStoreId(int storeId)
         {
             var lastStockByProducts = _shoesDBDataEntities.StoreStockRooms
                 .Where(st => st.StoreId == storeId)

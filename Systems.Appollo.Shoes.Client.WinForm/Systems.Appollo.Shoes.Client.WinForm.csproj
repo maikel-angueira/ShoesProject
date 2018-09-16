@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReportViews\StoreStockRoomExistingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViews\StoreStockRoomExistingForm.Designer.cs">
+      <DependentUpon>StoreStockRoomExistingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportViews\StockRoomExistingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     <Compile Include="Views\Supplier\UpdateSupplierForm.Designer.cs">
       <DependentUpon>UpdateSupplierForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportViews\StoreStockRoomExistingForm.resx">
+      <DependentUpon>StoreStockRoomExistingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportViews\StockRoomExistingForm.resx">
       <DependentUpon>StockRoomExistingForm.cs</DependentUpon>
     </EmbeddedResource>

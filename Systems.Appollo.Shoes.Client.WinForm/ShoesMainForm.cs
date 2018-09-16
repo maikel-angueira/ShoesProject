@@ -168,9 +168,25 @@ namespace Systems.Appollo.Shoes.Client.WinForm
             updateStoreForm.ShowDialog();
         }
 
-        private void gananciaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void storeStockRoomExistingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!_shoesDataServices.StoreStockRoomServices.ExistProductOnTheStock())
+            {
+                MessageBox.Show(Messages.NO_EXISTING_PRODUCTS_ON_THE_STOCK, Constants.MESSAGE_CAPTION);
+                return;
+            }
 
+            if (!_shoesDataServices.StoreServices.ExistAnyStore())
+            {
+                MessageBox.Show(Messages.NO_STORE_EXISTING_IN_DB, Constants.MESSAGE_CAPTION);
+                return;
+            }
+
+            var storeStockRoomExistingForm = new StoreStockRoomExistingForm()
+            {
+                ShoesClientDataServices = _shoesDataServices
+            };
+            storeStockRoomExistingForm.ShowDialog();
         }
 
         private void tallerToolStripMenuItem_Click(object sender, EventArgs e)

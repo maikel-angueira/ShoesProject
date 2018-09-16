@@ -27,5 +27,6 @@ namespace Systems.Appollo.Shoes.Client.WinForm.Utils
         public const string REMOVE_ALL_PRODUCT_FROM_SALE = "Estás seguro de eliminar todos los productos de la Venta?";
         public const string NO_AVAILABLES_MODEL_ON_THE_STORE = "No hay zapatos disponibles en la tienda seleccionada: {0}";
         public const string NO_EXISTING_PRODUCTS_ON_THE_STOCK = "No existen zapatos en el Almacén";
+        public const string NO_STORE_EXISTING_IN_DB = "No existe ninguna tienda. Inserte nueva tienda y abastece para consultar este reporte.";
     }
 }

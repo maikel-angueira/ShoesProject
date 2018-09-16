@@ -145,6 +145,11 @@ namespace Systems.Appollo.Shoes.Services.Data
             SaveChanges();
         }
 
+        public bool ExistProductOnTheStock()
+        {
+            return _shoesDataEntities.StoreStockRooms.Any();
+        }
+
         private void SaveChanges()
         {
             _shoesDataEntities.SaveChanges();
